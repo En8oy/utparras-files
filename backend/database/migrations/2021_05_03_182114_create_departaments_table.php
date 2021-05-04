@@ -15,8 +15,10 @@ class CreateDepartamentsTable extends Migration
     {
         Schema::create('departaments', function (Blueprint $table) {
             $table->id();
+            $table->string("departament");
+            $table->string("profession");
             $table->string("name");
-            $table->string("responsable");
+            $table->string("surname");
             $table->string("email_responsable");
             $table->string("phone_departament");
             $table->longText("responsibilities");

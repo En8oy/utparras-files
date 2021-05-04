@@ -22,7 +22,13 @@ class DepartamentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "departament" => $this->faker->bs(),
+            "profession" => $this->faker->suffix(),
+            "name" => $this->faker->firstName($gender = null),
+            "surname" => $this->faker->lastName(),
+            "email_responsable" => $this->faker->email(),
+            "phone_departament" => $this->faker->phoneNumber(),
+            "responsibilities" => $this->faker->text($maxNbChars = 200),
         ];
     }
 }

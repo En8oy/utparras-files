@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->boolean('is_public');
             $table->enum('rol', ['Administrador', 'Administrativo', 'Profesor']);
             // Personal data
+            $table->string('image')->nullable();
+            $table->string('profession');
             $table->string('name');
             $table->string('surname');
             $table->date('birthdate');
@@ -34,10 +36,10 @@ class CreateUsersTable extends Migration
             $table->string('personal_address');
             $table->string("place_of_birth");
             // json
-            $table->json("family_information");
-            $table->json("institutions");
-            $table->json("experiences");
-            $table->json("habilidades");
+            $table->json("family_information")->nullable();
+            $table->json("institutions")->nullable();
+            $table->json("experiences")->nullable();
+            $table->json("habilidades")->nullable();
             // Control access
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
