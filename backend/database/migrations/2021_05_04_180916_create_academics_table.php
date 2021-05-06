@@ -24,7 +24,7 @@ class CreateAcademicsTable extends Migration
             $table->string("salary_max");
             $table->date("date_of_admission");
             $table->string("employee_code");
-            $table->json("internal_experience")->nullable();
+            $table->json("internal_experiences")->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('departament_id')->references('id')->on('departaments');
             $table->timestamps();

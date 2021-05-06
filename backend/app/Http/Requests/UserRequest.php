@@ -38,6 +38,7 @@ class UserRequest extends FormRequest
             'sexo' => 'required|in:Hombre,Mujer',
             'personal_address' => 'required|string',
             'email' => 'required|unique:users',
+            'password' => 'required|string|min:6',
             'status' => 'required|in:Activo,Inactivo',
             'departament_id' => 'required|int',
             'stall' => 'required|string',

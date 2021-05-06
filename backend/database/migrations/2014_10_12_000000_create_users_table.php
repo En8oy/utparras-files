@@ -38,7 +38,7 @@ class CreateUsersTable extends Migration
             $table->json("family_information")->nullable();
             $table->json("institutions")->nullable();
             $table->json("experiences")->nullable();
-            $table->json("habilidades")->nullable();
+            $table->json("skills")->nullable();
             // Control access
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
