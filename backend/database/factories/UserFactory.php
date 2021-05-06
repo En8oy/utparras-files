@@ -42,12 +42,11 @@ class UserFactory extends Factory
             'personal_email' => $this->faker->email(),
             'curp' => $this->faker->creditCardNumber(),
             'rfc' => $this->faker->creditCardNumber(),
-            'origin' => $this->faker->city(),
             'civil_status' => $this->faker->randomElement(["Soltero", "Casado", "Viudo", "Union Libre", "Divorciado", "Separación En Proceso", "Concubinato"]),
             'sexo' => $this->faker->randomElement(["Hombre", "Mujer"]),
             //Address
             'personal_address' => $this->faker->address(),
-            'place_of_birth' => $this->faker->address(),
+            'origin' => $this->faker->city(),
 
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),

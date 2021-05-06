@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Files extends Model
 {
     use HasFactory;
+
+
+    public function document()
+    {
+        return $this->belongsTo(Document::class);
+    }
 }

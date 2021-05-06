@@ -22,7 +22,8 @@ class DocumentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'file_name' => $this->faker->firstNameMale(),
+            'file_type' => $this->faker->fileExtension()
         ];
     }
 }
