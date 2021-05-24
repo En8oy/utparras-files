@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import AdministrativeAdministrative from '../views/Administrative/Administrative.vue'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,11 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
+  },
+  {
+    path:'/administrative/administrative',
+    name:'Administrativo',
+    component:AdministrativeAdministrative
   }
 ]
 
