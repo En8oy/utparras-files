@@ -5,6 +5,7 @@
       color="#2ea69a"
       
     >
+    
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -18,15 +19,6 @@
 
       
       <v-spacer></v-spacer>
-
-      <v-btn
-        to="/about"
-        text
-      >
-        <span class="mr-2 white--text">Iniciar Sesion</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-
       
     </v-app-bar>
 
@@ -43,11 +35,14 @@
       flat
       tile
     >
+    
+    
       <v-card-title class="teal">
+        
         <h3 class="subheading">Universidad Tecnologica De Parras de la Fuente</h3>
-
+        
         <v-spacer></v-spacer>
-
+        
         <v-btn
           v-for="icon in icons"
           :key="icon.name"
@@ -56,14 +51,16 @@
           icon
           :href="icon.url"
           target="_blank"
+    
         >
-          <v-icon size="24px">
+        
+          <v-icon size="25px">
             {{ icon.icon }}
+            
           </v-icon>
         </v-btn>
+        
       </v-card-title>
-      
-
     
     </v-card>
   </v-footer>
@@ -71,7 +68,6 @@
   </v-app>
   
 </template>
-
 
 
 <script>
