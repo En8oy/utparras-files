@@ -20,7 +20,7 @@
         
         
     </div>
-        <h1>INICIO</h1>
+        <h2>INICIO</h2>
         <v-spacer></v-spacer>
          
         <v-btn
@@ -90,67 +90,85 @@
       
 
     <template>
-      <v-footer
-          dark
-          padless
-          
-      >
+     <v-footer
+    dark
+    padless
+  >
+    <v-card
+      class="flex"
+      flat
+      tile
+    >
+      <v-card-title class="teal">
+        <h3 class="subheading">Universidad Tecnologica De Parras de la Fuente</h3>
 
-      <v-card
-          class="flex"
-          flat
-          tile
-      >
+        <v-spacer></v-spacer>
 
-         <v-card-title class="teal">
-        <cen<strong class="subheading">MAS SOBRE NOSOTROS</strong>
-
-          <v-spacer></v-spacer>
-
-          <v-btn
+        <v-btn
           v-for="icon in icons"
-          :key="icon"
-          class="mx-2"
+          :key="icon.name"
+          class="mx-5"
           dark
           icon
-          >
+          :href="icon.url"
+          target="_blank"
+        >
           <v-icon size="40px">
-            {{ icon }}
-            </v-icon>
-            </v-btn>
-           </v-card-title>
-
-            <v-card-text class="py-2 white--text text-center">
-              {{ new Date().getFullYear() }} — <strong>Universidad Tecnologica de Parras</strong>
-              </v-card-text>
-              </v-card>
-              </v-footer>
-              </template>
-            </script>
-            </center>
-          
-
-    <v-main>
-      <router-view/>
+            {{ icon.icon }}
+          </v-icon>
+        </v-btn>
+      </v-card-title>
       
-          
-    </v-main>
-  </v-app>
+
+    
+    </v-card>
+  </v-footer>
 </template>
- 
+  </v-app>
+  
+</template>
+
+
+<script>
+ export default {
+  name: 'App',
+
+  data: () => ({
+    //
+  }),
+};
+</script>
 
 <script>
 
-  export default {
-    data: () => ({
+export default {
+  name: 'App',
+
+  data: () => ({
+      // icons: [
+      //   'mdi-facebook',
+      //   'mdi-twitter',
+      //   'mdi-linkedin',
+      //   'mdi-instagram',
+      // ],
       icons: [
-      'mdi-facebook',
-      'mdi-twitter',
-      'mdi-instagram',
-      ],
+      {
+        name:"facebook",
+        icon:"mdi-facebook",
+        url:"https://www.facebook.com/utparras/"
+      },
+      {
+        name:"twitter",
+        icon:"mdi-twitter",
+        url:"https://twitter.com/utparras?lang=es"
+      },
+      {
+        name:"web",
+        icon:"mdi-web",
+        url:"https://www.utparras.edu.mx/"
+      }
+      ]
     }),
   }
-
-  
 </script>
 
