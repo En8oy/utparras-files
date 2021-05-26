@@ -21,7 +21,7 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        to="/about"
+        to="/administrative/administrative"
         text
       >
         <span class="mr-2 white--text">Iniciar Sesion</span>
