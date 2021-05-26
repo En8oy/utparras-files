@@ -19,7 +19,7 @@
           src="https://utparras.edu.mx/assets/images/utp-logo.png"
           transition="scale-transition"
           width="90"
-   />
+    />
         
         
     </div>
@@ -45,86 +45,36 @@
       
       <div class="">
           <v-container fluid>
-            <v-layout row wrap>
-              <v-flex>
-                <template>
-              <v-row>
-              <v-col
-                 cols="12"
-                 sm="6"
-              >
-              
-              <v-hover
-              v-slot="{ hover }"
-              open-delay="200"
-              >
-        
-              <v-card
-              :elevation="hover ? 16 : 2"
-              :class="{ 'on-hover': hover }"
-              class="mx-auto"
-              height="350"
-              max-width="350"
-              color="#661212"
-              >
-          
-              <v-card-text class="font-weight-medium mt-12 text-center subtitle-1">
-                <h1>INFORMACION PUBLICA</h1>
-              <center> <v-img
-                contain
-                src="https://utparras.edu.mx/assets/images/utp-logo.png"
-                transition="scale-transition"
-                width="90"
-              /></center>
-            
-
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-
-    <v-col
-      cols="12"
-      sm="6"
-    >
-
-    <v-hover
-      v-slot="{ hover }"
-      close-delay="200"
-    >
-
-        <v-card
-          :elevation="hover ? 16 : 2"
-          :class="{ 'on-hover': hover }"
-          class="mx-auto"
-          height="350"
-          max-width="350"
-          color="#661212"
-        >
-
-          <v-card-text 
-           class="font-weight-medium mt-12 text-center subtitle-1">
-            <h1>ACERCA DE</h1>
-            <center> <v-img
-          contain
-          src="https://utparras.edu.mx/assets/images/utp-logo.png"
-          transition="scale-transition"
-          width="90"
-          /></center>
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-  </v-row>
-</template>
+                  <v-layout row wrap>
+                      <v-flex>
                         
+                        <v-img 
+                          src="https://www.utparras.edu.mx/assets/images/edificio.JPG">
+                          <h1 class="text-center ma-100"></h1>
+                          <h1 class="dark"></h1>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+
+                          <center class="white--text"><h1></h1>
+
+                          </center>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                         
+                          
+                        </v-img>
                         
- </v-flex>                
- </v-layout>
+                      </v-flex>                
+                  </v-layout>
 
- </v-container>
+          </v-container>
 
-  </div>
+      </div>
             
     </template>
   </div>
@@ -217,10 +167,8 @@ export default {
     }),
   }
 
+  
+
+   
+
 </script>
-<style lang="sass" scoped>
-.v-card.on-hover.theme--dark
-  background-color: rgba(#FFF, 0.8)
-  >.v-card__text
-    color: #862f30
-</style>

@@ -19,7 +19,7 @@
           src="https://utparras.edu.mx/assets/images/utp-logo.png"
           transition="scale-transition"
           width="90"
-   />
+    />
         
         
     </div>
@@ -39,92 +39,49 @@
         </v-app-bar>
            
   <template>
-       
+
+           
   <div class="about">
     <template>
       
       <div class="">
           <v-container fluid>
-            <v-layout row wrap>
-              <v-flex>
-                <template>
-              <v-row>
-              <v-col
-                 cols="12"
-                 sm="6"
-              >
-              
-              <v-hover
-              v-slot="{ hover }"
-              open-delay="200"
-              >
-        
-              <v-card
-              :elevation="hover ? 16 : 2"
-              :class="{ 'on-hover': hover }"
-              class="mx-auto"
-              height="350"
-              max-width="350"
-              color="#661212"
-              >
-          
-              <v-card-text class="font-weight-medium mt-12 text-center subtitle-1">
-                <h1>INFORMACION PUBLICA</h1>
-              <center> <v-img
-                contain
-                src="https://utparras.edu.mx/assets/images/utp-logo.png"
-                transition="scale-transition"
-                width="90"
-              /></center>
-            
+                  <v-layout row wrap>
+                      <v-flex>
+                          <center class="white--text"><h1>BIENVENIDO A EXPEDIENTES UTPARRAS</h1>
 
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-
-    <v-col
-      cols="12"
-      sm="6"
-    >
-
-    <v-hover
-      v-slot="{ hover }"
-      close-delay="200"
-    >
-
+                         <template>
+                             <v-row
+                                align="center"
+                                justify="center"
+                            >
+                            <v-col cols="12">
+      <v-hover
+        v-slot="{ hover }"
+        disabled
+      >
         <v-card
-          :elevation="hover ? 16 : 2"
-          :class="{ 'on-hover': hover }"
+          :elevation="hover ? 12 : 2"
           class="mx-auto"
           height="350"
           max-width="350"
-          color="#661212"
         >
-
-          <v-card-text 
-           class="font-weight-medium mt-12 text-center subtitle-1">
-            <h1>ACERCA DE</h1>
-            <center> <v-img
-          contain
-          src="https://utparras.edu.mx/assets/images/utp-logo.png"
-          transition="scale-transition"
-          width="90"
-          /></center>
+          <v-card-text class="my-4 text-center title">
+            Hover over me!
           </v-card-text>
         </v-card>
       </v-hover>
     </v-col>
   </v-row>
 </template>
+                          
                         
-                        
- </v-flex>                
- </v-layout>
+                      </v-flex>                
+                  </v-layout>
 
- </v-container>
+          </v-container>
 
-  </div>
+      </div>
             
     </template>
   </div>
@@ -217,10 +174,9 @@ export default {
     }),
   }
 
+  
+
+   
+
 </script>
-<style lang="sass" scoped>
-.v-card.on-hover.theme--dark
-  background-color: rgba(#FFF, 0.8)
-  >.v-card__text
-    color: #862f30
-</style>
+      
