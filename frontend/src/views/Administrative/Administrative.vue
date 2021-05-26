@@ -39,21 +39,23 @@
       
     </v-app-bar>
 
-
+    <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="mdi-magnify"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+      
     <v-data-table
     :headers="headers"
     :items="desserts"
+    :search="search"
     sort-by="Nombre Completo"
     class="elevation-1"
-    :search="search"
-    :custom-filter="filterOnlyCapsText"
   >
     <template v-slot:top>
-      <v-text-field
-          v-model="search"
-          label="Search (UPPER CASE ONLY)"
-          class="mx-4"
-        ></v-text-field>
       <v-toolbar
         flat
       >
@@ -242,6 +244,7 @@
     </template>
   </v-data-table>
    </v-container >
+   
 </template>
 
 <script>
@@ -249,6 +252,7 @@
     data: () => ({
       dialog: false,
       dialogDelete: false,
+      search: '',
       headers: [
         {
           text: 'id',
@@ -297,7 +301,7 @@
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'Nuevo Expediente' : 'Edit Item'
+        return this.editedIndex === -1 ? 'Nuevo Expediente' : 'Editar Expediente'
       },
     },
 
@@ -317,6 +321,7 @@
     methods: {
       initialize () {
         this.desserts = [
+          
           {
           },
         ]
@@ -366,3 +371,5 @@
     },
   }
 </script>
+
+
