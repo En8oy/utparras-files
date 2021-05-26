@@ -74,8 +74,8 @@
                 <v-row>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.name"
@@ -84,8 +84,8 @@
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.date"
@@ -94,34 +94,56 @@
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.correo"
+                      v-model="editedItem.mail"
                       label="Correo Electronico"
                     ></v-text-field>
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Carbs (g)"
+                      v-model="editedItem.curp"
+                      label="CURP"
                     ></v-text-field>
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="4"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.protein"
-                      label="Protein (g)"
+                      v-model="editedItem.rfc"
+                      label="RFC"
                     ></v-text-field>
 
+                    <v-col
+                    cols="12"
+                    sm="12"
+                    md="12"
+                  >
+                    <v-text-field
+                      v-model="editedItem.civil"
+                      label="Estado Civil"
+                      
+                    ></v-text-field>
+                  <v-col
+                    cols="12"
+                    sm="12"
+                    md="12"
+                  >
+                    <v-text-field
+                      v-model="editedItem.sexo"
+                      label="Sexo"
+                    ></v-text-field>
+                  </v-col>
+                    
+                  </v-col>
                   </v-col>
                 </v-row>
               </v-container>
@@ -197,13 +219,15 @@
           align: 'start',
           sortable: false,
           value: 'name',
+          value: 'id',
         },
         { text: 'Nombre Completo', value: 'name' },
         { text: 'Fecha De Nacimiento', value: 'date',},
-        { text: 'Correo Electronico', value: 'correo' },
-        { text: 'Fat (g)', value: 'fat' },
-        { text: 'Carbs (g)', value: 'carbs' },
-        { text: 'Protein (g)', value: 'protein' },
+        { text: 'Correo Electronico', value: 'mail' },
+        { text: 'CURP', value: 'curp' },
+        { text: 'RFC', value: 'rfc' },
+        { text: 'Estado Civil', value: 'civil' },
+        { text: 'Sexo', value: 'sexo' },
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       desserts: [],
@@ -212,18 +236,21 @@
         name: '',
         date: '',
         correo: '',
-        fat: '',
-        carbs: '',
-        protein: '',
-        nombre: '',
+        mail: '',
+        curp: '',
+        rfc: '',
+        civil: '',
+        sexo: '',
       },
       defaultItem: {
         name: '',
         date: '',
         correo: '',
-        carbs: '',
-        protein: '',
-        nombre: '',
+        mail: '',
+        curp: '',
+        rfc: '',
+        civil: '',
+        sexo: '',
       },
     }),
 
