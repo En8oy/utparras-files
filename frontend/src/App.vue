@@ -32,7 +32,7 @@
     
         >
         
-          <v-icon size="25px">
+          <v-icon size="35px">
             {{ icon.icon }}
             
           </v-icon>

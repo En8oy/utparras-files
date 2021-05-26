@@ -7,6 +7,7 @@
     >
     
       <div class="d-flex align-center">
+        
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -16,7 +17,14 @@
           width="80"
         />
       </div>
-
+      <v-btn
+        to="/about"
+        text
+      >
+      <v-img></v-img>
+        <span class="mr-2 white--text">Universidad Tecnologica De Parras de la Fuente</span>
+      </v-btn>
+      
       
       <v-spacer></v-spacer>
 
@@ -25,7 +33,7 @@
         text
       >
         <span class="mr-2 white--text">Cerrar Sesion</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        <v-icon class="white--text">mdi-open-in-new</v-icon>
       </v-btn>
 
       
@@ -37,8 +45,15 @@
     :items="desserts"
     sort-by="Nombre Completo"
     class="elevation-1"
+    :search="search"
+    :custom-filter="filterOnlyCapsText"
   >
     <template v-slot:top>
+      <v-text-field
+          v-model="search"
+          label="Search (UPPER CASE ONLY)"
+          class="mx-4"
+        ></v-text-field>
       <v-toolbar
         flat
       >
@@ -55,7 +70,7 @@
         >
           <template v-slot:activator="{ on, attrs }">
             <v-btn
-              color="primary"
+              color="#2ea69a"
               dark
               class="mb-2"
               v-bind="attrs"
@@ -98,7 +113,7 @@
                     md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.mail"
+                      v-model="editedItem.email"
                       label="Correo Electronico"
                     ></v-text-field>
                   </v-col>
@@ -140,6 +155,27 @@
                     <v-text-field
                       v-model="editedItem.sexo"
                       label="Sexo"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="12"
+                    md="12"
+                  >
+                    <v-text-field
+                      v-model="editedItem.perso"
+                      label="Direccion Personal"
+                    ></v-text-field>
+                  </v-col>
+
+                  <v-col
+                    cols="12"
+                    sm="12"
+                    md="12"
+                  >
+                    <v-text-field
+                      v-model="editedItem.naci"
+                      label="Lugar de Nacimiento"
                     ></v-text-field>
                   </v-col>
                     
@@ -220,14 +256,17 @@
           sortable: false,
           value: 'name',
           value: 'id',
+          Text: 'Informacion Familiar',
         },
         { text: 'Nombre Completo', value: 'name' },
         { text: 'Fecha De Nacimiento', value: 'date',},
-        { text: 'Correo Electronico', value: 'mail' },
+        { text: 'Correo Electronico', value: 'email' },
         { text: 'CURP', value: 'curp' },
         { text: 'RFC', value: 'rfc' },
         { text: 'Estado Civil', value: 'civil' },
         { text: 'Sexo', value: 'sexo' },
+        { text: 'Direccion Personal', value: 'perso'},
+        { text: 'Lugar de Nacimiento', value: 'naci'},
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       desserts: [],
@@ -241,6 +280,7 @@
         rfc: '',
         civil: '',
         sexo: '',
+        perso: '',
       },
       defaultItem: {
         name: '',
@@ -251,12 +291,13 @@
         rfc: '',
         civil: '',
         sexo: '',
+        perso: '',
       },
     }),
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? 'Nuevo Expediente' : 'Edit Item'
       },
     },
 
