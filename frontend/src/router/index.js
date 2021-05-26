@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AdministrativeAdministrative from '../views/Administrative/Administrative.vue'
+import AdministrativeTeacher from '../views/Administrative/Teacher.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [
     path:'/administrative/administrative',
     name:'Administrativo',
     component:AdministrativeAdministrative
+  },
+  {
+    path:'/administrative/teacher',
+    name:'Docente',
+    component:AdministrativeTeacher
   }
 ]
 
