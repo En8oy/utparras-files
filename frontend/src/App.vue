@@ -1,226 +1,70 @@
 <template>
-    <v-app>
-    <v-app-bar
-      app
-      color="#009688"
-      dark
-    >
-
-    
-    <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-    
-
-
-            
-            
-  <div class="d-flex align-center">
-    <v-img
-          contain
-          src="https://utparras.edu.mx/assets/images/utp-logo.png"
-          transition="scale-transition"
-          width="90"
-   />
-        
-        
-    </div>
-        <h2>INICIO</h2>
-        <v-spacer></v-spacer>
-         
-        <v-btn
-        href="app.vue"
-        target="_blank"
-        text
-        >
-
-
-    <span class="mr-2"><h3>Acceder</h3></span>
-        <v-icon></v-icon>
-        </v-btn>
-        </v-app-bar>
-           
-  <template>
-       
-  <div class="about">
-    <template>
-      
-      <div class="">
-          <v-container fluid>
-            <v-layout row wrap>
-              <v-flex>
-                <template>
-              <v-row>
-              <v-col
-                 cols="12"
-                 sm="6"
-              >
-              
-              <v-hover
-              v-slot="{ hover }"
-              open-delay="200"
-              >
-        
-              <v-card
-              :elevation="hover ? 16 : 2"
-              :class="{ 'on-hover': hover }"
-              class="mx-auto"
-              height="350"
-              max-width="350"
-              color="#661212"
-              >
-          
-              <v-card-text class="font-weight-medium mt-12 text-center subtitle-1">
-                <h1>INFORMACION PUBLICA</h1>
-              <center> <v-img
-                contain
-                src="https://utparras.edu.mx/assets/images/utp-logo.png"
-                transition="scale-transition"
-                width="90"
-              /></center>
-            
-
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-
-    <v-col
-      cols="12"
-      sm="6"
-    >
-
-    <v-hover
-      v-slot="{ hover }"
-      close-delay="200"
-    >
-
-        <v-card
-          :elevation="hover ? 16 : 2"
-          :class="{ 'on-hover': hover }"
-          class="mx-auto"
-          height="350"
-          max-width="350"
-          color="#661212"
-        >
-
-          <v-card-text 
-           class="font-weight-medium mt-12 text-center subtitle-1">
-            <h1>ACERCA DE</h1>
-            <center> <v-img
-          contain
-          src="https://utparras.edu.mx/assets/images/utp-logo.png"
-          transition="scale-transition"
-          width="90"
-          /></center>
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-  </v-row>
-</template>
-                        
-                        
- </v-flex>                
- </v-layout>
-
- </v-container>
-
-  </div>
-            
-    </template>
-  </div>
-  
-</template>
-           
-           
-           
-      
-
-    <template>
-       <v-footer
-    dark
-    padless
+  <v-card
+    class="mx-auto overflow-hidden"
+    height="1000"
   >
-    <v-card
-      class="flex"
-      flat
-      tile
+    <v-app-bar
+      color="#009688"
     >
-      <v-card-title class="teal">
-        <h3 class="subheading">Universidad Tecnologica De Parras de la Fuente</h3>
+      <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
-        <v-spacer></v-spacer>
+      <v-toolbar-title>
+        {{$route.name}}
+      </v-toolbar-title>
+    </v-app-bar>
 
-        <v-btn
-          v-for="icon in icons"
-          :key="icon.name"
-          class="mx-5"
-          dark
-          icon
-          :href="icon.url"
-          target="_blank"
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+      <v-list
+        nav
+        dense
+      >
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
         >
-          <v-icon size="40px">
-            {{ icon.icon }}
-          </v-icon>
-        </v-btn>
-      </v-card-title>
-      
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-home</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Inicio</v-list-item-title>
+          </v-list-item>
 
-    
-    </v-card>
-  </v-footer>
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Acceder</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+    <div>
+      <router-view></router-view>
+    </div>
+  </v-card>
 </template>
-  </v-app>
-  
-</template>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
- export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
-};
-</script>
-
-<script>
-
-export default {
-  name: 'App',
-
-  data: () => ({
-      // icons: [
-      //   'mdi-facebook',
-      //   'mdi-twitter',
-      //   'mdi-linkedin',
-      //   'mdi-instagram',
-      // ],
-      icons: [
-      {
-        name:"facebook",
-        icon:"mdi-facebook",
-        url:"https://www.facebook.com/utparras/"
-      },
-      {
-        name:"twitter",
-        icon:"mdi-twitter",
-        url:"https://twitter.com/utparras?lang=es"
-      },
-      {
-        name:"web",
-        icon:"mdi-web",
-        url:"https://www.utparras.edu.mx/"
-      }
-      ]
+  export default {
+    data: () => ({
+      drawer: false,
+      group: null,
     }),
   }
-
 </script>
-<style lang="sass" scoped>
-.v-card.on-hover.theme--dark
-  background-color: rgba(#FFF, 0.8)
-  >.v-card__text
-    color: #862f30
-</style>
