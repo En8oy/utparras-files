@@ -7,10 +7,18 @@
       color="#009688"
     >
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+      
 
       <v-toolbar-title>
-        {{$route.name}}
+        <v-img
+          contain
+          src="https://utparras.edu.mx/assets/images/utp-logo.png"
+          transition="scale-transition"
+          width="90"
+    />
+
       </v-toolbar-title>
+      {{$route.name}}
     </v-app-bar>
 
     <v-navigation-drawer
@@ -67,4 +75,4 @@
       group: null,
     }),
   }
-</script>
+</script> 
