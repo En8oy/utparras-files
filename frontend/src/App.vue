@@ -6,24 +6,15 @@
       dark
     >
       <div class="d-flex align-center">
-        <!-- <v-img
-          alt="Vuetify Logo"
+        <v-img
+          alt="utp Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="https://www.utparras.edu.mx/assets/images/utp-logo.png"
           transition="scale-transition"
           width="40"
         />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        /> -->
-        Edgar
+        Universidad Tecnologica de Parras de la Fuente
       </div>
 
       <v-spacer></v-spacer>
@@ -34,7 +25,7 @@
         text
         to="/administrator/information"
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">Acceder</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>

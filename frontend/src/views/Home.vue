@@ -28,12 +28,15 @@
               step="1"
             >
               Datos Personales
-              <small>Esta Informacion es requerida, por lo cual te recomendamos llenar todos los campos, con la informacion solicitada</small>
+              <small>Esta Informacion es requerida para el sistema academico de la universiad, la informacion recolectada sera protegida
+                y administrada por personal autorizado de la universidad.
+                Una vez teniendo la infroamcion solicitada sera confidencial.
+              </small>
             </v-stepper-step>
 
             <v-stepper-content step="1">
               <v-card
-                color="#DADADA"
+                color="#E9E9E9"
                 class="mb-12"
                 elevation="0"
                 
@@ -112,7 +115,7 @@
 
             <v-stepper-content step="2">
               <v-card
-                color="#DADADA"
+                color="#E9E9E9"
                 class="mb-12"
                 elevation="0"
                 
@@ -153,7 +156,7 @@
 
             <v-stepper-content step="3">
               <v-card
-                color="#DADADA"
+                color="#E9E9E9"
                 class="mb-12"
                 elevation="0"
                 
@@ -208,7 +211,7 @@
 
             <v-stepper-content step="4">
               <v-card
-                color="#DADADA"
+                color="#E9E9E9"
                 class="mb-12"
                 elevation="0"
                 
@@ -265,7 +268,7 @@
 
             <v-stepper-content step="5">
               <v-card
-                color="#DADADA"
+                color="#E9E9E9"
                 class="mb-12"
                 elevation="0"
                 
@@ -328,7 +331,7 @@
 
             <v-stepper-content step="6">
               <v-card
-                color="#DADADA"
+                color="#E9E9E9"
                 class="mb-12"
                 elevation="0"
                 
@@ -369,7 +372,7 @@
 
             <v-stepper-content step="7">
               <v-card
-                color="#DADADA"
+                color="#E9E9E9"
                 class="mb-12"
                 elevation="0"
                 
@@ -431,13 +434,79 @@
             </v-stepper-content>
 
           </v-stepper>
+          
 </template>
 
         </v-container>
       </v-col>
     </v-row>
+        <v-footer
+    dark
+    padless
+     >
+        <v-card
+        class="flex"
+        flat
+        tile
+        >
+            <v-card-title class="teal">
+                <strong class="subheading">Universidad Tecnologica de Parras de la Fuente</strong>
+
+                <v-spacer></v-spacer>
+
+            <v-btn
+             v-for="icon in icons"
+          :key="icon.name"
+          class="mx-4"
+          dark
+          icon
+          :href="icon.url"
+          target="_blank"
+   
+        >
+       
+          <v-icon size="35px">
+            {{ icon.icon }}
+           
+          </v-icon>
+        </v-btn>
+            </v-card-title>
+
+            <v-card-text class="py-2 white--text text-center">
+                {{ new Date().getFullYear() }} — <strong>UTP</strong>
+            </v-card-text>
+        </v-card>
+    </v-footer>
+    
   </div>
+  
 </template>
+<script>
+
+export default {
+  name: 'App',
+
+  data: () => ({
+      icons: [
+      {
+        name:"facebook",
+        icon:"mdi-facebook",
+        url:"https://www.facebook.com/utparras/"
+      },
+      {
+        name:"twitter",
+        icon:"mdi-twitter",
+        url:"https://twitter.com/utparras?lang=es"
+      },
+      {
+        name:"web",
+        icon:"mdi-web",
+        url:"https://www.utparras.edu.mx/"
+      }
+      ]
+    }),
+  }
+</script>
 
 <script>
  export default {
