@@ -1,86 +1,77 @@
   <template>
+ <center><v-row>
+
+    <v-col
+      cols="12"
+      sm="6"
+    >
+    <v-btn
+  color="secondary"
+  elevation="11"
+  x-large
+></v-btn>
+ 
+
+
+
+
+
+    </v-col>
+  </v-row> 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <v-footer
+    dark
+    padless
+     >
+        <v-card
+        class="flex"
+        flat
+        tile
+        cols="12"
+           sm="12"
+           md="12"
+        >
+            <v-card-title class="teal">
+                <strong class="subheading"><h2>Universidad Tecnológica de Parras de la Funte</h2></strong>
+
+                <v-spacer></v-spacer>
+
+            <v-btn
+            v-for="icon in icons"
+            :key="icon.name"
+            class="mx-4"
+            dark
+            icon
+            :href="icon.url"
+            target="_blank"
+            cols="12"
+           sm="12"
+           md="12"
+        >
+          <v-icon size="35px">
+            {{ icon.icon }}
+           
+          </v-icon>
+        </v-btn>
+            </v-card-title>
+
+            <v-card-text class="py-2 white--text text-center">
+                {{ new Date().getFullYear() }} — <strong>UTP</strong>
+            </v-card-text>
+        </v-card>
+    </v-footer></center>
   
-  <center><v-row>
-    
-    <v-col
-      cols="12"
-      sm="6"
-    >
-    <br>
-    <br>
-    <br>
-    <br>
-      <v-hover
-      
-        v-slot="{ hover }"
-        open-delay="200"
-      >
-      
-        <v-card
-          :elevation="hover ? 16 : 2"
-          :class="{ 'on-hover': hover }"
-          class="mx-auto"
-          height="350"
-          max-width="350"
-          
-        >
-        <br>
-        <br>
-          <v-card-text class="font-weight-medium mt-12 text-center subtitle-1">
-            <center><h1>Información Pública</h1></center>
-            <br>
-            <br>
-
-          <center>  <v-img
-          contain
-          src="https://utparras.edu.mx/assets/images/utp-logo.png"
-          transition="scale-transition"
-          width="150"
-         
-         /></center>
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-
-    <v-col
-      cols="12"
-      sm="6"
-    >
-    <br>
-    <br>
-    <br>
-    <br>
-      <v-hover
-        v-slot="{ hover }"
-        close-delay="200"
-      >
-        <v-card
-          :elevation="hover ? 16 : 2"
-          :class="{ 'on-hover': hover }"
-          class="mx-auto"
-          height="350"
-          max-width="350"
-        >
-        <br>
-        <br>
-            <v-card-text class="font-weight-medium mt-12 text-center subtitle-1">
-            <center><h1>Acerca de Nosotros</h1></center>
-            <br>
-            <br>
-             <center>  <v-img
-          contain
-          src="https://utparras.edu.mx/assets/images/utp-logo.png"
-          transition="scale-transition"
-          width="150"
-         
-         /></center>
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-  </v-row></center>
+  
 </template>
+
+
+
+
 
 <style lang="sass" scoped>
 .v-card.on-hover.theme--dark

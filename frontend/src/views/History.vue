@@ -8,17 +8,25 @@
   <br>
   
   <v-row
+    cols="12"
+    sm="12"
+    md="12"
     align="center"
     justify="center"
   >
-    <v-col cols="12">
+    <v-col 
+    cols="12"
+    sm="12"
+    md="12">
       <v-hover
         v-slot="{ hover }"
         disabled
       >
       
         <v-card
-        
+          cols="12"
+           sm="12"
+           md="12"
           :elevation="hover ? 12 : 2"
           class="mx-auto"
           height="600"
@@ -26,10 +34,17 @@
         
         >
         
-          <v-card-text class="my-4 text-center title">
+          <v-card-text
+           cols="12"
+           sm="12"
+           md="12"
+           class="my-4 text-center title">
             <br>
             <br>
-          <h1>Historia</h1>
+          <h1
+          cols="12"
+           sm="12"
+           md="12">Historia</h1>
           <br>
           <br>
 
@@ -55,9 +70,25 @@
 
 
           </v-card-text>
+          
+
+
+          
         </v-card>
       </v-hover>
+      <br>
+      <br>
+      <br>
+      <br>
+    
+
+       
     </v-col>
   </v-row>
 </center>
+
 </template>
+
+
+
+
