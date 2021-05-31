@@ -35,6 +35,7 @@
         <span class="mr-2 white--text">Cerrar Sesion</span>
         <v-icon class="white--text">mdi-open-in-new</v-icon>
       </v-btn>
+      
 
       
     </v-app-bar>
@@ -248,8 +249,11 @@
 </template>
 
 <script>
+var url="http://localhost:8080/administrative/administrative"
   export default {
     data: () => ({
+       drawer: false,
+      group: null,
       dialog: false,
       dialogDelete: false,
       search: '',
@@ -271,7 +275,7 @@
         { text: 'Sexo', value: 'sexo' },
         { text: 'Direccion Personal', value: 'perso'},
         { text: 'Lugar de Nacimiento', value: 'naci'},
-        { text: 'Actions', value: 'actions', sortable: false },
+        { text: 'Editar, Eliminar', value: 'actions', sortable: false },
       ],
       desserts: [],
       editedIndex: -1,
@@ -298,7 +302,12 @@
         perso: '',
       },
     }),
-
+    created(){
+      axios.get(url).then(response => {
+        this.desserts = response.data;
+        console.log(this.desserts); 
+      })
+    },
     computed: {
       formTitle () {
         return this.editedIndex === -1 ? 'Nuevo Expediente' : 'Editar Expediente'

@@ -185,24 +185,11 @@
                   </v-col>
                 </v-row>
               </v-container>
-            </v-card-text>
+              </v-card-text>
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="close"
-              >
-                Cancelar
-              </v-btn>
-              <v-btn
-                color="blue darken-1"
-                text
-                @click="save"
-              >
-                Guardar
-              </v-btn>
+
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -225,14 +212,9 @@
         class="mr-2"
         @click="editItem(item)"
       >
-        mdi-pencil
+        mdi-note-text
       </v-icon>
-      <v-icon
-        small
-        @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
+      
     </template>
     <template v-slot:no-data>
       <v-btn
@@ -271,6 +253,7 @@
         { text: 'Sexo', value: 'sexo' },
         { text: 'Direccion Personal', value: 'perso'},
         { text: 'Lugar de Nacimiento', value: 'naci'},
+        { text: 'Ver', value: 'actions', sortable: false },
       ],
       desserts: [],
       editedIndex: -1,
@@ -300,7 +283,7 @@
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'Nuevo Expediente' : 'Editar Expediente'
+        return this.editedIndex === -1 ? 'Nuevo Expediente' : 'Informacion'
       },
     },
 
