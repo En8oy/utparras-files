@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+ <center> <div class="">
             <v-container fluid>
               <v-layout row wrap>
                 <v-flex>
@@ -26,6 +26,6 @@
                 </v-flex>
               </v-layout>
             </v-container>
-          </div>
+          </div></center>
 </template>
 

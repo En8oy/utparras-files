@@ -74,9 +74,9 @@
 
           <v-list-item>
             <v-list-item-icon>
-              <v-icon size="40">mdi-home</v-icon>
+              <v-icon size="40">mdi-open-in-new</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>iniciar sesion</v-list-item-title>
+            <v-list-item-title >iniciar sesion</v-list-item-title>
           </v-list-item>
           </center>
           <br>
