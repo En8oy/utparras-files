@@ -1,11 +1,11 @@
 <template>
   <div>
        <v-img 
-        src="https://www.utparras.edu.mx/assets/images/edificio.JPG">
+        src="https://www.utparras.edu.mx/assets/images/edificio.JPG" height="900px">
             <v-row class="ma-10" align="center" justify="center">
                 <v-col cols="12" sm="12" md="6">
-                    <v-container fluid>
-                    <v-card color="#E9E9E9" class="pa-5" elevation="12">
+                    <v-container fluid class="pa-15">
+                    <v-card color="#E9E9E9" class="pa-8" elevation="12">
                         <v-card-title class="text-center display-1 teal--text text--accent-3"> Login </v-card-title>
                         <v-card-text>
                             <v-form v-on:submit.prevent="login()">
@@ -62,16 +62,35 @@
   </div>
   
 </template>
+
 <script>
+
 export default {
-    data() {
-        return {
-            email : "",
-            password : "",
-            loading : false,
-            requiredRules: [(v) => !!v || "required"],
-        }
-    },
+  name: 'App',
+
+  data: () => ({
+      email : "",
+      password : "",
+      loading : false,
+      requiredRules: [(v) => !!v || "required"],
+      icons: [
+      {
+        name:"facebook",
+        icon:"mdi-facebook",
+        url:"https://www.facebook.com/utparras/"
+      },
+      {
+        name:"twitter",
+        icon:"mdi-twitter",
+        url:"https://twitter.com/utparras?lang=es"
+      },
+      {
+        name:"web",
+        icon:"mdi-web",
+        url:"https://www.utparras.edu.mx/"
+      }
+      ]
+    }),
     methods: {
         login(){
           if (this.email != "" && this.password != "") {
@@ -99,31 +118,5 @@ export default {
           }
         }
     },
-}
-</script>
-<script>
-
-export default {
-  name: 'App',
-
-  data: () => ({
-      icons: [
-      {
-        name:"facebook",
-        icon:"mdi-facebook",
-        url:"https://www.facebook.com/utparras/"
-      },
-      {
-        name:"twitter",
-        icon:"mdi-twitter",
-        url:"https://twitter.com/utparras?lang=es"
-      },
-      {
-        name:"web",
-        icon:"mdi-web",
-        url:"https://www.utparras.edu.mx/"
-      }
-      ]
-    }),
   }
 </script>

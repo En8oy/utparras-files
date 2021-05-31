@@ -1,19 +1,9 @@
 <template>
   <div>
+    
     <v-row class="ma-10">
-      <v-col color="black" cols="12" sm="12" md="6">
-        <!-- <v-container fluid>
-          <v-layout justify-center align-center>
-            <v-flex shrink>
-              <v-img
-                class="white--text align-end"
-                width="30rem"
-                src="https://storage.googleapis.com/wfhq_webforcehq/images/wfs-img-01@2x.png"
-              >
-              </v-img>
-            </v-flex>
-          </v-layout>
-        </v-container> -->
+      <v-col color="black" cols="12" sm="12" md="12">
+        <h1 class="text-center">Crear Expediente</h1>
       </v-col>
       <v-col cols="12" sm="12" md="12">
         <v-container fluid>
