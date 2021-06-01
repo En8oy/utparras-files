@@ -5,8 +5,8 @@
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
         <v-toolbar-title>
           <v-img
-            src="https://www.utparras.edu.mx/assets/images/utp-logo.png"
-            width="5rem"
+            src="./assets/logo.png"
+            width="3rem"
             class="float-left mr-5"
           ></v-img>
           {{ this.$route.name }}
@@ -15,8 +15,8 @@
       <v-navigation-drawer v-model="drawer" absolute temporary>
         <div class="subheading pa-10" style="color: #303030">
           <v-img
-            src="https://www.utparras.edu.mx/assets/images/utp-logo.png"
-            width="4rem"
+            src="./assets/logo.png"
+            width="3rem"
             class="float-left mr-5"
           ></v-img>
           <strong>
@@ -118,15 +118,15 @@ export default {
     drawer: false,
     credits: [
       {
-        name: "Edgar  Flores Perez",
+        name: "Edgar	Flores Perez",
         url: "https://github.com/EdgarFP995",
       },
       {
-        name: "Ivan Emmanuel  Cisneros Avila",
+        name: "Ivan Emmanuel	Cisneros Avila",
         url: "https://github.com/IvanCisneros528",
       },
       {
-        name: "Jorge Eduardo  Tovar Rios",
+        name: "Jorge Eduardo	Tovar Rios",
         url: "https://github.com/jorgetovar2",
       },
     ],
@@ -137,7 +137,7 @@ export default {
         icon: "mdi-home",
       },
       {
-        route: "/about",
+        route: "/nosotros",
         name: "Acerca De",
         icon: "mdi-bookmark",
       },
@@ -186,7 +186,7 @@ export default {
       //   icon : "mdi-account-convert"
       // },
       {
-        route: "/about",
+        route: "/nosotros",
         name: "Acerca de",
         icon: "mdi-bookmark",
       },
