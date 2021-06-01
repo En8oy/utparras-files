@@ -69,61 +69,7 @@
         </div>
         
       </div>
-      <!-- <v-col
-        cols="12"
-        sm="6"
-      >
-        <div class="text-center">
-          <div class="my-2">
-            <v-btn
-              color="success"
-              fab
-              x-large
-              dark
-            >
-              <v-icon>mdi-domain</v-icon>
-            </v-btn>
-          </div>
-        </div> -->
-      </v-col>
     </v-row>
   </v-container>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <v-footer
-    dark
-    padless
-     >
-        <v-card
-        class="flex"
-        flat
-        tile
-        >
-            <v-card-title class="teal">
-                <strong class="subheading">Universidad Tecnologica de Parras de la Fuente</strong>
-
-                <v-spacer></v-spacer>
-
-            <v-btn
-            v-for="icon in icons"
-            :key="icon.name"
-            class="mx-4"
-            dark
-            icon
-            :href="icon.url"
-            target="_blank"
-        >
-          <v-icon size="35px">
-            {{ icon.icon }}
-           
-          </v-icon>
-        </v-btn>
-            </v-card-title>
-
-            <v-card-text class="py-2 white--text text-center">
-                {{ new Date().getFullYear() }} — <strong>UTP</strong>
-            </v-card-text>
-        </v-card>
-    </v-footer>
   </div>
-
 </template>

@@ -1,0 +1,427 @@
+<template>
+  <div>
+      <h1 class="text-center">Completa los Campos con la Informacion Solicitada</h1>
+    <v-row class="mx-auto overflow-hidden" height="100%" width="100%">
+      <v-col color="black" cols="12" sm="12" md="">
+        
+      </v-col>
+      <v-col cols="12" sm="12" md="12">
+        <v-container fluid>
+         <template>
+          <v-stepper
+            v-model="e6"
+            vertical
+          >
+            <v-stepper-step
+              :complete="e6 > 1"
+              step="1"
+            >
+              Datos Personales
+               <small>Esta Informacion es requerida para el sistema academico de la universiad, la informacion recolectada sera protegida
+                y administrada por personal autorizado de la universidad.
+                Una vez teniendo la infroamcion solicitada sera confidencial.
+              </small>
+            </v-stepper-step>
+
+            <v-stepper-content step="1">
+              <v-card color="#E9E9E9"
+                class="mb-12"
+                elevation="0"
+
+                ><v-text-field
+                    v-model="name"
+                    :rules="nameRules"
+                    label="Nombre"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="surname"
+                    :rules="surnameRules"
+                    label="Apellidos"
+                    required
+                  ></v-text-field>
+                <v-text-field
+                        v-model="dateFormatted"
+                        label="Fecha de Nacimiento"
+                        hint="DD/MM/AAAA"
+                        required
+                  ></v-text-field>
+                  <v-text-field
+                          v-model="email"
+                          :rules="emailRules"
+                          label="Correo"
+                          required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="curp"
+                    :rules="curpRules"
+                    label="CURP"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="rfc"
+                    :rules="rfcRules"
+                    label="RFC"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="civil"
+                    :rules="civilRules"
+                    label="Estado Civil"
+                    required
+                  ></v-text-field>
+                  
+                  <v-text-field
+                    v-model="sex"
+                    :rules="sexRules"
+                    label="Sexo"
+                    required
+                  ></v-text-field>
+                  
+              </v-card>
+              <v-btn
+                color="primary"
+                @click="e6 = 2"
+              >
+                Continuar
+              </v-btn>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="e6 > 2"
+              step="2"
+            >
+              Direccion
+            </v-stepper-step>
+
+            <v-stepper-content step="2">
+              <v-card color="#E9E9E9"
+                class="mb-12"
+                elevation="0"
+
+                ><v-text-field
+                    v-model="address"
+                    :rules="addressRules"
+                    label="Direccion Personal"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="place"
+                    :rules="placeRules"
+                    label="Lugar de Nacimiento"
+                    required
+                  ></v-text-field>
+              </v-card>
+               <v-btn
+                color="dark"
+                @click="e6 = 1"
+              >
+                Retroceder
+              </v-btn>
+              <v-btn
+                color="primary"
+                @click="e6 = 3"
+              >
+                Continuar
+              </v-btn>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="e6 > 3"
+              step="3"
+            >
+              Informacion Familiar
+            </v-stepper-step>
+
+            <v-stepper-content step="3">
+              <v-card color="#E9E9E9"
+                class="mb-12"
+                elevation="0"
+
+                ><v-text-field
+                    v-model="namecomplete"
+                    :rules="namecompleteRules"
+                    label="Nombre Completo"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="family"
+                    :rules="familyRules"
+                    label="Familiar"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="phone"
+                    :rules="phoneRules"
+                    label="Telefono"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="addressfamily"
+                    :rules="addressfamilyRules"
+                    label="Direccion"
+                    required
+                  ></v-text-field>
+              </v-card>
+               <v-btn
+                color="dark"
+                @click="e6 = 2"
+              >
+                Retroceder
+              </v-btn>
+              <v-btn
+                color="primary"
+                @click="e6 = 4"
+              >
+                Continuar
+              </v-btn>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="e6 > 4"
+              step="4"
+            >
+              Estudios
+            </v-stepper-step>
+
+            <v-stepper-content step="4">
+              <v-card color="#E9E9E9"
+                class="mb-12"
+                elevation="0"
+
+                ><v-text-field
+                    v-model="instituciones"
+                    :rules="institucionesRules"
+                    label="Instituciones"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="career"
+                    :rules="careerRules"
+                    label="Carrera Profesional"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="entryRules"
+                    :rules="entryRules"
+                    label="Ingreso"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="egres"
+                    :rules="egressRules"
+                    label="Egreso"
+                    required
+                  ></v-text-field>
+              </v-card>
+               <v-btn
+                color="dark"
+                @click="e6 = 3"
+              >
+                Retroceder
+              </v-btn>
+              <v-btn
+                color="primary"
+                @click="e6 = 5"
+              >
+                Continuar
+              </v-btn>
+            </v-stepper-content>
+            <v-stepper-step
+              :complete="e6 > 5"
+              step="5"
+            >
+              Experiencias
+            </v-stepper-step>
+
+            <v-stepper-content step="5">
+              <v-card color="#E9E9E9"
+                class="mb-12"
+                elevation="0"
+
+                ><v-text-field
+                    v-model="experiences"
+                    :rules="experiencesRules"
+                    label="Experiencia"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="position"
+                    :rules="positionRules"
+                    label="Puesto"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="typexp"
+                    :rules="typeexpRules"
+                    label="Tipo de Experiencia"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="start"
+                    :rules="startRules"
+                    label="Inicio de la Experiencia"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="endfamily"
+                    :rules="endfamilyRules"
+                    label="Fin de la Experiencia"
+                    required
+                  ></v-text-field>
+              </v-card>
+              <v-btn
+                color="dark"
+                @click="e6 = 4"
+              >
+                Retroceder
+              </v-btn>
+              <v-btn
+                color="primary"
+                @click="e6 = 6"
+              >
+                Continuar
+              </v-btn>
+            </v-stepper-content>
+        <v-stepper-step
+              :complete="e6 > 6"
+              step="6"
+            >
+              Habilidades
+            </v-stepper-step>
+
+            <v-stepper-content step="6">
+              <v-card color="#E9E9E9"
+                class="mb-12"
+                elevation="0"
+
+                ><v-text-field
+                    v-model="skill"
+                    :rules="skillRules"
+                    label="Habilidad"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="level"
+                    :rules="levelRules"
+                    label="Nivel"
+                    required
+                  ></v-text-field>
+              </v-card>
+               <v-btn
+                color="dark"
+                @click="e6 = 5"
+              >
+                Retroceder
+              </v-btn>
+              <v-btn
+                color="primary"
+                @click="e6 = 7"
+              >
+                Continuar
+              </v-btn>
+            </v-stepper-content>
+        <v-stepper-step
+              :complete="e6 > 7"
+              step="7"
+            >
+              Departamento
+            </v-stepper-step>
+
+            <v-stepper-content step="7">
+              <v-card color="#E9E9E9"
+                class="mb-12"
+                elevation="0"
+
+                ><v-text-field
+                    v-model="institution"
+                    :rules="institutionRules"
+                    label="Institucion"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="responsable"
+                    :rules="responsableRules"
+                    label="Responsable"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="emailcharge"
+                    :rules="emailchargeRules"
+                    label="Correo del responsable"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="phonecharge"
+                    :rules="phonechargeRules"
+                    label="Telefono del responsable"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="responsibilities"
+                    :rules="responsibilitiesRules"
+                    label="Responsabilidades"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="schedule"
+                    :rules="scheduleRules"
+                    label="Horario"
+                    required
+                  ></v-text-field>
+              </v-card>
+              <v-btn
+                color="dark"
+                @click="e6 = 6"
+              >
+                Retroceder
+              </v-btn>
+              <v-btn
+                color="primary"
+                @click="e6 = 1"
+              >
+                Finalizar
+              </v-btn>
+            </v-stepper-content>
+
+          </v-stepper>
+
+</template>
+
+        </v-container>
+      </v-col>
+    </v-row>
+  </div>
+
+</template>
+<script>
+export default {
+  name: 'App',
+  data: () => ({
+      icons: [
+      {
+        name:"facebook",
+        icon:"mdi-facebook",
+        url:"https://www.facebook.com/utparras/"
+      },
+      {
+        name:"twitter",
+        icon:"mdi-twitter",
+        url:"https://twitter.com/utparras?lang=es"
+      },
+      {
+        name:"web",
+        icon:"mdi-web",
+        url:"https://www.utparras.edu.mx/"
+      }
+      ]
+    }),
+  }
+</script>
+
+<script>
+ export default {
+    data () {
+      return {
+        e6: 1,
+      }
+    },
+  }
+</script>
