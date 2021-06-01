@@ -10,6 +10,8 @@ import File from "../views/File.vue";
 
 // Administrator Routes
 import AdministratorHome from "../views/Administrator/Home.vue";
+import AdministratorUser from "../views/Administrator/Users.vue";
+
 
 // Teacher Routes
 import TeacherHome from "../views/Teacher/Home.vue";
@@ -46,6 +48,11 @@ const routes = [
     path: "/administrador/inicio",
     name: "Bienvenido Administrador",
     component: AdministratorHome,
+  },
+  {
+    path: "/administrador/usuarios",
+    name: "Administrar Usuarios",
+    component: AdministratorUser,
   },
   // Administrative Routes
   {
