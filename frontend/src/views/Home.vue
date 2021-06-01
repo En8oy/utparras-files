@@ -5,29 +5,34 @@
           <v-flex>
             
               <v-row>
-                <v-col sm="12">
-                  <v-img 
+                <v-col cols="9" sm="10" md="12">
+                  <v-img  
                           src="https://www.utparras.edu.mx/assets/images/edificio.JPG">
-
-                          <br />
-                          <br />
-                          <br />
-
-                        
-                          <h1
-                          class="white--text"
-                          >BIENVENIDO A EXPEDIENTES UTPARRAS</h1>
+                          <br>
+                          <br>
                           
-                          <br />
-                          <br />
-                          <br />
+                         <center> <h1
+                          class="white--text"
+                        
+                          >BIENVENIDO A EXPEDIENTES UTPARRAS</h1>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+
                           <v-btn
-                          color="red"
-                          elevation="10"
-                          width="250"
+                          color="#862f30"
+                          elevation="20"
+                          width="200"
+                          height="70"
                           dark
                           to="/about"
-                          >INICIAR</v-btn>
+                          >INICIAR</v-btn></center>
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+
                   </v-img>
 
                 </v-col>

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import History from '../views/History.vue'
+import Nosotros from '../views/History.vue'
 import informacion from '../views/About.vue'
 
 Vue.use(VueRouter)
@@ -12,9 +12,9 @@ const routes = [{
     component: Home
   },
   {
-    path: '/historia',
-    name: 'Historia',
-    component: History
+    path: '/Nosotros',
+    name: 'Nosotros',
+    component: Nosotros
   },
 
   {

@@ -6,7 +6,7 @@
         <v-toolbar-title>
           <v-img
             src="./assets/logo.png"
-            width="3rem"
+            width="4rem"
             class="float-left mr-5"
           ></v-img>
           {{ this.$route.name }}

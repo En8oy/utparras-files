@@ -8,14 +8,12 @@
   <br>
   
   <v-row
-    cols="12"
-    sm="12"
-    md="12"
+    
     align="center"
     justify="center"
   >
     <v-col 
-    cols="12"
+    cols=""
     sm="12"
     md="12">
       <v-hover
@@ -23,10 +21,8 @@
         disabled
       >
       
-        <v-card
-          cols="12"
-           sm="12"
-           md="12"
+        <v-card 
+         
           :elevation="hover ? 12 : 2"
           class="mx-auto"
           height="600"
@@ -35,28 +31,21 @@
         >
         
           <v-card-text
-           cols="12"
-           sm="12"
-           md="12"
+           
            class="my-4 text-center title">
             <br>
-            <br>
+          
           <h1
-          cols="12"
-           sm="12"
-           md="12">Historia</h1>
-          <br>
-          <br>
+          >Historia</h1>
+           <br>
 
-          <h3>Los antecedentes de la Universidad Tecnológica de Parras de la Fuente se remontan a 1999,
+          <p>Los antecedentes de la Universidad Tecnológica de Parras de la Fuente se remontan a 1999,
           en la Unidad Academica de la Universidad Tecnológica de Coahuila, cuando se atendió una 
           demanda de la región ante la falta de oportunidades para los egresados del nivel medio 
           superior. Aunque se debió atender hasta el 26 de Enero del 2016 para que se decretara su 
           constitución formal en el Diario Oficial y que, al abrir sus puertas, atendiera a 452 alumnos, 
-          con una oferta de cinco programas educativos, uno de ellos, cabe destacar, el primero a nivel nacional</h3>
-          <br>
-          <br>
-          <br>
+          con una oferta de cinco programas educativos, uno de ellos, cabe destacar, el primero a nivel nacional</p>
+  
 
           <h1>Acerca del Sitio</h1>
           <br>
@@ -75,7 +64,7 @@
 
           
         </v-card>
-      </v-hover>
+      </v-hover></center>
       <br>
       <br>
       <br>
