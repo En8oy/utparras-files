@@ -6,14 +6,12 @@
           <v-flex>
             <v-row>
               <v-col cols="9" sm="10" md="12">
-                <v-img
-                  src="https://www.utparras.edu.mx/assets/images/edificio.JPG"
-                >
-                  <br />
-                  <br />
+                <br>
+                <br>
+                
 
                   <center>
-                    <h1 class="white--text">
+                    <h1>
                       BIENVENIDO A EXPEDIENTES UTPARRAS
                     </h1>
                     <br />
@@ -35,7 +33,7 @@
                   <br />
                   <br />
                   <br />
-                </v-img>
+                
               </v-col>
             </v-row>
           </v-flex>
