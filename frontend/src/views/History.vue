@@ -1,20 +1,12 @@
 <template>
-<center>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  
   <v-row
     
     align="center"
     justify="center"
   >
     <v-col 
-    cols=""
-    sm="12"
+    cols="6"
+    sm="10"
     md="12">
       <v-hover
         v-slot="{ hover }"
@@ -25,7 +17,7 @@
          
           :elevation="hover ? 12 : 2"
           class="mx-auto"
-          height="600"
+          height="700"
           max-width="1000"
         
         >
@@ -52,10 +44,10 @@
           <br>
           <br>
           
-          <h3>Este sitio cuenta con la utilidad de registrar datos del personal de la
+          <p>Este sitio cuenta con la utilidad de registrar datos del personal de la
            Universidad Tecnológica de Parras de la Fuente, con el fin de tener un mejor control a
           la hora de obtener información, el sitio ayuda directamente a obtener esos datos sin la
-           necesidad de ir personalmente a obtener la información que se desee.</h3>
+           necesidad de ir personalmente a obtener la información que se desee.</p>
 
 
           </v-card-text>
@@ -64,7 +56,7 @@
 
           
         </v-card>
-      </v-hover></center>
+      </v-hover>
       <br>
       <br>
       <br>
@@ -74,7 +66,7 @@
        
     </v-col>
   </v-row>
-</center>
+
 
 </template>
 
