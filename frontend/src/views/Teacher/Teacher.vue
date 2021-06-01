@@ -1,43 +1,19 @@
 <template>
   <v-container fluid>
-      <v-app-bar
-      app
-      color="#2ea69a"
-      
-    >
+  
     
       <div class="d-flex align-center">
         
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://www.utparras.edu.mx/assets/images/utp-logo.png"
-          transition="scale-transition"
-          width="80"
-        />
       </div>
       <v-btn
         to="/about"
         text
       >
-      <v-img></v-img>
-        <span class="mr-2 white--text">Universidad Tecnologica De Parras de la Fuente</span>
       </v-btn>
       
       
       <v-spacer></v-spacer>
 
-      <v-btn
-        to="/about"
-        text
-      >
-        <span class="mr-2 white--text">Cerrar Sesion</span>
-        <v-icon class="white--text">mdi-open-in-new</v-icon>
-      </v-btn>
-
-      
-    </v-app-bar>
 
     <v-spacer></v-spacer>
       <v-text-field
@@ -155,7 +131,7 @@
                     md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.sexo"
+                      v-model="editedItem.gender"
                       label="Sexo"
                     ></v-text-field>
                   </v-col>
@@ -250,7 +226,7 @@
         { text: 'CURP', value: 'curp' },
         { text: 'RFC', value: 'rfc' },
         { text: 'Estado Civil', value: 'civil' },
-        { text: 'Sexo', value: 'sexo' },
+        { text: 'Sexo', value: 'gender' },
         { text: 'Direccion Personal', value: 'perso'},
         { text: 'Lugar de Nacimiento', value: 'naci'},
         { text: 'Ver', value: 'actions', sortable: false },
@@ -276,7 +252,7 @@
         curp: '',
         rfc: '',
         civil: '',
-        sexo: '',
+        gender: '',
         perso: '',
       },
     }),

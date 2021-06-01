@@ -1,28 +1,16 @@
 <template>
   <v-container fluid>
-      <v-app-bar
-      app
-      color="#2ea69a"
-      
-    >
     
       <div class="d-flex align-center">
         
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://www.utparras.edu.mx/assets/images/utp-logo.png"
-          transition="scale-transition"
-          width="80"
-        />
+
       </div>
       <v-btn
         to="/about"
         text
       >
       <v-img></v-img>
-        <span class="mr-2 white--text">Universidad Tecnologica De Parras de la Fuente</span>
+      
       </v-btn>
       
       
@@ -36,9 +24,6 @@
         <v-icon class="white--text">mdi-open-in-new</v-icon>
       </v-btn>
       
-
-      
-    </v-app-bar>
 
     <v-spacer></v-spacer>
       <v-text-field
@@ -156,7 +141,7 @@
                     md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.sexo"
+                      v-model="editedItem.gender"
                       label="Sexo"
                     ></v-text-field>
                   </v-col>
@@ -252,13 +237,15 @@
 var url="http://localhost:8080/administrative/administrative"
   export default {
     data: () => ({
-       drawer: false,
+      
+      drawer: false,
       group: null,
       dialog: false,
       dialogDelete: false,
       search: '',
       headers: [
         {
+          columns:'id',
           text: 'id',
           align: 'start',
           sortable: false,
@@ -272,7 +259,7 @@ var url="http://localhost:8080/administrative/administrative"
         { text: 'CURP', value: 'curp' },
         { text: 'RFC', value: 'rfc' },
         { text: 'Estado Civil', value: 'civil' },
-        { text: 'Sexo', value: 'sexo' },
+        { text: 'Sexo', value: 'gender' },
         { text: 'Direccion Personal', value: 'perso'},
         { text: 'Lugar de Nacimiento', value: 'naci'},
         { text: 'Editar, Eliminar', value: 'actions', sortable: false },
@@ -287,7 +274,7 @@ var url="http://localhost:8080/administrative/administrative"
         curp: '',
         rfc: '',
         civil: '',
-        sexo: '',
+        gender: '',
         perso: '',
       },
       defaultItem: {
@@ -298,7 +285,7 @@ var url="http://localhost:8080/administrative/administrative"
         curp: '',
         rfc: '',
         civil: '',
-        sexo: '',
+        gender: '',
         perso: '',
       },
     }),

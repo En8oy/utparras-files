@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AdministrativeAdministrative from '../views/Administrative/Administrative.vue'
-import AdministrativeTeacher from '../views/Administrative/Teacher.vue'
+import TeacherTeacher from '../views/Teacher/Teacher.vue'
 
 Vue.use(VueRouter)
 
@@ -28,9 +28,9 @@ const routes = [
     component:AdministrativeAdministrative
   },
   {
-    path:'/administrative/teacher',
+    path:'/teacher/teacher',
     name:'Docente',
-    component:AdministrativeTeacher
+    component:TeacherTeacher
   }
 ]
 
