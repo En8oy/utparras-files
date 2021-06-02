@@ -48,7 +48,7 @@
         </v-list>
       </v-navigation-drawer>
       <transition name="fade" :duration="500">
-        <v-container class="ma-5">
+        <v-container class="ma-20">
           <router-view></router-view>
         </v-container>
       </transition>
