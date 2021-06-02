@@ -6,8 +6,8 @@
         <v-toolbar-title>
           <v-img
             src="./assets/logo.png"
-            width="3rem"
-            class="float-left mr-5"
+            width="4rem"
+            class="float-left mr-4"
           ></v-img>
           {{ this.$route.name }}
         </v-toolbar-title>
@@ -16,7 +16,7 @@
         <div class="subheading pa-10" style="color: #303030">
           <v-img
             src="./assets/logo.png"
-            width="3rem"
+            width="4rem"
             class="float-left mr-5"
           ></v-img>
           <strong>
@@ -55,7 +55,7 @@
       <v-footer padless class="mt-15 pa-10" >
         <v-card flat tile width="100%" class="text-center" color="teal" elevation="10">
           <v-card-text>
-            <h1  class="pb-5">Mas Sobre Nosotros</h1>
+            <h1  class="pb-5 white--text" >Mas Sobre Nosotros</h1>
             <a
               v-bind:href="social.url"
               target="_blank"
@@ -70,7 +70,7 @@
           </v-card-text>
           <v-divider></v-divider>
           <v-card-text>
-            <h3 class="pa-5">
+            <h3 class="pa-5 white--text">
               Esta Aplicación Web Fue Desarrollada Por Los Siguientes Alumnos De
               La Carrera De Tecnologías
             </h3>
@@ -87,7 +87,7 @@
               {{ credit.name }}
             </v-btn>
             <br />
-            <h3 class="pa-5">
+            <h3 class="pa-5 white--text">
               En Coordinación De El Ing. Irbing Alejandro Moreno Garcia
             </h3>
             <v-btn
