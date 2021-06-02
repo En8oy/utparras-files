@@ -1,29 +1,28 @@
 <template>
-  
-            <v-row class="ma-10" align="center" justify="center">
-                <v-col cols="12" sm="12" md="12">
-                    <v-container fluid class="pa-15">
-                    <v-card color="#E9E9E9" class="pa-8" elevation="12">
-                     <v-card-title class="text-center display-1 green--text text--accent-6"><h3> Login</h3> </v-card-title>
-                        <v-card-text>
-                            <v-form v-on:submit.prevent="login()">
-                                <v-text-field label="Usuario" type="email" v-model="email" :rules="requiredRules">
-                                </v-text-field>
-                                <v-text-field label="Contraseña" type="password" v-model="password" :rules="requiredRules">
-                                </v-text-field>
-                                <br>
+  <v-row class="ma-1" align="center" justify="center">
+    <v-col cols="9" sm="9" md="9">
+      <v-container fluid class="pa-1">
+        <v-card color="#E9E9E9"  elevation="12">
+          <v-card-title class="text-center display-1 green--text text--accent-6"><h3> Login</h3> </v-card-title>
+            <v-card-text>
+              <v-form v-on:submit.prevent="login()">
+                <v-text-field label="Usuario" type="email" v-model="email" :rules="requiredRules">
+                </v-text-field>
+                <v-text-field label="Contraseña" type="password" v-model="password" :rules="requiredRules">
+                </v-text-field>
+                <br>
 
-                               <center> <v-btn type="submit" rounded color="green accent-6" dark :loading="loading">
-                                    INICIAR
-                                </v-btn></center>
-                            </v-form>
-                        </v-card-text>
+                <center> <v-btn type="submit" rounded color="green accent-6" dark :loading="loading">
+                  INICIAR
+                </v-btn></center>
+                <br>
+                
+                </v-form>
+                  </v-card-text>
                     </v-card>
                     </v-container>
-                </v-col>
-            </v-row>
-        
-  
+            </v-col>
+        </v-row>
 </template>
 
 <script>

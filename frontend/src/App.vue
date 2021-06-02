@@ -7,7 +7,6 @@
           <v-img
             src="./assets/logo.png"
             width="3rem"
-
             class="float-left mr-5"
           ></v-img>
           {{ this.$route.name }}
@@ -53,10 +52,10 @@
           <router-view></router-view>
         </v-container>
       </transition>
-      <v-footer padless class="mt-15 pa-10">
-        <v-card flat tile width="100%" class="text-center" elevation="10">
+      <v-footer padless class="mt-15 pa-10" >
+        <v-card flat tile width="100%" class="text-center" color="teal" elevation="10">
           <v-card-text>
-            <h1 class="pb-5">Mas Sobre Nosotros</h1>
+            <h1  class="pb-5">Mas Sobre Nosotros</h1>
             <a
               v-bind:href="social.url"
               target="_blank"
@@ -64,7 +63,7 @@
               :key="social.url"
               style="text-decoration: none"
             >
-              <v-btn class="mx-5 my-5" color="teal" dark>
+              <v-btn class="mx-5 my-5" color="red darken-4" dark>
                 <v-icon>{{ social.icon }}</v-icon>
               </v-btn>
             </a>
@@ -80,7 +79,7 @@
               :key="credit.name"
               class="ma-5"
               :href="credit.url"
-              color="teal"
+              color="red darken-4"
               dark
               target="_blank"
             >

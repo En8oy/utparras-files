@@ -30,8 +30,12 @@
           <h1
           >Historia</h1>
            <br>
+           <br>
+           <br>
+           <br>
+           <br>
 
-          <p>Los antecedentes de la Universidad Tecnológica de Parras de la Fuente se remontan a 1999,
+          <p>Loca de Parras de la Fuente se remontan a 1999,
           en la Unidad Academica de la Universidad Tecnológica de Coahuila, cuando se atendió una 
           demanda de la región ante la falta de oportunidades para los egresados del nivel medio 
           superior. Aunque se debió atender hasta el 26 de Enero del 2016 para que se decretara su 

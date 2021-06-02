@@ -23,7 +23,7 @@ const routes = [
   // Public Routes
   {
     path: "/",
-    name: "Bienvenido a Expedientes UTParras",
+    name: "Inicio",
     component: Home,
   },
   {
