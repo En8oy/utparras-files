@@ -1,12 +1,15 @@
 
 import Vue from "vue";
 import VueRouter from "vue-router";
+import NotFound from "../components/NotFound.vue"
+import store from "@/store"
 
 // Public Routes
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import File from "../views/File.vue";
+
 
 // Administrator Routes
 import AdministratorHome from "../views/Administrator/Home.vue";
@@ -22,6 +25,13 @@ import AdministrativeHome from "../views/Administrative/Home.vue";
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "*",
+    name: "Pagina No Encontrada",
+    component: () => import(
+      /*webpackChunkName: "ExperienceDetails"*/
+      "../components/NotFound")
+  },
   // Public Routes
   {
     path: "/",
@@ -68,6 +78,18 @@ const routes = [
   },
 ];
 
+beforeEnter: (to, from, next) => {
+  const exists = store.destinations.find(
+    destination => destination.slug === to.params.slug
+  );
+  if (exists) {
+    next();
+  } else {
+    next({ name: "notFound" });
+  }
+}
+
+
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
@@ -75,3 +97,4 @@ const router = new VueRouter({
 });
 
 export default router;
+
