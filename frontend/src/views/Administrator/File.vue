@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1 class="text-center">Completa los Campos con la Informacion Solicitada</h1>
+      <h2 class="text-center">Completa los Campos con la Informacion Solicitada</h2>
     <v-row class="mx-auto overflow-hidden" height="100%" width="100%">
       <v-col color="black" cols="12" sm="12" md="">
         
