@@ -1,8 +1,9 @@
 <template>
   <div>
-      <h2 class="text-center">Completa los Campos con la Informacion Solicitada</h2>
+    <br><br><br>
+      <h1 class="text-center">Completa el Registro con la Informacion Solicitada</h1>
     <v-row class="mx-auto overflow-hidden" height="100%" width="100%">
-      <v-col color="black" cols="12" sm="12" md="">
+      <v-col color="black" cols="12" sm="12" md="12">
         
       </v-col>
       <v-col cols="12" sm="12" md="12">
@@ -16,11 +17,13 @@
               :complete="e6 > 1"
               step="1"
             >
-              Datos Personales
-               <small>Esta Informacion es requerida para el sistema academico de la universiad, la informacion recolectada sera protegida
+              <h2>Datos Personales</h2> 
+              <br>
+               <p>
+                 Esta Informacion es requerida para el sistema academico de la universiad, la informacion recolectada sera protegida
                 y administrada por personal autorizado de la universidad.
                 Una vez teniendo la infroamcion solicitada sera confidencial.
-              </small>
+               </p>
             </v-stepper-step>
 
             <v-stepper-content step="1">
@@ -90,7 +93,7 @@
               :complete="e6 > 2"
               step="2"
             >
-              Direccion
+            <h2>Direccion</h2>
             </v-stepper-step>
 
             <v-stepper-content step="2">
@@ -128,7 +131,7 @@
               :complete="e6 > 3"
               step="3"
             >
-              Informacion Familiar
+              <h2>Informacion Familiar</h2>  
             </v-stepper-step>
 
             <v-stepper-content step="3">
@@ -178,7 +181,7 @@
               :complete="e6 > 4"
               step="4"
             >
-              Estudios
+              <h2>Estudios</h2> 
             </v-stepper-step>
 
             <v-stepper-content step="4">
@@ -228,7 +231,7 @@
               :complete="e6 > 5"
               step="5"
             >
-              Experiencias
+              <h2>Experiencias</h2>
             </v-stepper-step>
 
             <v-stepper-content step="5">
@@ -284,7 +287,7 @@
               :complete="e6 > 6"
               step="6"
             >
-              Habilidades
+              <h2>Habilidades</h2>
             </v-stepper-step>
 
             <v-stepper-content step="6">
@@ -322,7 +325,7 @@
               :complete="e6 > 7"
               step="7"
             >
-              Departamento
+              <h2>Departamento</h2>
             </v-stepper-step>
 
             <v-stepper-content step="7">
