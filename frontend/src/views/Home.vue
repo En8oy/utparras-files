@@ -12,9 +12,8 @@
         <br />
 
         <center>
-          <v-img
-            width="800"
-            height="400"
+          <v-img class="responsive" width="500" height="300"
+         
             src="https://expertosis.com/wp-content/uploads/2020/03/aodocs-documentos.gif"
           >
           </v-img>
@@ -30,7 +29,7 @@
               <div cols="6" class="row">
                 <div xs="12" class="col-md-6 col-12">
                   <div class="v-card v-sheet theme--light elevation-10">
-                    <div
+                    <div 
                       tabindex="-1"
                       class="v-list-item v-list-item--three-line theme--light"
                     >
@@ -95,18 +94,16 @@
             </div>
           </center>
           <br /><br /><br />
-          <center>
-            <div cols="12" sm="12" md="12">
-              <div id="responsive-chart"></div>
-              <apexchart
-                width="900"
+          
+           <center> <div >
+              <apexchart xs="12" class="col-md-6 col-12"                
                 type="bar"
                 :options="options"
                 :series="series"
               >
               </apexchart>
-            </div>
-          </center>
+            </div></center>
+          
         </div>
       </v-col>
     </v-row>
@@ -161,4 +158,5 @@ export default {
     ],
   }),
 };
+
 </script>

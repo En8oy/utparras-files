@@ -1,8 +1,12 @@
 <template>
-  <v-row class="ma-10" justify="center" >
+ <v-row class="ma-10" justify="center">
     <v-col class="float-left mr-16" cols="10" sm="9" md="6">
-      <v-container fluid> 
-        <v-card color="blue-grey lighten-5" elevation="12"  >
+      <br />
+      <br />
+      <br />
+
+      <v-container fluid>
+        <v-card color="blue-grey lighten-5" elevation="12">
           <v-card-title class="text-center display-1 text text--accent-6">
             <h3>Login</h3>
           </v-card-title>
@@ -39,9 +43,15 @@
             </v-form>
           </v-card-text>
         </v-card>
+        <br />
+        <br />
+        <br />
       </v-container>
     </v-col>
   </v-row>
+    </v-img></center>
+
+    
 </template>
 
 

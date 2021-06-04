@@ -1,5 +1,5 @@
 <template>
-  <center>
+   <v-flex>
     <v-row justify="center">
       <v-col class="float-left mr-16" cols="9" sm="10" md="9">
         <v-card-text class="my-4 text-center title">
@@ -20,9 +20,8 @@
             </v-img>
           </center> -->
 
-          <v-carousel  :show-arrows="false" hide-delimiters cycle>
+          <v-carousel  :show-arrows="false" hide-delimiters cycle class="responsive" width="500" height="300">
             <v-carousel-item
-            
               v-for="(item, i) in items"
               :key="i"
               :src="item.src"
@@ -81,7 +80,7 @@
         </v-card-text>
       </v-col>
     </v-row>
-  </center>
+   </v-flex>
 </template>
 
 <script>
