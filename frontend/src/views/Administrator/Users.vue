@@ -2,6 +2,7 @@
   <v-container fluid>
   
     <v-spacer></v-spacer>
+    
 
       <v-btn
         to="/about"
@@ -51,6 +52,7 @@
               v-bind="attrs"
               v-on="on"
             >
+            
               Nuevo Expediente
             </v-btn>
           </template>
@@ -58,14 +60,13 @@
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
             </v-card-title>
-
-            <v-card-text>
+              <v-card-text>
               <v-container>
                 <v-row>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.name"
@@ -74,8 +75,8 @@
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.date"
@@ -84,8 +85,8 @@
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.email"
@@ -94,8 +95,8 @@
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.curp"
@@ -104,8 +105,8 @@
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.rfc"
@@ -114,8 +115,8 @@
 
                     <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.civil"
@@ -124,8 +125,8 @@
                     ></v-text-field>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.sexo"
@@ -134,8 +135,8 @@
                   </v-col>
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.perso"
@@ -145,8 +146,8 @@
 
                   <v-col
                     cols="12"
-                    sm="6"
-                    md="6"
+                    sm="12"
+                    md="12"
                   >
                     <v-text-field
                       v-model="editedItem.naci"
@@ -159,7 +160,6 @@
                 </v-row>
               </v-container>
             </v-card-text>
-
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
@@ -221,14 +221,19 @@
 </template>
 
 <script>
+
+
   export default {
+    
     data: () => ({
+      
       dialog: false,
       dialogDelete: false,
       search: '',
+      id: null,
       headers: [
-        {
-          text: 'id',
+      {
+          text: 'Inf',
           align: 'start',
           sortable: false,
           value: 'name',
@@ -247,6 +252,7 @@
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       desserts: [],
+    
       editedIndex: -1,
       editedItem: {
         name: '',
@@ -287,10 +293,13 @@
     created () {
       this.initialize()
     },
+    mounted () {
+    this.id = this._uid 
+    this.getUsers()
+      },
     methods: {
       initialize () {
         this.desserts = [
-          
           {
           },
         ]
@@ -330,7 +339,13 @@
           this.desserts.push(this.editedItem)
         }
         this.close()
+
       },
+      getUsers(){
+        // alert(this.$store.state.url)
+        console.log(this.$store)
+      }
     },
   }
+  
 </script> 

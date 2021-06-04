@@ -3,6 +3,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import NotFound from "../components/NotFound.vue"
 import store from "@/store"
+import jspdf from 'jspdf'
 
 // Public Routes
 import Home from "../views/Home.vue";
@@ -37,6 +38,7 @@ const routes = [
     path: "/",
     name: "Bienvenido a Expedientes UTParras",
     component: Home,
+    
   },
   {
     path: "/nosotros",
@@ -58,6 +60,7 @@ const routes = [
     path: "/administrador/inicio",
     name: "Bienvenido Administrador",
     component: AdministratorHome,
+    
   },
   {
     path: "/administrador/usuarios",
