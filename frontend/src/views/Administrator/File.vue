@@ -14,6 +14,7 @@
             vertical
           >
             <v-stepper-step
+              color="#862F30"
               :complete="e6 > 1"
               step="1"
             >
@@ -83,13 +84,15 @@
                   
               </v-card>
               <v-btn
-                color="primary"
+                dark
+                color="#862F30"
                 @click="e6 = 2"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
+              color="#862F30"
               :complete="e6 > 2"
               step="2"
             >
@@ -121,13 +124,15 @@
                 Retroceder
               </v-btn>
               <v-btn
-                color="primary"
+                dark
+                color="#862F30"
                 @click="e6 = 3"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
+              color="#862F30"
               :complete="e6 > 3"
               step="3"
             >
@@ -171,13 +176,15 @@
                 Retroceder
               </v-btn>
               <v-btn
-                color="primary"
+                dark
+                color="#862F30"
                 @click="e6 = 4"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
+              color="#862F30"
               :complete="e6 > 4"
               step="4"
             >
@@ -221,13 +228,15 @@
                 Retroceder
               </v-btn>
               <v-btn
-                color="primary"
+                dark
+                color="#862F30"
                 @click="e6 = 5"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
+              color="#862F30"
               :complete="e6 > 5"
               step="5"
             >
@@ -277,13 +286,15 @@
                 Retroceder
               </v-btn>
               <v-btn
-                color="primary"
+                dark
+                color="#862F30"
                 @click="e6 = 6"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
-        <v-stepper-step
+            <v-stepper-step
+              color="#862F30"
               :complete="e6 > 6"
               step="6"
             >
@@ -315,13 +326,15 @@
                 Retroceder
               </v-btn>
               <v-btn
-                color="primary"
+                dark
+                color="#862F30"
                 @click="e6 = 7"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
-        <v-stepper-step
+            <v-stepper-step
+              color="#862F30"
               :complete="e6 > 7"
               step="7"
             >
@@ -377,7 +390,8 @@
                 Retroceder
               </v-btn>
               <v-btn
-                color="primary"
+                dark
+                color="#862F30"
                 @click="e6 = 1"
               >
                 Finalizar

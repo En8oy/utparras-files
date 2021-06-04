@@ -53,16 +53,14 @@
         </div>
       </center>  
         <br><br><br>
-        <center >
-        <div cols="12" sm="12" md="12">
+        <center>
+        <div>
           <div id="responsive-chart"></div>
           <apexchart 
-             width="900" type="bar" 
+             width="100%" height: 380 type="bar" 
             :options="options" :series="series" 
             >
           </apexchart>
-          <!-- area-line-bar     esta es la pagina para sacar el codigo de la grafica de pastel      https://apexcharts.com/docs/chart-types/pie-donut/      
-          https://www.freecodecamp.org/news/a-detailed-guide-to-integrating-apexcharts-with-vuejs/  -->
         </div>
         </center>
       
@@ -85,7 +83,21 @@ export default {
           horizontal: true
         }
       },
-      
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+       width: 1,
+      colors: ["#fff"]
+      },
+      legend: {
+        position: "right",
+        verticalAlign: "top",
+        containerMargin: {
+          left: 35,
+          right: 60
+        }
+      },
       xaxis: {
         categories: [
          "Personal Docente",
