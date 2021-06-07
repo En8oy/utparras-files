@@ -11,9 +11,15 @@
           ></v-img>
           {{ this.$route.name }}
         </v-toolbar-title>
+        <v-switch justify="center"
+          v-model="$vuetify.theme.dark"
+          hide-details
+          inset
+          label="Modo obscuro"
+        ></v-switch>
       </v-app-bar>
-      <v-navigation-drawer v-model="drawer" absolute temporary>
-        <div class="subheading pa-10" style="color: #303030">
+      <v-navigation-drawer v-model="drawer" absolute temporary color="white">
+        <div class="subheading pa-10" style="color: ">
           <v-img
             src="./assets/logo.png"
             width="4rem"
@@ -52,10 +58,17 @@
           <router-view></router-view>
         </v-container>
       </transition>
-      <v-footer padless class="mt-15 pa-10" >
-        <v-card flat tile width="100%" class="text-center" color="teal" elevation="10">
+      <v-footer padless class="mt-15 pa-10">
+        <v-card
+          flat
+          tile
+          width="100%"
+          class="text-center"
+          color="teal"
+          elevation="10"
+        >
           <v-card-text>
-            <h1  class="pb-5 white--text" >Mas Sobre Nosotros</h1>
+            <h1 class="pb-5 white--text">Mas Sobre Nosotros</h1>
             <a
               v-bind:href="social.url"
               target="_blank"
@@ -283,8 +296,7 @@ export default {
       },
       {
         icon: "mdi-youtube",
-        url:
-          "https://www.youtube.com/channel/UCoOFvKZrsXfP2lHD7lITddw/videos?view=0&sort=p&flow=grid",
+        url: "https://www.youtube.com/channel/UCoOFvKZrsXfP2lHD7lITddw/videos?view=0&sort=p&flow=grid",
         name: "Universidad Tecnológica de Parras de la Fuente",
       },
     ],

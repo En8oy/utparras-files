@@ -6,7 +6,7 @@
       <br />
 
       <v-container fluid>
-        <v-card color="blue-grey lighten-5" elevation="12">
+        <v-card color="grey" elevation="17">
           <v-card-title class="text-center display-1 text text--accent-6">
             <h3>Login</h3>
           </v-card-title>

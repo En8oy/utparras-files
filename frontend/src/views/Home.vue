@@ -4,7 +4,6 @@
       <v-col cols="9" sm="10" md="12">
         <br />
         <br />
-
         <center>
           <h1>BIENVENIDO A EXPEDIENTES UTPARRAS</h1>
         </center>
@@ -23,10 +22,10 @@
         <br>
         
 
-        <div cols="9" sm="12" md="12">
+        <div cols="9" sm="12" md="12" >
           <center>
             <div>
-              <div cols="6" class="row">
+              <div cols="6" class="row" >
                 <div xs="12" class="col-md-6 col-12">
                   <div class="v-card v-sheet theme--light elevation-10">
                     <div 
@@ -34,7 +33,7 @@
                       class="v-list-item v-list-item--three-line theme--light"
                     >
                       <div class="v-list-item__content">
-                        <div class="overline mb-4 pa-5 white--text teal">
+                        <div class="overline mb-4 pa-5 white--text teal " >
                           <h1 class="text-center">Personal Docente</h1>
                         </div>
                         <h1 class="ma-3 text-center">35</h1>

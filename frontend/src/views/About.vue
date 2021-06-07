@@ -1,7 +1,7 @@
 <template>
    <v-flex>
     <v-row justify="center">
-      <v-col class="float-left mr-16" cols="9" sm="10" md="9">
+      <v-col class="float-left mr-16"  cols="9" sm="10" md="9">
         <v-card-text class="my-4 text-center title">
           <br />
 
