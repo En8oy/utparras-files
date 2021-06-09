@@ -33,7 +33,7 @@
           <br />
           <br />
 
-          <h1>Antecedentes</h1>
+          <h1>ANTECEDENTES</h1>
           <br />
 
           <p class="text-justify">
@@ -41,7 +41,10 @@
             Fuente se remontan a 1999, en la Unidad Academica de la Universidad
             Tecnológica de Coahuila, cuando se atendió una demanda de la región
             ante la falta de oportunidades para los egresados del nivel medio
-            superior. Aunque se debió atender hasta el 26 de Enero del 2016 para
+            superior.
+            <br>
+            <br>
+             Aunque se debió atender hasta el 26 de Enero del 2016 para
             que se decretara su constitución formal en el Diario Oficial y que,
             al abrir sus puertas, atendiera a 452 alumnos, con una oferta de
             cinco programas educativos, uno de ellos, cabe destacar, el primero
@@ -51,7 +54,7 @@
           <br />
           <br />
 
-          <h1>Impacto Social</h1>
+          <h1>IMPACTO SOCIAL</h1>
           <br />
 
           <p class="text-justify">
@@ -76,6 +79,11 @@
             tener un mejor control a la hora de obtener información, el sitio
             ayuda directamente a obtener esos datos sin la necesidad de acudir
             personalmente.
+            <br>
+            <br>
+            <br>
+            Gracias a este sitio podremos observar la informacion del pesronal de 
+            una manera mas sencialla y rapida.
           </p>
         </v-card-text>
       </v-col>
@@ -88,10 +96,6 @@ export default {
   data() {
     return {
       items: [
-        {
-          src: 
-            "https://scontent.fslw1-1.fna.fbcdn.net/v/t1.6435-9/122306967_3498534646851883_3363711158602919916_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=973b4a&_nc_ohc=nhsFx3xqEioAX8G_T4G&_nc_ht=scontent.fslw1-1.fna&oh=c095e8e50e217c55a9a21f1794abe560&oe=60DE1963",
-        },
         {
           src:
             "https://scontent.fslw1-1.fna.fbcdn.net/v/t1.6435-9/84485162_2828525067186181_2037803450414137344_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=973b4a&_nc_ohc=I4tBcbzskPoAX9nNLiP&_nc_ht=scontent.fslw1-1.fna&oh=9c6a0d67473fcab61f1bec0843cb6e0c&oe=60E04B8B",

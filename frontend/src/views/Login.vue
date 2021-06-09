@@ -49,7 +49,7 @@
       </v-container>
     </v-col>
   </v-row>
-    </v-img></center>
+  
 
     
 </template>

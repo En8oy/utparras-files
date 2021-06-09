@@ -11,15 +11,10 @@
           ></v-img>
           {{ this.$route.name }}
         </v-toolbar-title>
-        <v-switch justify="center"
-          v-model="$vuetify.theme.dark"
-          hide-details
-          inset
-          label="Modo obscuro"
-        ></v-switch>
+
       </v-app-bar>
-      <v-navigation-drawer v-model="drawer" absolute temporary color="white">
-        <div class="subheading pa-10" style="color: ">
+      <v-navigation-drawer v-model="drawer" absolute temporary color="grey">
+        <div class="subheading pa-10" style="color: black">
           <v-img
             src="./assets/logo.png"
             width="4rem"
@@ -42,7 +37,7 @@
                 </v-list-item-icon>
                 <router-link
                   :to="route.route"
-                  style="text-decoration: none; color: #303030"
+                  style="text-decoration: none; color: black"
                 >
                   <v-list-item-title>
                     {{ route.name }}
@@ -50,6 +45,13 @@
                 </router-link>
               </v-list-item>
             </div>
+            <br>
+            <v-switch justify="center"
+          v-model="$vuetify.theme.dark"
+          hide-details
+          inset
+          label="Modo obscuro"
+        ></v-switch>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
