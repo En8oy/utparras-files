@@ -13,14 +13,14 @@
         </v-toolbar-title>
 
       </v-app-bar>
-      <v-navigation-drawer v-model="drawer" absolute temporary color="grey">
-        <div class="subheading pa-10" style="color: black">
+      <v-navigation-drawer v-model="drawer" absolute temporary color="#0F6059">
+        <div class="subheading pa-10" style="color: white ">
           <v-img
             src="./assets/logo.png"
             width="4rem"
             class="float-left mr-5"
           ></v-img>
-          <strong>
+          <strong >
             Expedientes
             <br />
             UTParras
@@ -31,13 +31,13 @@
             <div v-for="route in guest" :key="route.name">
               <v-list-item>
                 <v-list-item-icon>
-                  <v-icon :color="$store.state.colorSelected">{{
+                  <v-icon style=" color:white " :color="$store.state.colorSelected">{{
                     route.icon
                   }}</v-icon>
                 </v-list-item-icon>
                 <router-link
                   :to="route.route"
-                  style="text-decoration: none; color: black"
+                  style="text-decoration: none; color:white "
                 >
                   <v-list-item-title>
                     {{ route.name }}
