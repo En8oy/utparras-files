@@ -1,7 +1,7 @@
 <template>
   <div>
     <br><br><br>
-      <h1 class="text-center">Completa el Registro con la Informacion Solicitada</h1>
+      <h1 class="text-center">Creacion de Registro</h1>
     <v-row class="mx-auto overflow-hidden" height="100%" width="100%">
       <v-col color="black" cols="12" sm="12" md="12">
         
@@ -14,13 +14,13 @@
             vertical
           >
             <v-stepper-step
-              color="#862F30"
+              color="#009688"
               :complete="e6 > 1"
               step="1"
             >
               <h2>Datos Personales</h2> 
               <br>
-               <p>
+               <p class="text-justify">
                  Esta Informacion es requerida para el sistema academico de la universiad, la informacion recolectada sera protegida
                 y administrada por personal autorizado de la universidad.
                 Una vez teniendo la infroamcion solicitada sera confidencial.
@@ -85,14 +85,14 @@
               </v-card>
               <v-btn
                 dark
-                color="#862F30"
+                color="#009688"
                 @click="e6 = 2"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
-              color="#862F30"
+              color="#009688"
               :complete="e6 > 2"
               step="2"
             >
@@ -125,14 +125,14 @@
               </v-btn>
               <v-btn
                 dark
-                color="#862F30"
+                color="#009688"
                 @click="e6 = 3"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
-              color="#862F30"
+              color="#009688"
               :complete="e6 > 3"
               step="3"
             >
@@ -177,14 +177,14 @@
               </v-btn>
               <v-btn
                 dark
-                color="#862F30"
+                color="#009688"
                 @click="e6 = 4"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
-              color="#862F30"
+              color="#009688"
               :complete="e6 > 4"
               step="4"
             >
@@ -229,14 +229,14 @@
               </v-btn>
               <v-btn
                 dark
-                color="#862F30"
+                color="#009688"
                 @click="e6 = 5"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
-              color="#862F30"
+              color="#009688"
               :complete="e6 > 5"
               step="5"
             >
@@ -287,14 +287,14 @@
               </v-btn>
               <v-btn
                 dark
-                color="#862F30"
+                color="#009688"
                 @click="e6 = 6"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
-              color="#862F30"
+              color="#009688"
               :complete="e6 > 6"
               step="6"
             >
@@ -327,14 +327,14 @@
               </v-btn>
               <v-btn
                 dark
-                color="#862F30"
+                color="#009688"
                 @click="e6 = 7"
               >
                 Continuar
               </v-btn>
             </v-stepper-content>
             <v-stepper-step
-              color="#862F30"
+              color="#009688"
               :complete="e6 > 7"
               step="7"
             >
@@ -391,7 +391,7 @@
               </v-btn>
               <v-btn
                 dark
-                color="#862F30"
+                color="#009688"
                 @click="e6 = 1"
               >
                 Finalizar
