@@ -1,25 +1,26 @@
 <template>
-  <v-app >
+  <v-app>
     <v-card class="mx-auto overflow-hidden" height="100%" width="100%">
       <v-app-bar color="teal" dark absolute elevate-on-scroll>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
         <v-toolbar-title>
           <v-img
             src="./assets/logo.png"
-            width="3rem"
-            class="float-left mr-5"
+            width="4rem"
+            class="float-left mr-4"
           ></v-img>
           {{ this.$route.name }}
         </v-toolbar-title>
+
       </v-app-bar>
-      <v-navigation-drawer v-model="drawer" absolute temporary>
-        <div class="subheading pa-10" style="color: #303030">
+      <v-navigation-drawer v-model="drawer" absolute temporary color="#0F6059">
+        <div class="subheading pa-10" style="color: white ">
           <v-img
             src="./assets/logo.png"
-            width="3rem"
+            width="4rem"
             class="float-left mr-5"
           ></v-img>
-          <strong>
+          <strong >
             Expedientes
             <br />
             UTParras
@@ -30,13 +31,13 @@
             <div v-for="route in guest" :key="route.name">
               <v-list-item>
                 <v-list-item-icon>
-                  <v-icon :color="$store.state.colorSelected">{{
+                  <v-icon style=" color:white " :color="$store.state.colorSelected">{{
                     route.icon
                   }}</v-icon>
                 </v-list-item-icon>
                 <router-link
                   :to="route.route"
-                  style="text-decoration: none; color: #303030"
+                  style="text-decoration: none; color:white "
                 >
                   <v-list-item-title>
                     {{ route.name }}
@@ -44,16 +45,30 @@
                 </router-link>
               </v-list-item>
             </div>
+            <br>
+            <v-switch justify="center"
+          v-model="$vuetify.theme.dark"
+          hide-details
+          inset
+          label="Modo obscuro"
+        ></v-switch>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
       <transition name="fade" :duration="500">
-        <v-container class="ma-20">
+        <v-container class="ma-16">
           <router-view></router-view>
         </v-container>
       </transition>
       <v-footer padless class="mt-15 pa-10">
-        <v-card color="teal" flat tile width="100%" class="text-center" elevation="10">
+        <v-card
+          flat
+          tile
+          width="100%"
+          class="text-center"
+          color="teal"
+          elevation="10"
+        >
           <v-card-text>
             <h1 class="pb-5 white--text">Mas Sobre Nosotros</h1>
             <a
@@ -63,7 +78,7 @@
               :key="social.url"
               style="text-decoration: none"
             >
-              <v-btn class="mx-5 my-5" color="#D50000" dark>
+              <v-btn class="mx-5 my-5" color="red darken-4" dark>
                 <v-icon>{{ social.icon }}</v-icon>
               </v-btn>
             </a>
@@ -79,7 +94,7 @@
               :key="credit.name"
               class="ma-5"
               :href="credit.url"
-              color="#D50000"
+              color="red darken-4"
               dark
               target="_blank"
             >
@@ -283,8 +298,7 @@ export default {
       },
       {
         icon: "mdi-youtube",
-        url:
-          "https://www.youtube.com/channel/UCoOFvKZrsXfP2lHD7lITddw/videos?view=0&sort=p&flow=grid",
+        url: "https://www.youtube.com/channel/UCoOFvKZrsXfP2lHD7lITddw/videos?view=0&sort=p&flow=grid",
         name: "Universidad Tecnológica de Parras de la Fuente",
       },
     ],

@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import NotFound from "../components/NotFound.vue"
 import store from "@/store"
 
+
 // Public Routes
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
@@ -34,9 +35,8 @@ const routes = [{
     // Public Routes
     {
         path: "/",
-        name: "Bienvenido a Expedientes UTParras",
+        name: "Inicio",
         component: Home,
-
     },
     {
         path: "/nosotros",
