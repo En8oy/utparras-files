@@ -1,8 +1,20 @@
 <template>
   <v-container fluid>
-  
-    <v-spacer></v-spacer>
     
+      <div class="d-flex align-center">
+        
+
+      </div>
+      <v-btn
+        to="/about"
+        text
+      >
+      <v-img></v-img>
+      
+      </v-btn>
+      
+      
+      <v-spacer></v-spacer>
 
       <v-btn
         to="/about"
@@ -11,7 +23,7 @@
         <span class="mr-2 white--text">Cerrar Sesion</span>
         <v-icon class="white--text">mdi-open-in-new</v-icon>
       </v-btn>
-
+      
 
     <v-spacer></v-spacer>
       <v-text-field
@@ -21,7 +33,7 @@
         single-line
         hide-details
       ></v-text-field>
-
+      
     <v-data-table
     :headers="headers"
     :items="desserts"
@@ -52,7 +64,6 @@
               v-bind="attrs"
               v-on="on"
             >
-            
               Nuevo Expediente
             </v-btn>
           </template>
@@ -60,9 +71,21 @@
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
             </v-card-title>
-              <v-card-text>
-              <v-container>
+
+            <v-card-text>
+              <div id="app">
+                <v-app>
+                <v-container>
                 <v-row>
+                  <v-col>
+                <h1>{{ heading }}</h1>
+                <v-btn 
+                color='black' 
+                class="white--text" 
+                @click='generatePDF'>
+                Generate PDF
+                </v-btn>
+                  </v-col>
                   <v-col
                     cols="12"
                     sm="12"
@@ -121,7 +144,7 @@
                     <v-text-field
                       v-model="editedItem.civil"
                       label="Estado Civil"
-
+                      
                     ></v-text-field>
                   <v-col
                     cols="12"
@@ -129,7 +152,7 @@
                     md="12"
                   >
                     <v-text-field
-                      v-model="editedItem.sexo"
+                      v-model="editedItem.gender"
                       label="Sexo"
                     ></v-text-field>
                   </v-col>
@@ -154,12 +177,13 @@
                       label="Lugar de Nacimiento"
                     ></v-text-field>
                   </v-col>
-
+                    
                   </v-col>
                   </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
+                
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
@@ -217,23 +241,33 @@
     </template>
   </v-data-table>
    </v-container >
-
+   
 </template>
 
 <script>
-
-
+new Vue({
+  el: "#app",
+  vuetify: new Vuetify(),
+  data() {
+    return {
+    };
+  },
+  methods: {
+  
+  }
+});
   export default {
-    
     data: () => ({
       
+      drawer: false,
+      group: null,
       dialog: false,
       dialogDelete: false,
       search: '',
-      id: null,
       headers: [
-      {
-          text: 'Inf',
+        {
+          columns:'id',
+          text: 'id',
           align: 'start',
           sortable: false,
           value: 'name',
@@ -246,13 +280,12 @@
         { text: 'CURP', value: 'curp' },
         { text: 'RFC', value: 'rfc' },
         { text: 'Estado Civil', value: 'civil' },
-        { text: 'Sexo', value: 'sexo' },
+        { text: 'Sexo', value: 'gender' },
         { text: 'Direccion Personal', value: 'perso'},
         { text: 'Lugar de Nacimiento', value: 'naci'},
-        { text: 'Actions', value: 'actions', sortable: false },
+        { text: 'Editar, Eliminar', value: 'actions', sortable: false },
       ],
       desserts: [],
-    
       editedIndex: -1,
       editedItem: {
         name: '',
@@ -262,7 +295,7 @@
         curp: '',
         rfc: '',
         civil: '',
-        sexo: '',
+        gender: '',
         perso: '',
       },
       defaultItem: {
@@ -273,15 +306,22 @@
         curp: '',
         rfc: '',
         civil: '',
-        sexo: '',
+        gender: '',
         perso: '',
       },
     }),
+    created(){
+      axios.get(url).then(response => {
+        this.desserts = response.data;
+        console.log(this.desserts); 
+      })
+    },
     computed: {
       formTitle () {
         return this.editedIndex === -1 ? 'Nuevo Expediente' : 'Editar Expediente'
       },
     },
+
     watch: {
       dialog (val) {
         val || this.close()
@@ -290,34 +330,37 @@
         val || this.closeDelete()
       },
     },
+
     created () {
       this.initialize()
     },
-    mounted () {
-    this.id = this._uid 
-    this.getUsers()
-      },
+
     methods: {
       initialize () {
         this.desserts = [
+          
           {
           },
         ]
       },
+
       editItem (item) {
         this.editedIndex = this.desserts.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
+
       deleteItem (item) {
         this.editedIndex = this.desserts.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
+
       deleteItemConfirm () {
         this.desserts.splice(this.editedIndex, 1)
         this.closeDelete()
       },
+
       close () {
         this.dialog = false
         this.$nextTick(() => {
@@ -325,6 +368,7 @@
           this.editedIndex = -1
         })
       },
+
       closeDelete () {
         this.dialogDelete = false
         this.$nextTick(() => {
@@ -332,6 +376,7 @@
           this.editedIndex = -1
         })
       },
+
       save () {
         if (this.editedIndex > -1) {
           Object.assign(this.desserts[this.editedIndex], this.editedItem)
@@ -339,13 +384,10 @@
           this.desserts.push(this.editedItem)
         }
         this.close()
-
       },
-      getUsers(){
-        // alert(this.$store.state.url)
-        console.log(this.$store)
-      }
     },
   }
-  
-</script> 
+</script>
+
+
+

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app >
     <v-card class="mx-auto overflow-hidden" height="100%" width="100%">
       <v-app-bar color="teal" dark absolute elevate-on-scroll>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
@@ -48,14 +48,14 @@
         </v-list>
       </v-navigation-drawer>
       <transition name="fade" :duration="500">
-        <v-container class="ma-16">
+        <v-container class="ma-20">
           <router-view></router-view>
         </v-container>
       </transition>
       <v-footer padless class="mt-15 pa-10">
-        <v-card flat tile width="100%" class="text-center" elevation="10">
+        <v-card color="teal" flat tile width="100%" class="text-center" elevation="10">
           <v-card-text>
-            <h1 class="pb-5">Mas Sobre Nosotros</h1>
+            <h1 class="pb-5 white--text">Mas Sobre Nosotros</h1>
             <a
               v-bind:href="social.url"
               target="_blank"
@@ -63,14 +63,14 @@
               :key="social.url"
               style="text-decoration: none"
             >
-              <v-btn class="mx-5 my-5" color="teal" dark>
+              <v-btn class="mx-5 my-5" color="#D50000" dark>
                 <v-icon>{{ social.icon }}</v-icon>
               </v-btn>
             </a>
           </v-card-text>
           <v-divider></v-divider>
           <v-card-text>
-            <h3 class="pa-5">
+            <h3 class="pa-5 white--text">
               Esta Aplicación Web Fue Desarrollada Por Los Siguientes Alumnos De
               La Carrera De Tecnologías
             </h3>
@@ -79,7 +79,7 @@
               :key="credit.name"
               class="ma-5"
               :href="credit.url"
-              color="teal"
+              color="#D50000"
               dark
               target="_blank"
             >
@@ -87,7 +87,7 @@
               {{ credit.name }}
             </v-btn>
             <br />
-            <h3 class="pa-5">
+            <h3 class="pa-5 white--text">
               En Coordinación De El Ing. Irbing Alejandro Moreno Garcia
             </h3>
             <v-btn
