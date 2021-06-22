@@ -397,7 +397,8 @@
                 Finalizar
               </v-btn>
             </v-stepper-content>
-
+              <!-- v-show  USAR ESTO PARA LOS BOTONES Y QUITARLE EL COLOR A LOS FORMULARIOS
+                -->
           </v-stepper>
 
 </template>
