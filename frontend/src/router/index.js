@@ -13,7 +13,7 @@ import File from "../views/File.vue";
 // Administrator Routes
 import AdministratorHome from "../views/Administrator/Home.vue";
 import AdministratorUser from "../views/Administrator/Users.vue";
-
+import AdministratorFile from "../views/Administrator/File.vue"
 
 // Teacher Routes
 import TeacherHome from "../views/Teacher/Home.vue";
@@ -64,6 +64,49 @@ const routes = [{
         path: "/administrador/usuarios",
         name: "Administrar Usuarios",
         component: AdministratorUser,
+    },
+    // Administrative Routes
+    {
+        path: "/administrativo/inicio",
+        name: "Bienvenido Administrador",
+        component: AdministrativeHome,
+    },
+    // Teacher Routes
+    {
+        path: "/maestro/inicio",
+        name: "Bienvenido Administrador",
+        component: TeacherHome,
+    },
+    {
+        path: "/",
+        name: "Bienvenido a Expedientes UTParras",
+        component: Home,
+    },
+    {
+        path: "/nosotros",
+        name: "Acerca De Nosotros",
+        component: About,
+    },
+    {
+        path: "/login",
+        name: "Inicia Sesión",
+        component: Login,
+    },
+    {
+        path: "/expedientes",
+        name: "Expedientes Publicos",
+        component: File,
+    },
+    // Administrator Routes
+    {
+        path: "/administrador/inicio",
+        name: "Bienvenido Administrador",
+        component: AdministratorHome,
+    },
+    {
+        path: "/administrador/expediente",
+        name: "Mi Expediente UTParras",
+        component: AdministratorFile,
     },
     // Administrative Routes
     {
