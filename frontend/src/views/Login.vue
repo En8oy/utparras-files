@@ -1,13 +1,13 @@
 <template>
- <v-row class="ma-10" justify="center">
-    <v-col class="float-left mr-16" cols="10" sm="9" md="6">
+ <v-row >
+    <v-col class="mx-auto md-15" cols="7" sm="8" md="5">
       <br />
       <br />
       <br />
 
       <v-container fluid>
-        <v-card color="grey" elevation="17">
-          <v-card-title class="text-center display-1 text text--accent-6">
+        <v-card class=" mb-4 pa-5" color="grey" elevation="17" >
+          <v-card-title class=" display-1 ">
             <h3>Login</h3>
           </v-card-title>
           <v-card-text>
@@ -32,7 +32,7 @@
                 <v-btn
                   type="submit"
                   rounded
-                  color="red accent-4"
+                  color="#009688"
                   dark
                   :loading="loading"
                 >
@@ -89,6 +89,7 @@ export default {
           .dispatch("User/login", {
             email: this.email,
             password: this.password,
+          
           })
           .then((message) => {
             this.$toast.open({
