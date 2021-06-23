@@ -27,56 +27,73 @@
                </p>
             </v-stepper-step>
 
-            <v-stepper-content step="1">
-              <v-card color="#E9E9E9"
+            <v-stepper-content step="1" id="menu">
+              <v-card
                 class="mb-12"
-                elevation="0"
-
-                ><v-text-field
-                    v-model="name"
+                elevation="8"
+              
+                >
+                <div class="row">
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <div class="v-input v-input--is--label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
+                      <div class="v-input__control">
+                        <div class="v-input__slot">
+                          
+                          <div class="v-text-field__slot">
+                            <label for="input-260" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position:absolute;">Nombre</label>
+                            <input type="text" id="input-260">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <v-text-field
+                    v-model="vue.name"
                     :rules="nameRules"
                     label="Nombre"
                     required
                   ></v-text-field>
                   <v-text-field
-                    v-model="surname"
+                    v-model="vue.surname"
                     :rules="surnameRules"
                     label="Apellidos"
                     required
                   ></v-text-field>
                 <v-text-field
-                        v-model="dateFormatted"
+                        v-model="vue.birth"
+                        :rules="birth"
                         label="Fecha de Nacimiento"
                         hint="DD/MM/AAAA"
                         required
                   ></v-text-field>
                   <v-text-field
-                          v-model="email"
+                          v-model="vue.email"
                           :rules="emailRules"
                           label="Correo"
                           required
                   ></v-text-field>
                   <v-text-field
-                    v-model="curp"
+                    v-model="vue.curp"
                     :rules="curpRules"
                     label="CURP"
                     required
                   ></v-text-field>
                   <v-text-field
-                    v-model="rfc"
+                    v-model="vue.rfc"
                     :rules="rfcRules"
                     label="RFC"
                     required
                   ></v-text-field>
                   <v-text-field
-                    v-model="civil"
+                    v-model="vue.status"
                     :rules="civilRules"
                     label="Estado Civil"
                     required
                   ></v-text-field>
                   
                   <v-text-field
-                    v-model="sex"
+                    v-model="vue.sex"
                     :rules="sexRules"
                     label="Sexo"
                     required
@@ -87,6 +104,7 @@
                 dark
                 color="#009688"
                 @click="e6 = 2"
+                v-show="vue.sex"
               >
                 Continuar
               </v-btn>
@@ -100,9 +118,9 @@
             </v-stepper-step>
 
             <v-stepper-content step="2">
-              <v-card color="#E9E9E9"
+              <v-card 
                 class="mb-12"
-                elevation="0"
+                elevation="8"
 
                 ><v-text-field
                     v-model="address"
@@ -140,9 +158,9 @@
             </v-stepper-step>
 
             <v-stepper-content step="3">
-              <v-card color="#E9E9E9"
+              <v-card 
                 class="mb-12"
-                elevation="0"
+                elevation="8"
 
                 ><v-text-field
                     v-model="namecomplete"
@@ -192,9 +210,9 @@
             </v-stepper-step>
 
             <v-stepper-content step="4">
-              <v-card color="#E9E9E9"
+              <v-card 
                 class="mb-12"
-                elevation="0"
+                elevation="8"
 
                 ><v-text-field
                     v-model="instituciones"
@@ -244,9 +262,9 @@
             </v-stepper-step>
 
             <v-stepper-content step="5">
-              <v-card color="#E9E9E9"
+              <v-card 
                 class="mb-12"
-                elevation="0"
+                elevation="8"
 
                 ><v-text-field
                     v-model="experiences"
@@ -302,9 +320,9 @@
             </v-stepper-step>
 
             <v-stepper-content step="6">
-              <v-card color="#E9E9E9"
+              <v-card 
                 class="mb-12"
-                elevation="0"
+                elevation="8"
 
                 ><v-text-field
                     v-model="skill"
@@ -342,9 +360,9 @@
             </v-stepper-step>
 
             <v-stepper-content step="7">
-              <v-card color="#E9E9E9"
+              <v-card 
                 class="mb-12"
-                elevation="0"
+                elevation="8"
 
                 ><v-text-field
                     v-model="institution"
@@ -436,10 +454,21 @@ export default {
 
 <script>
  export default {
+    el: '#menu',
     data () {
       return {
         e6: 1,
-      }
+        vue: [{
+          name: '',
+          surname: '',
+          birth: '',
+          email: '',
+          curp: '',
+          status: '',
+          sex: ''
+        }
+        ]
+        }
     },
   }
 </script>
