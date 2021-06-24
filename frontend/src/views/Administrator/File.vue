@@ -1,7 +1,7 @@
 <template>
   <div>
     <br><br><br>
-      <h1 class="text-center">Creacion de Registro</h1>
+      <h1 class="text-center">Mi Expediente</h1>
     <v-row class="mx-auto overflow-hidden" height="100%" width="100%">
       <v-col color="black" cols="12" sm="12" md="12">
         
@@ -35,76 +35,86 @@
                 >
                 <div class="row">
                   <div class="col-sm-6 col-md-6 col-12">
-                    <div class="v-input v-input--is--label-active v-input--is-dirty theme--light v-text-field v-text-field--is-booted">
-                      <div class="v-input__control">
-                        <div class="v-input__slot">
-                          
-                          <div class="v-text-field__slot">
-                            <label for="input-260" class="v-label v-label--active theme--light" style="left: 0px; right: auto; position:absolute;">Nombre</label>
-                            <input type="text" id="input-260">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <v-text-field
+                     <v-text-field
                     v-model="vue.name"
                     :rules="nameRules"
                     label="Nombre"
                     required
                   ></v-text-field>
-                  <v-text-field
-                    v-model="vue.surname"
-                    :rules="surnameRules"
-                    label="Apellidos"
-                    required
-                  ></v-text-field>
-                <v-text-field
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
+                      v-model="vue.surname"
+                      :rules="surnameRules"
+                      label="Apellidos"
+                      required
+                    ></v-text-field>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-12">
+                       <v-text-field
                         v-model="vue.birth"
                         :rules="birth"
                         label="Fecha de Nacimiento"
                         hint="DD/MM/AAAA"
                         required
-                  ></v-text-field>
-                  <v-text-field
+                      ></v-text-field>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-12">
+                      <v-text-field
                           v-model="vue.email"
                           :rules="emailRules"
                           label="Correo"
                           required
                   ></v-text-field>
-                  <v-text-field
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-12">
+                      <v-text-field
                     v-model="vue.curp"
                     :rules="curpRules"
                     label="CURP"
                     required
                   ></v-text-field>
-                  <v-text-field
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-12">
+                       <v-text-field
                     v-model="vue.rfc"
                     :rules="rfcRules"
                     label="RFC"
                     required
                   ></v-text-field>
-                  <v-text-field
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-12">
+                       <v-text-field
                     v-model="vue.status"
                     :rules="civilRules"
                     label="Estado Civil"
                     required
                   ></v-text-field>
-                  
-                  <v-text-field
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-12">
+                      <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-164" class="v-input__slot">
+                        <div class="v-select__slot">
+                          <label for="input-164" class="v-label--active theme--light teal--text" style="left: 0px; right: auto; position: absolute;">Sexo</label>
+                          <div class="v-select__selections">
+                            <input id="input-164" readonly="readonly" type="text" aria-readonly="false" autocomplete="off">
+                          </div>
+                          <div></div>
+                        </div>
+                      </div>
+                      <v-text-field
                     v-model="vue.sex"
                     :rules="sexRules"
                     label="Sexo"
                     required
                   ></v-text-field>
-                  
+                    </div>
+                </div>
               </v-card>
               <v-btn
                 dark
                 color="#009688"
                 @click="e6 = 2"
-                v-show="vue.sex"
+                
               >
                 Continuar
               </v-btn>
@@ -116,24 +126,24 @@
             >
             <h2>Direccion</h2>
             </v-stepper-step>
-
             <v-stepper-content step="2">
               <v-card 
                 class="mb-12"
-                elevation="8"
-
-                ><v-text-field
+                elevation="8">
+                <div class="row">
+                  <div class="col-sm-6 col-md-6 col-12"><v-text-field
                     v-model="address"
                     :rules="addressRules"
                     label="Direccion Personal"
                     required
-                  ></v-text-field>
-                  <v-text-field
+                  ></v-text-field></div>
+                  <div class="col-sm-6 col-md-6 col-12"> <v-text-field
                     v-model="place"
                     :rules="placeRules"
                     label="Lugar de Nacimiento"
                     required
-                  ></v-text-field>
+                  ></v-text-field></div>
+                </div>
               </v-card>
                <v-btn
                 color="dark"
@@ -162,30 +172,39 @@
                 class="mb-12"
                 elevation="8"
 
-                ><v-text-field
+                >
+                <div class="row">
+                  <div class="col-sm-6 col-md-6 col-12">
+                     <v-text-field
                     v-model="namecomplete"
                     :rules="namecompleteRules"
                     label="Nombre Completo"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="family"
                     :rules="familyRules"
                     label="Familiar"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12"><v-text-field
                     v-model="phone"
                     :rules="phoneRules"
                     label="Telefono"
                     required
-                  ></v-text-field>
-                  <v-text-field
+                  ></v-text-field></div>
+                   <div class="col-sm-6 col-md-6 col-12">
+                     <v-text-field
                     v-model="addressfamily"
                     :rules="addressfamilyRules"
                     label="Direccion"
                     required
                   ></v-text-field>
+                   </div>
+                </div>   
               </v-card>
                <v-btn
                 color="dark"
@@ -214,30 +233,39 @@
                 class="mb-12"
                 elevation="8"
 
-                ><v-text-field
+                >
+                <div class="row">
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="instituciones"
                     :rules="institucionesRules"
                     label="Instituciones"
                     required
-                  ></v-text-field>
-                  <v-text-field
+                  ></v-text-field></div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="career"
                     :rules="careerRules"
                     label="Carrera Profesional"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                   <div class="col-sm-6 col-md-6 col-12">
+                     <v-text-field
                     v-model="entryRules"
                     :rules="entryRules"
                     label="Ingreso"
                     required
                   ></v-text-field>
-                  <v-text-field
+                   </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="egres"
                     :rules="egressRules"
                     label="Egreso"
                     required
-                  ></v-text-field>
+                  ></v-text-field></div>
+                </div> 
               </v-card>
                <v-btn
                 color="dark"
@@ -260,42 +288,53 @@
             >
               <h2>Experiencias</h2>
             </v-stepper-step>
-
             <v-stepper-content step="5">
               <v-card 
                 class="mb-12"
                 elevation="8"
-
-                ><v-text-field
+                >
+                <div class="row">
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="experiences"
                     :rules="experiencesRules"
                     label="Experiencia"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="position"
                     :rules="positionRules"
                     label="Puesto"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="typexp"
                     :rules="typeexpRules"
                     label="Tipo de Experiencia"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="start"
                     :rules="startRules"
                     label="Inicio de la Experiencia"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="endfamily"
                     :rules="endfamilyRules"
                     label="Fin de la Experiencia"
                     required
                   ></v-text-field>
+                  </div>
+                </div>
               </v-card>
               <v-btn
                 color="dark"
@@ -324,18 +363,25 @@
                 class="mb-12"
                 elevation="8"
 
-                ><v-text-field
+                >
+                 <div class="row">
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="skill"
                     :rules="skillRules"
                     label="Habilidad"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                     <v-text-field
                     v-model="level"
                     :rules="levelRules"
                     label="Nivel"
                     required
                   ></v-text-field>
+                  </div>
+                </div>
               </v-card>
                <v-btn
                 color="dark"
@@ -358,48 +404,61 @@
             >
               <h2>Departamento</h2>
             </v-stepper-step>
-
             <v-stepper-content step="7">
               <v-card 
                 class="mb-12"
                 elevation="8"
-
-                ><v-text-field
+                >
+                 <div class="row">
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="institution"
                     :rules="institutionRules"
                     label="Institucion"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="responsable"
                     :rules="responsableRules"
                     label="Responsable"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="emailcharge"
                     :rules="emailchargeRules"
                     label="Correo del responsable"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="phonecharge"
                     :rules="phonechargeRules"
                     label="Telefono del responsable"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="responsibilities"
                     :rules="responsibilitiesRules"
                     label="Responsabilidades"
                     required
                   ></v-text-field>
-                  <v-text-field
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-12">
+                    <v-text-field
                     v-model="schedule"
                     :rules="scheduleRules"
                     label="Horario"
                     required
                   ></v-text-field>
+                  </div>
+                </div>
               </v-card>
               <v-btn
                 color="dark"
