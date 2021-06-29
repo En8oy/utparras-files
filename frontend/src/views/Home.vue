@@ -1,7 +1,7 @@
 <template>
   <v-flex>
     <v-row>
-      <v-col class="mx-auto" cols="9" sm="10" md="12">
+      <v-col cols="9" sm="10" md="12">
         <br />
         <br />
         <br />

@@ -1,24 +1,10 @@
 <template>
    <v-flex>
     <v-row>
-      <v-col class="mx-auto" cols="9" sm="10" md="12">
+      <v-col cols="9" sm="10" md="12">
         <v-card-text class="my-4 text-center title">
           <br />
 
-          <!-- <center>
-            <v-img
-              class="mr-16"
-              cols="9"
-              sm="10"
-              md="9"
-              width="100%"
-              src="https://scontent.fslw1-1.fna.fbcdn.net/v/t1.6435-9/34019879_1797837106921654_4399235100353495040_n.png?_nc_cat=105&ccb=1-3&_nc_sid=973b4a&_nc_ohc=FWZ_P2qGx1oAX8WFiyk&_nc_ht=scontent.fslw1-1.fna&oh=d6d3562794159b8fcf3c3a1a6819b952&oe=60E047B9"
-            >
-              <br />
-              <br />
-              <br />
-            </v-img>
-          </center> -->
 
           <v-carousel  :show-arrows="false" hide-delimiters cycle class="responsive" width="500" height="300">
             <v-carousel-item

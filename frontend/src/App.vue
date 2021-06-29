@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-card class="mx-auto overflow-hidden" height="100%" width="100%">
+    <v-card  height="100%" width="100%">
       <v-app-bar color="teal" dark absolute elevate-on-scroll>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
         <v-toolbar-title>
