@@ -22,7 +22,7 @@
           <h1>ANTECEDENTES</h1>
           <br />
 
-          <p class="text-justify">
+          <h3 class="text-justify">
             Los antecedentes de la Universidad Tecnológica de Parras de la
             Fuente se remontan a 1999, en la Unidad Academica de la Universidad
             Tecnológica de Coahuila, cuando se atendió una demanda de la región
@@ -35,7 +35,7 @@
             al abrir sus puertas, atendiera a 452 alumnos, con una oferta de
             cinco programas educativos, uno de ellos, cabe destacar, el primero
             a nivel nacional.
-          </p>
+          </h3>
           <br />
           <br />
           <br />
@@ -43,14 +43,14 @@
           <h1>IMPACTO SOCIAL</h1>
           <br />
 
-          <p class="text-justify">
+          <h3 class="text-justify">
             La Universidad cubre la necesidad de la industria manufacturera, la
             cual require perfiles de nivel técnico superior para atender las
             necesidades de operación de fábrica como Dickies de Parras, Cone y
             Star del Norte, entre otras, como las vitivinicolas Casa Madero y
             Casa Rivero, así como las necesidades que tienen los comercios y
             negocios de la región.
-          </p>
+          </h3>
           <br />
           <br />
           <br />
@@ -59,7 +59,7 @@
           <br />
           <br />
 
-          <p class="text-justify">
+          <h3 class="text-justify">
             Este sitio cuenta con la utilidad de registrar datos del personal de
             la Universidad Tecnológica de Parras de la Fuente, con el fin de
             tener un mejor control a la hora de obtener información, el sitio
@@ -70,7 +70,7 @@
             <br>
             Gracias a este sitio podremos observar la informacion del pesronal de 
             una manera mas sencialla y rapida.
-          </p>
+          </h3>
         </v-card-text>
       </v-col>
     </v-row>
