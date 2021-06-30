@@ -47,7 +47,8 @@
             </div>
             <br>
             <v-switch justify="center"
-          v-model="$vuetify.theme.dark"
+          v-model="theme"
+          @change="changetheme"
           hide-details
           inset
           label="Modo obscuro"
@@ -131,6 +132,7 @@
 export default {
   data: () => ({
     drawer: false,
+    theme: true,
     credits: [
       {
         name: "Edgar	Flores Perez",
@@ -306,7 +308,14 @@ export default {
     padless: false,
     variant: "default",
   }),
-  methods: {},
+  methods: {
+    changetheme(){
+      // console.log(this.theme)
+      if(this.theme){
+      this.$store.dispatch
+      }
+    }
+  },
   mounted() {},
   computed: {},
   components: {},
