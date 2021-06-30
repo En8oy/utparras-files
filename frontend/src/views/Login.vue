@@ -58,12 +58,12 @@
                         <br>
                         <h3
                           class="text-center"
-                        >Ingrese sus datos personales y regístrese</h3>
+                        >Ingrese sus datos personales y regístrate</h3>
                         <br>
                       </v-card-text>
                       <div class="text-center">
                         <br>
-                        <v-btn rounded outlined dark @click="step++"> regístrese</v-btn>
+                        <v-btn rounded outlined dark @click="step++"> regístrate</v-btn>
                         <br>
                         <br>
                       </div>
@@ -107,7 +107,7 @@
                           <br>
                           <h1
                           class="text-center display-2  text--accent-3"
-                        >REGÍSTRESE</h1>
+                        >REGÍSTRATE</h1>
                           <v-text-field
                             label="Nombre"
                             name="Name"
@@ -137,7 +137,7 @@
                       <br>
 
                       <div class="text-center mt-n5">
-                        <v-btn rounded color="teal accent-3" dark>REGÍSTRESE</v-btn>
+                        <v-btn rounded color="teal accent-3" dark>REGÍSTRATE</v-btn>
                       </div>
                       <br>
                       <br>

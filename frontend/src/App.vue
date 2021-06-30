@@ -47,8 +47,8 @@
             </div>
             <br>
             <v-switch justify="center"
-          v-model="theme"
-          @change="changetheme"
+          v-model="$store.state.theme"
+          @change="changeTheme"
           hide-details
           inset
           label="Modo obscuro"
@@ -309,14 +309,22 @@ export default {
     variant: "default",
   }),
   methods: {
-    changetheme(){
+    changeTheme(){
       // console.log(this.theme)
-      if(this.theme){
-      this.$store.dispatch
+      if(this.$store.state.theme){
+      this.$store.dispatch("getTheme",true)
+      this.$vuetify.theme.dark=true
+      }else{
+        this.$store.dispatch("getTheme",false)
+        this.$vuetify.theme.dark=false
       }
+      // console.log(this.$store.state.theme)
+      
     }
   },
-  mounted() {},
+  mounted() {
+    this.changeTheme()
+  },
   computed: {},
   components: {},
 };
