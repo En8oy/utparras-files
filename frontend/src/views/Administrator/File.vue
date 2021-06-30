@@ -34,15 +34,16 @@
               
                 >
                 <div class="row">
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                      <v-text-field
+                     
                     v-model="vue.name"
                     :rules="nameRules"
                     label="Nombre"
                     required
                   ></v-text-field>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-12">
+                    <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                       v-model="vue.surname"
                       :rules="surnameRules"
@@ -50,7 +51,7 @@
                       required
                     ></v-text-field>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-12">
+                    <div class="col-sm-6 col-md-4 col-12">
                        <v-text-field
                         v-model="vue.birth"
                         :rules="birth"
@@ -59,7 +60,7 @@
                         required
                       ></v-text-field>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-12">
+                    <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                           v-model="vue.email"
                           :rules="emailRules"
@@ -67,7 +68,7 @@
                           required
                   ></v-text-field>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-12">
+                    <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                     v-model="vue.curp"
                     :rules="curpRules"
@@ -75,7 +76,7 @@
                     required
                   ></v-text-field>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-12">
+                    <div class="col-sm-6 col-md-4 col-12">
                        <v-text-field
                     v-model="vue.rfc"
                     :rules="rfcRules"
@@ -83,7 +84,7 @@
                     required
                   ></v-text-field>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-12">
+                    <div class="col-sm-6 col-md-4 col-12">
                        <v-text-field
                     v-model="vue.status"
                     :rules="civilRules"
@@ -91,17 +92,8 @@
                     required
                   ></v-text-field>
                     </div>
-                    <div class="col-sm-6 col-md-6 col-12">
-                      <div role="button" aria-haspopup="listbox" aria-expanded="false" aria-owns="list-164" class="v-input__slot">
-                        <div class="v-select__slot">
-                          <label for="input-164" class="v-label--active theme--light teal--text" style="left: 0px; right: auto; position: absolute;">Sexo</label>
-                          <div class="v-select__selections">
-                            <input id="input-164" readonly="readonly" type="text" aria-readonly="false" autocomplete="off">
-                          </div>
-                          <div></div>
-                        </div>
-                      </div>
-                      <v-text-field
+                    <div class="col-sm-6 col-md-4 col-12">
+                    <v-text-field
                     v-model="vue.sex"
                     :rules="sexRules"
                     label="Sexo"
@@ -131,13 +123,13 @@
                 class="mb-12"
                 elevation="8">
                 <div class="row">
-                  <div class="col-sm-6 col-md-6 col-12"><v-text-field
+                  <div class="col-sm-6 col-md-5 col-12"><v-text-field
                     v-model="address"
                     :rules="addressRules"
                     label="Direccion Personal"
                     required
                   ></v-text-field></div>
-                  <div class="col-sm-6 col-md-6 col-12"> <v-text-field
+                  <div class="col-sm-6 col-md-5 col-12"> <v-text-field
                     v-model="place"
                     :rules="placeRules"
                     label="Lugar de Nacimiento"
@@ -174,7 +166,7 @@
 
                 >
                 <div class="row">
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-3 col-12">
                      <v-text-field
                     v-model="namecomplete"
                     :rules="namecompleteRules"
@@ -182,7 +174,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-3 col-12">
                     <v-text-field
                     v-model="family"
                     :rules="familyRules"
@@ -190,13 +182,13 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12"><v-text-field
+                  <div class="col-sm-6 col-md-3 col-12"><v-text-field
                     v-model="phone"
                     :rules="phoneRules"
                     label="Telefono"
                     required
                   ></v-text-field></div>
-                   <div class="col-sm-6 col-md-6 col-12">
+                   <div class="col-sm-6 col-md-3 col-12">
                      <v-text-field
                     v-model="addressfamily"
                     :rules="addressfamilyRules"
@@ -235,14 +227,14 @@
 
                 >
                 <div class="row">
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-3 col-12">
                     <v-text-field
                     v-model="instituciones"
                     :rules="institucionesRules"
                     label="Instituciones"
                     required
                   ></v-text-field></div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-3 col-12">
                     <v-text-field
                     v-model="career"
                     :rules="careerRules"
@@ -250,7 +242,7 @@
                     required
                   ></v-text-field>
                   </div>
-                   <div class="col-sm-6 col-md-6 col-12">
+                   <div class="col-sm-6 col-md-3 col-12">
                      <v-text-field
                     v-model="entryRules"
                     :rules="entryRules"
@@ -258,7 +250,7 @@
                     required
                   ></v-text-field>
                    </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-3 col-12">
                     <v-text-field
                     v-model="egres"
                     :rules="egressRules"
@@ -294,7 +286,7 @@
                 elevation="8"
                 >
                 <div class="row">
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="experiences"
                     :rules="experiencesRules"
@@ -302,7 +294,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="position"
                     :rules="positionRules"
@@ -310,7 +302,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="typexp"
                     :rules="typeexpRules"
@@ -318,7 +310,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="start"
                     :rules="startRules"
@@ -326,7 +318,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="endfamily"
                     :rules="endfamilyRules"
@@ -365,7 +357,7 @@
 
                 >
                  <div class="row">
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-5 col-12">
                     <v-text-field
                     v-model="skill"
                     :rules="skillRules"
@@ -373,7 +365,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-5 col-12">
                      <v-text-field
                     v-model="level"
                     :rules="levelRules"
@@ -410,7 +402,7 @@
                 elevation="8"
                 >
                  <div class="row">
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="institution"
                     :rules="institutionRules"
@@ -418,7 +410,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="responsable"
                     :rules="responsableRules"
@@ -426,7 +418,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="emailcharge"
                     :rules="emailchargeRules"
@@ -434,7 +426,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="phonecharge"
                     :rules="phonechargeRules"
@@ -442,7 +434,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="responsibilities"
                     :rules="responsibilitiesRules"
@@ -450,7 +442,7 @@
                     required
                   ></v-text-field>
                   </div>
-                  <div class="col-sm-6 col-md-6 col-12">
+                  <div class="col-sm-6 col-md-4 col-12">
                     <v-text-field
                     v-model="schedule"
                     :rules="scheduleRules"
