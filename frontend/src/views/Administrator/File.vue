@@ -82,12 +82,12 @@
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
-                      <v-text-field
+                      <v-select
+                        :items="items"
+                        :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.sexo"
-                        :rules="sexRules"
-                        label="Sexo"
-                        required
-                      ></v-text-field>
+                        label="Genero"
+                      ></v-select>
                     </div>
                   </div>
                 </v-card>
@@ -134,7 +134,7 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="namecomplete"
+                        v-model="$store.state.auth.user.full_name"
                         :rules="namecompleteRules"
                         label="Nombre Completo"
                         required
@@ -142,7 +142,7 @@
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="family"
+                        v-model="$store.state.auth.user.family"
                         :rules="familyRules"
                         label="Familiar"
                         required
@@ -150,7 +150,7 @@
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="phone"
+                        v-model="$store.state.auth.user.phone"
                         :rules="phoneRules"
                         label="Telefono"
                         required
@@ -158,7 +158,7 @@
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="addressfamily"
+                        v-model="$store.state.auth.user.address_family"
                         :rules="addressfamilyRules"
                         label="Direccion"
                         required
@@ -167,7 +167,7 @@
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 2"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="step = 4"> Continuar </v-btn>
+                <v-btn dark color="#009688" @click="checkIfIsSet(3)"> Continuar </v-btn>
               </v-stepper-content>
               <v-stepper-step color="#009688" :complete="step > 4" step="4">
                 <h2>Estudios</h2>
@@ -178,7 +178,7 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="instituciones"
+                        v-model="$store.state.auth.user.instituciones"
                         :rules="institucionesRules"
                         label="Instituciones"
                         required
@@ -186,7 +186,7 @@
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="career"
+                        v-model="$store.state.auth.user.career"
                         :rules="careerRules"
                         label="Carrera Profesional"
                         required
@@ -194,7 +194,7 @@
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="entryRules"
+                        v-model="$store.state.auth.user.entry"
                         :rules="entryRules"
                         label="Ingreso"
                         required
@@ -202,7 +202,7 @@
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="egres"
+                        v-model="$store.state.auth.user.egress"
                         :rules="egressRules"
                         label="Egreso"
                         required
@@ -211,7 +211,7 @@
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 3"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="step = 5"> Continuar </v-btn>
+                <v-btn dark color="#009688" @click="checkIfIsSet(4)"> Continuar </v-btn>
               </v-stepper-content>
               <v-stepper-step color="#009688" :complete="step > 5" step="5">
                 <h2>Experiencias</h2>
@@ -221,7 +221,7 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="experiences"
+                        v-model="$store.state.auth.user.experiences"
                         :rules="experiencesRules"
                         label="Experiencia"
                         required
@@ -229,7 +229,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="position"
+                        v-model="$store.state.auth.user.position"
                         :rules="positionRules"
                         label="Puesto"
                         required
@@ -237,7 +237,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="typexp"
+                        v-model="$store.state.auth.user.type_exp"
                         :rules="typeexpRules"
                         label="Tipo de Experiencia"
                         required
@@ -245,7 +245,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="start"
+                        v-model="$store.state.auth.user.start"
                         :rules="startRules"
                         label="Inicio de la Experiencia"
                         required
@@ -253,7 +253,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="endfamily"
+                        v-model="$store.state.auth.user.end"
                         :rules="endfamilyRules"
                         label="Fin de la Experiencia"
                         required
@@ -262,7 +262,7 @@
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 4"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="step = 6"> Continuar </v-btn>
+                <v-btn dark color="#009688" @click="checkIfIsSet(5)"> Continuar </v-btn>
               </v-stepper-content>
               <v-stepper-step color="#009688" :complete="step > 6" step="6">
                 <h2>Habilidades</h2>
@@ -273,7 +273,7 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
-                        v-model="skill"
+                        v-model="$store.state.auth.user.skill"
                         :rules="skillRules"
                         label="Habilidad"
                         required
@@ -281,7 +281,7 @@
                     </div>
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
-                        v-model="level"
+                        v-model="$store.state.auth.user.level"
                         :rules="levelRules"
                         label="Nivel"
                         required
@@ -290,7 +290,7 @@
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 5"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="step = 7"> Continuar </v-btn>
+                <v-btn dark color="#009688" @click="checkIfIsSet(6)"> Continuar </v-btn>
               </v-stepper-content>
               <v-stepper-step color="#009688" :complete="step > 7" step="7">
                 <h2>Departamento</h2>
@@ -300,7 +300,7 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="institution"
+                         v-model="$store.state.auth.user.institucion"
                         :rules="institutionRules"
                         label="Institucion"
                         required
@@ -308,7 +308,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="responsable"
+                         v-model="$store.state.auth.user.responsable"
                         :rules="responsableRules"
                         label="Responsable"
                         required
@@ -316,7 +316,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="emailcharge"
+                         v-model="$store.state.auth.user.email_res"
                         :rules="emailchargeRules"
                         label="Correo del responsable"
                         required
@@ -324,7 +324,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="phonecharge"
+                         v-model="$store.state.auth.user.tel"
                         :rules="phonechargeRules"
                         label="Telefono del responsable"
                         required
@@ -332,7 +332,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="responsibilities"
+                         v-model="$store.state.auth.user.resp"
                         :rules="responsibilitiesRules"
                         label="Responsabilidades"
                         required
@@ -340,7 +340,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="schedule"
+                         v-model="$store.state.auth.user.horario"
                         :rules="scheduleRules"
                         label="Horario"
                         required
@@ -349,7 +349,7 @@
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 6"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="step = 1"> Finalizar </v-btn>
+                <v-btn dark color="#009688" @click="checkIfIsSet(7)"> Finalizar </v-btn>
               </v-stepper-content>
               <!-- v-show  USAR ESTO PARA LOS BOTONES Y QUITARLE EL COLOR A LOS FORMULARIOS
                 -->
@@ -417,7 +417,7 @@ export default {
           ){
             this.step++
           }else{
-            alert("is bad")
+            alert("Completa Todos los Campos")
           }
           break;
         case 2:
@@ -427,17 +427,68 @@ export default {
           ){
             this.step++
           }else{
-            alert("is bad")
+            alert("Completa Todos los Campos")
           }
           break;
-          case 3:
+        case 3:
           if (
-            this.$store.state.auth.user.personal_address != '' &&
-            this.$store.state.auth.user.origin != ''
+            this.$store.state.auth.user.full_name != '' &&
+            this.$store.state.auth.user.family != '' &&
+            this.$store.state.auth.user.phone != '' &&
+            this.$store.state.auth.user.address_family != ''
           ){
             this.step++
           }else{
-            alert("is bad")
+            alert("Completa Todos los Campos")
+          }
+          break;
+        case 4:
+          if (
+            this.$store.state.auth.user.instituciones != '' &&
+            this.$store.state.auth.user.career != '' &&
+            this.$store.state.auth.user.entry != '' &&
+            this.$store.state.auth.user.egress != ''
+          ){
+            this.step++
+          }else{
+            alert("Completa Todos los Campos")
+          }
+          break;
+        case 5:
+          if (
+            this.$store.state.auth.user.experiences != '' &&
+            this.$store.state.auth.user.position != '' &&
+            this.$store.state.auth.user.type_exp != '' &&
+            this.$store.state.auth.user.start != '' &&
+            this.$store.state.auth.user.end != '' 
+          ){
+            this.step++
+          }else{
+            alert("Completa Todos los Campos")
+          }
+          break;
+        case 6:
+          if (
+            this.$store.state.auth.user.skill != '' &&
+            this.$store.state.auth.user.level != '' 
+          ){
+            this.step++
+          }else{
+            alert("Completa Todos los Campos")
+          }
+          break;
+        case 7:
+          if (
+            this.$store.state.auth.user.institucion != '' &&
+            this.$store.state.auth.user.responsable != '' &&
+            this.$store.state.auth.user.email_res != '' &&
+            this.$store.state.auth.user.tel != '' &&
+            this.$store.state.auth.user.resp != '' &&
+            this.$store.state.auth.user.horario != '' 
+          ){
+            this.step++
+          }else{
+            alert("Completa Todos los Campos")
           }
           break;
       
@@ -449,5 +500,8 @@ export default {
   mounted() {
     console.log(this.$store.state.auth.user)
   },
-};
+     
+      items: ['Foo', 'Bar', 'Fizz', 'Buzz']
+    }
+;
 </script>
