@@ -4,7 +4,7 @@
       <br>
       <v-container class="fill-height" fluid>
         <v-row >
-          <v-col cols="9" sm="10" md="12">
+          <v-col cols="9"  sm="10" md="12">
             <v-card class="elevation-13">
               <v-window v-model="step">
                 <v-window-item :value="1">
@@ -32,7 +32,7 @@
                             label="Usuario"
                             prepend-icon="mdi mdi-account"
                             type="text"
-                            color="teal accent-3"
+                            color="#009688"
                           />
 
                           <v-text-field
@@ -41,18 +41,20 @@
                             name="password"
                             prepend-icon="mdi mdi-lock"
                             type="password"
-                            color="teal accent-3"
+                            color="#009688"
                           />
                         </v-form>
-                        <h3 class="text-center mt-4">Olvidaste tu contraseña ?</h3>
                       </v-card-text>
                       <div class="text-center mt-3">
-                        <v-btn rounded color="teal accent-3" dark>iniciar sesión</v-btn>
+                        <v-btn rounded color="#b71c1c" dark>¿Olvidastes tu contraseña?</v-btn>
+                        <br>
+                        <br>
+                        <v-btn rounded color="teal" dark >iniciar sesión</v-btn>
                         <br>
                         <br>
                       </div>
                     </v-col>
-                    <v-col cols="12" md="4" class="teal accent-3">
+                    <v-col cols="12" md="4" class="teal">
                       <v-card-text class="white--text mt-12">
                         <h1 class="text-center display-1">¡Hola!</h1>
                         <br>
@@ -64,15 +66,17 @@
                       <div class="text-center">
                         <br>
                         <v-btn rounded outlined dark @click="step++"> regístrate</v-btn>
+                        
                         <br>
                         <br>
                       </div>
                     </v-col>
+                    
                   </v-row>
                 </v-window-item>
                 <v-window-item :value="2">
                   <v-row class="fill-height">
-                    <v-col cols="12" md="4" class="teal accent-3">
+                    <v-col cols="12" md="4" class="teal">
                       <v-card-text class="white--text mt-12">
                         <h1 class="text-center display-1">¡Bienvenido de nuevo!</h1>
                         <br>
@@ -113,14 +117,14 @@
                             name="Name"
                             prepend-icon="mdi mdi-account-circle"
                             type="text"
-                            color="teal accent-3"
+                            color="#009688"
                           />
                           <v-text-field
                             label="Correo"
                             name="Email"
                             prepend-icon="mdi mdi-email"
                             type="text"
-                            color="teal accent-3"
+                            color="#009688"
                           />
 
                           <v-text-field
@@ -129,7 +133,7 @@
                             name="password"
                             prepend-icon="mdi mdi-lock"
                             type="password"
-                            color="teal accent-3"
+                            color="#009688"
                           />
                         <!-- </v-form>
                       </v-card-text> -->
@@ -137,7 +141,7 @@
                       <br>
 
                       <div class="text-center mt-n5">
-                        <v-btn rounded color="teal accent-3" dark>REGÍSTRATE</v-btn>
+                        <v-btn rounded color="#b71c1c" dark>REGÍSTRATE</v-btn>
                       </div>
                       <br>
                       <br>
