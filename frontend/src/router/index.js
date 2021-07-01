@@ -51,12 +51,14 @@ const routes = [{
     {
         path: "/expedientes",
         name: "Expedientes Publicos",
+        
         component: File,
     },
     // Administrator Routes
     {
         path: "/administrador/inicio",
         name: "Bienvenido Administrador",
+        beforeEnter: guardMyroute,
         component: AdministratorHome,
 
     },
@@ -64,17 +66,23 @@ const routes = [{
         path: "/administrador/usuarios",
         name: "Administrar Usuarios",
         component: AdministratorUser,
+        beforeEnter: guardMyroute,
+        meta: {
+            autentificado: true
+        }
     },
     // Administrative Routes
     {
         path: "/administrativo/inicio",
         name: "Bienvenido Administrador",
+        beforeEnter: guardMyroute,
         component: AdministrativeHome,
     },
     // Teacher Routes
     {
         path: "/maestro/inicio",
         name: "Bienvenido Administrador",
+        beforeEnter: guardMyroute,
         component: TeacherHome,
     },
 ];
@@ -88,6 +96,20 @@ beforeEnter: (to, from, next) => {
     } else {
         next({ name: "notFound" });
     }
+}
+
+function guardMyroute(to, from, next)
+{
+ var isAuthenticated= false;
+ if(localStorage.getItem('LoggedUser'))
+  isAuthenticated = true;
+ else
+  isAuthenticated= false;
+if(isAuthenticated) {
+  next(); // allow to enter route
+ } else{
+  next('/login'); // go to '/login';
+ }
 }
 
 
