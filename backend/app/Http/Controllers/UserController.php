@@ -24,7 +24,6 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        
         DB::beginTransaction();
         $user = new User();
         $user->is_public = $request->is_public;
