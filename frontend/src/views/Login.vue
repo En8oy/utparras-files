@@ -57,7 +57,7 @@ export default {
     methods: {
         login(){
           if (this.email != "" && this.password != "") {
-            this.$store.dispatch("User/login", {email: this.email, password : this.password}).then(message => {
+            this.$store.dispatch("auth/login", {email: this.email, password : this.password}).then(message => {
                   this.$toast.open({
                   position: "top-right",
                   message: "Login Success",
