@@ -6,20 +6,24 @@
       <v-col color="black" cols="12" sm="12" md="12"> </v-col>
       <v-col cols="12" sm="12" md="12">
         <v-container fluid>
+          <v-alert
+                    color="orange"
+                    dismissible
+                    elevation="3"
+                    text
+                    type="info"
+                  >Esta Informacion es requerida para el sistema academico de la
+                  universiad, la informacion recolectada sera protegida y
+                  administrada por personal autorizado de la universidad. Una
+                  vez teniendo la infroamcion solicitada sera confidencial.
+          </v-alert>
+          <br>
           <template>
             <v-stepper v-model="step" vertical>
               <v-stepper-step color="#009688" :complete="step > 1" step="1">
                 <h2>Datos Personales</h2>
               </v-stepper-step>
               <v-stepper-content step="1" id="menu">
-                <br />
-                <h2 class="ma-10">Nota 1</h2>
-                <p class="text-justify ma-10">
-                  Esta Informacion es requerida para el sistema academico de la
-                  universiad, la informacion recolectada sera protegida y
-                  administrada por personal autorizado de la universidad. Una
-                  vez teniendo la infroamcion solicitada sera confidencial.
-                </p>
                 <v-card class="mb-12" elevation="8">
                   <div class="row">
                     <div class="col-sm-6 col-md-4 col-12">
@@ -29,23 +33,26 @@
                         label="Nombre"
                         :rules="[rules.required]"
                         required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.surname"
-                        :rules="surnameRules"
+                        :rules="[rules.required]"
                         label="Apellidos"
                         required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.birthdate"
-                        :rules="birth"
+                        :rules="[rules.required]"
                         label="Fecha de Nacimiento"
                         hint="DD/MM/AAAA"
                         required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -55,31 +62,36 @@
                         :rules="[rules.required,rules.email]"
                         label="Correo"
                         required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.curp"
-                        :rules="curpRules"
+                        :rules="[rules.required]"
                         label="CURP"
                         required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.rfc"
-                        :rules="rfcRules"
+                        :rules="[rules.required]"
                         label="RFC"
                         required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
-                      <v-text-field
+                      <v-select
+                        :items="items2"
+                        :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.civil_status"
-                        :rules="civilRules"
                         label="Estado Civil"
-                        required
-                      ></v-text-field>
+                        color="#009688"
+                        :rules="[rules.required]"
+                      ></v-select>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-select
@@ -87,6 +99,8 @@
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.sexo"
                         label="Genero"
+                        color="#009688"
+                        :rules="[rules.required]"
                       ></v-select>
                     </div>
                   </div>
@@ -97,27 +111,29 @@
                 <h2>Direccion</h2>
               </v-stepper-step>
               <v-stepper-content step="2">
-                <h2>Datos de dirección</h2>
+                <!-- <h2>Datos de dirección</h2>
                 <br />
                 <p class="text-justify">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit deserunt numquam fugit officiis officia. Facilis quos pariatur a sapiente, voluptas accusamus mollitia magni officia vitae illo dolor dicta aperiam eveniet!
-                </p>
+                 Tu direccion simplemente sera requerida para saber cual es la zona donde vives. 
+                 Esto puede ser una dirección de calle, colonia,
+                 o el nombre de un lugar o una ubicación identificada por un código postal.
+                </p> -->
                 <v-card class="mb-12" elevation="8">
                   <div class="row">
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.personal_address"
-                        :rules="addressRules"
+                        :rules="[rules.required]"
                         label="Direccion Personal"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.origin"
-                        :rules="placeRules"
+                        :rules="[rules.required]"
                         label="Lugar de Nacimiento"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                   </div>
@@ -130,38 +146,45 @@
               </v-stepper-step>
 
               <v-stepper-content step="3">
+                 <h2 class="ma-10">
+                   <v-alert
+                    color="orange"
+                    dismissible
+                    text
+                    type="info"
+                  >Esta Informacion es opcional</v-alert>
+                </h2>
+                <br>
                 <v-card class="mb-12" elevation="8">
                   <div class="row">
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.full_name"
-                        :rules="namecompleteRules"
                         label="Nombre Completo"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
-                      <v-text-field
+                      <v-select
+                        :items="items3"
+                        :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.family"
-                        :rules="familyRules"
-                        label="Familiar"
-                        required
-                      ></v-text-field>
+                        label="Tipo de Familiar"
+                        color="#009688"
+                      ></v-select>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.phone"
-                        :rules="phoneRules"
                         label="Telefono"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.address_family"
-                        :rules="addressfamilyRules"
                         label="Direccion"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                   </div>
@@ -179,33 +202,33 @@
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.instituciones"
-                        :rules="institucionesRules"
+                        :rules="[rules.required]"
                         label="Instituciones"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.career"
-                        :rules="careerRules"
+                        :rules="[rules.required]"
                         label="Carrera Profesional"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.entry"
-                        :rules="entryRules"
+                        :rules="[rules.required]"
                         label="Ingreso"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.egress"
-                        :rules="egressRules"
+                        :rules="[rules.required]"
                         label="Egreso"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                   </div>
@@ -222,41 +245,41 @@
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.experiences"
-                        :rules="experiencesRules"
+                        :rules="[rules.required]"
                         label="Experiencia"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.position"
-                        :rules="positionRules"
+                        :rules="[rules.required]"
                         label="Puesto"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.type_exp"
-                        :rules="typeexpRules"
+                        :rules="[rules.required]"
                         label="Tipo de Experiencia"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.start"
-                        :rules="startRules"
+                        :rules="[rules.required]"
                         label="Inicio de la Experiencia"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.end"
-                        :rules="endfamilyRules"
+                        :rules="[rules.required]"
                         label="Fin de la Experiencia"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                   </div>
@@ -274,18 +297,20 @@
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.skill"
-                        :rules="skillRules"
+                        :rules="[rules.required]"
                         label="Habilidad"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-5 col-12">
-                      <v-text-field
+                      <v-select
+                        :items="items4"
+                        :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.level"
-                        :rules="levelRules"
-                        label="Nivel"
-                        required
-                      ></v-text-field>
+                        label="Mi Nivel"
+                        color="#009688"
+                        :rules="[rules.required]"
+                      ></v-select>
                     </div>
                   </div>
                 </v-card>
@@ -300,50 +325,50 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                         v-model="$store.state.auth.user.institucion"
-                        :rules="institutionRules"
+                        v-model="$store.state.auth.user.institucion"
+                        :rules="[rules.required]"
                         label="Institucion"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                         v-model="$store.state.auth.user.responsable"
-                        :rules="responsableRules"
+                        v-model="$store.state.auth.user.responsable"
+                        :rules="[rules.required]"
                         label="Responsable"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                         v-model="$store.state.auth.user.email_res"
-                        :rules="emailchargeRules"
+                        v-model="$store.state.auth.user.email_res"
+                        :rules="[rules.required]"
                         label="Correo del responsable"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                         v-model="$store.state.auth.user.tel"
-                        :rules="phonechargeRules"
+                        v-model="$store.state.auth.user.tel"
+                        :rules="[rules.required]"
                         label="Telefono del responsable"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                         v-model="$store.state.auth.user.resp"
-                        :rules="responsibilitiesRules"
+                        v-model="$store.state.auth.user.resp"
+                        :rules="[rules.required]"
                         label="Responsabilidades"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                         v-model="$store.state.auth.user.horario"
-                        :rules="scheduleRules"
+                        v-model="$store.state.auth.user.horario"
+                        :rules="[rules.required]"
                         label="Horario"
-                        required
+                        color="#009688"
                       ></v-text-field>
                     </div>
                   </div>
@@ -351,8 +376,6 @@
                 <v-btn color="dark" @click="step = 6"> Retroceder </v-btn>
                 <v-btn dark color="#009688" @click="checkIfIsSet(7)"> Finalizar </v-btn>
               </v-stepper-content>
-              <!-- v-show  USAR ESTO PARA LOS BOTONES Y QUITARLE EL COLOR A LOS FORMULARIOS
-                -->
             </v-stepper>
           </template></v-container
         ></v-col
@@ -371,35 +394,11 @@ export default {
             return pattern.test(value) || 'Correo no valido.'
         },
     },
-    icons: [
-      {
-        name: "facebook",
-        icon: "mdi-facebook",
-        url: "https://www.facebook.com/utparras/",
-      },
-      {
-        name: "twitter",
-        icon: "mdi-twitter",
-        url: "https://twitter.com/utparras?lang=es",
-      },
-      {
-        name: "web",
-        icon: "mdi-web",
-        url: "https://www.utparras.edu.mx/",
-      },
-    ],
+    items: ['Masculino', 'Femenino', 'Otro'],
+    items2: ['Soltero', 'Casado', 'Divorciado', 'Viudo'],
+    items3: ['Papa', 'Mama', 'Hermano'],
+    items4: ['10% - 25%', '25% - 50%', '50% - 75%', '75% - 100%'],
     step: 1,
-    vue: [
-      {
-        name: "",
-        surname: "",
-        birth: "",
-        email: "",
-        curp: "",
-        status: "",
-        sex: "",
-      },
-    ],
   }),
   methods: {
     checkIfIsSet(step){
@@ -417,7 +416,7 @@ export default {
           ){
             this.step++
           }else{
-            alert("Completa Todos los Campos")
+            alert("Completa Todos los Campos con la Informacion Solicitada")
           }
           break;
         case 2:
@@ -427,7 +426,7 @@ export default {
           ){
             this.step++
           }else{
-            alert("Completa Todos los Campos")
+            alert("Completa Todos los Campos con la Informacion Solicitada")
           }
           break;
         case 3:
@@ -439,7 +438,7 @@ export default {
           ){
             this.step++
           }else{
-            alert("Completa Todos los Campos")
+            alert("Completa Todos los Campos con la Informacion Solicitada")
           }
           break;
         case 4:
@@ -451,7 +450,7 @@ export default {
           ){
             this.step++
           }else{
-            alert("Completa Todos los Campos")
+            alert("Completa Todos los Campos con la Informacion Solicitada")
           }
           break;
         case 5:
@@ -464,7 +463,7 @@ export default {
           ){
             this.step++
           }else{
-            alert("Completa Todos los Campos")
+            alert("Completa Todos los Campos con la Informacion Solicitada")
           }
           break;
         case 6:
@@ -474,7 +473,7 @@ export default {
           ){
             this.step++
           }else{
-            alert("Completa Todos los Campos")
+            alert("Completa Todos los Campos con la Informacion Solicitada")
           }
           break;
         case 7:
@@ -488,7 +487,7 @@ export default {
           ){
             this.step++
           }else{
-            alert("Completa Todos los Campos")
+            alert("Completa Todos los Campos con la Informacion Solicitada")
           }
           break;
       
@@ -500,8 +499,6 @@ export default {
   mounted() {
     console.log(this.$store.state.auth.user)
   },
-     
-      items: ['Foo', 'Bar', 'Fizz', 'Buzz']
-    }
+  }
 ;
 </script>
