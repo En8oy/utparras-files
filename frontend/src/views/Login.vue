@@ -34,7 +34,8 @@
                       </v-card-text>
                       <div class="text-center mt-3">
                         <br>
-                        <v-btn rounded color="#b71c1c" dark >iniciar sesión</v-btn>
+                        <v-btn rounded color="#b71c1c" href="http://localhost:8080/reestablecer" >¿Olvidastes tu contraseña?</v-btn>
+                        <v-btn rounded color="teal accent-3" dark>iniciar sesión</v-btn>
                         <br>
                         <br>
                       </div>
@@ -111,7 +112,7 @@
                       <br>
 
                       <div class="text-center mt-n5">
-                        <v-btn rounded color="#b71c1c" dark>REGÍSTRATE</v-btn>
+                        <v-btn rounded color="#b71c1c" dark>GUARDAR</v-btn>
                       </div>
                       <br>
                       <br>
