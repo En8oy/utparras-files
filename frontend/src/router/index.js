@@ -6,7 +6,7 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import File from "../views/File.vue";
-
+import reestablecer from "../views/reestablecer.vue";
 // Administrator Routes
 import AdministratorHome from "../views/Administrator/Home.vue";
 
@@ -40,6 +40,11 @@ const routes = [
     path: "/expedientes",
     name: "Expedientes Publicos",
     component: File,
+  },
+  {
+    path: "/reestablecer",
+    name: "Reestablecer Contraseña",
+    component: reestablecer,
   },
   // Administrator Routes
   {

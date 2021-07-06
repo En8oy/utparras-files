@@ -14,19 +14,6 @@
                         <h1
                           class="text-center display-2  text--accent-3"
                         >INICIAR SESIÓN</h1>
-                        <!-- <div class="text-center mt-4">
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-facebook-f</v-icon>
-                          </v-btn>
-
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-google-plus-g</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-linkedin-in</v-icon>
-                          </v-btn>
-                        </div>
-                        <h4 class="text-center mt-4">Ensure your email for registration</h4> -->
                         <v-form>
                           <v-text-field
                             label="Usuario"
@@ -46,10 +33,8 @@
                         </v-form>
                       </v-card-text>
                       <div class="text-center mt-3">
-                        <v-btn rounded color="#b71c1c" dark>¿Olvidastes tu contraseña?</v-btn>
                         <br>
-                        <br>
-                        <v-btn rounded color="teal" dark >iniciar sesión</v-btn>
+                        <v-btn rounded color="#b71c1c" dark >iniciar sesión</v-btn>
                         <br>
                         <br>
                       </div>
@@ -72,6 +57,7 @@
                       </div>
                     </v-col>
                     
+                    
                   </v-row>
                 </v-window-item>
                 <v-window-item :value="2">
@@ -92,22 +78,6 @@
                     </v-col>
 
                     <v-col cols="12" md="8">
-                      <!-- <v-card-text class="mt-12">
-                        <h1 class="text-center display-2 teal--text text--accent-3">Create Account</h1>
-                        <div class="text-center mt-4">
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-facebook-f</v-icon>
-                          </v-btn>
-
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-google-plus-g</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-linkedin-in</v-icon>
-                          </v-btn>
-                        </div>
-                        <h4 class="text-center mt-4">Ensure your email for registration</h4>
-                        <v-form> -->
                           <br>
                           <h1
                           class="text-center display-2  text--accent-3"

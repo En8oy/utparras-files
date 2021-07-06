@@ -2,26 +2,74 @@
   <v-flex>
     <v-row>
       <v-col cols="9" sm="10" md="12">
-        <br />
-        <br />
-        <br />
-        <br />
+        <v-flex>
+          <v-row>
+            <v-col>
+              <v-content>
+                <v-container class="fill-height" fluid>
+                  <v-row>
+                    <v-col>
+                      <v-card class="elevation-13">
+                        <v-window v-model="step">
+                          <v-window-item :value="1">
+                            <v-row>
+                              <v-col cols="12" md="8">
+                                <v-card-text class="mt-12">
+                                  <h1
+                                    class="
+                                      text-center
+                                      display-2
+                                      text-center text--accent-3
+                                    "
+                                  >
+                                    BIENVENIDO A EXPEDIENTES UTPARRAS
+                                  </h1>
+                                  <br />
+                                  <br />
+                                  <br />
+                                  <h1
+                                    class="
+                                      text-center
+                                      display-1
+                                      text-center text-justify text--accent-3
+                                    "
+                                  >
+                                    El expediente electrónico, es una manera
+                                    sencilla de visualizar la información de
+                                    nuestro personal docente, en este se puede
+                                    consultar los datos básicos, así como su
+                                    nivel académico y sus respectivos puestos
+                                    dentro de la universidad.
+                                  </h1>
+                                </v-card-text>
+                                <div class="text-center mt-3"></div>
+                              </v-col>
+                              <v-img
+                                class="responsive"
+                                width="300"
+                                height="450"
+                                src="https://aem.dropbox.com/cms/content/dam/dropbox/www/en-us/help/guide_gifs/Sharing_Desktop@2x.gif"
+                              >
+                              </v-img>
+                            </v-row>
+                          </v-window-item>
+                        </v-window>
+                      </v-card>
+                    </v-col>
+                  </v-row>
+                </v-container>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+              </v-content>
+            </v-col>
+          </v-row>
+        </v-flex>
 
-        <center>
-          <h1>BIENVENIDO A EXPEDIENTES UTPARRAS</h1>
-        </center>
-        <br />
-        <br />
-
-        <center>
-          <v-img
-            class="responsive"
-            width="500"
-            height="300"
-            src="https://expertosis.com/wp-content/uploads/2020/03/aodocs-documentos.gif"
-          >
-          </v-img>
-        </center>
         <br />
         <br />
         <br />
