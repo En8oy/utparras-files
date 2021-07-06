@@ -1,23 +1,56 @@
 <template>
-  <div class="login">
-      <br><br>
-    <h1 class="title">Login in the page</h1>
-    <form action class="form">
+  <div class="register">
+    <h1 class="title">Sign Up</h1>
+    <form action class="form" @submit.prevent="register">
       <label class="form-label" for="#email">Email:</label>
-      <input class="form-input" type="email" id="email" required placeholder="Email">
+      <input
+        v-model="email"
+        class="form-input"
+        type="email"
+        id="email"
+        required
+        placeholder="Email"
+      >
       <label class="form-label" for="#password">Password:</label>
-      <input class="form-input" type="password" id="password" placeholder="Password">
-      <input class="form-submit" type="submit" value="Login">
+      <input
+        v-model="password"
+        class="form-input"
+        type="password"
+        id="password"
+        placeholder="Password"
+      >
+      <label class="form-label" for="#password-repeat">Repite la contraeña:</label>
+      <input
+        v-model="passwordRepeat"
+        class="form-input"
+        type="password"
+        id="password-repeat"
+        placeholder="Password"
+      >
+      <input class="form-submit" type="submit" value="Sign Up">
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    email: "",
+    password: "",
+    passwordRepeat: ""
+  }),
+  methods: {
+    register() {
+      console.log(this.email);
+      console.log(this.password);
+      console.log(this.passwordRepeat);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-.login {
+.register {
   padding: 2rem;
 }
 .title {
@@ -67,5 +100,8 @@ export default {};
     background: #0b9185;
   }
 }
+.error {
+  margin: 1rem 0 0;
+  color: #ff4a96;
+}
 </style>
-

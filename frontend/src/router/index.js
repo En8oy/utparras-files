@@ -8,6 +8,7 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import File from "../views/File.vue";
+import Register from "../views/Register";
 
 
 // Administrator Routes
@@ -37,6 +38,12 @@ const routes = [{
         name: "Bienvenido a Expedientes UTParras",
         component: Home,
 
+    },
+
+    {
+        path: "/registro",
+        name: "Registro",
+        component: Register,
     },
     {
         path: "/nosotros",
