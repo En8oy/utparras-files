@@ -51,7 +51,7 @@
                               <v-img
                                 class="responsive"
                                 width="300"
-                                height="450"
+                                height="530"
                                 src="https://aem.dropbox.com/cms/content/dam/dropbox/www/en-us/help/guide_gifs/Sharing_Desktop@2x.gif"
                               >
                               </v-img>
