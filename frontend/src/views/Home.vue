@@ -9,13 +9,7 @@
                 <v-container class="fill-height" fluid>
                   <v-row>
                     <v-col>
-                      <v-card class="elevation-13">
-                        <v-window v-model="step">
-                          <v-window-item :value="1">
-                            <v-row>
-                              <v-col cols="12" md="8">
-                                <v-card-text class="mt-12">
-                                  <h1
+                      <h1
                                     class="
                                       text-center
                                       display-2
@@ -24,6 +18,14 @@
                                   >
                                     BIENVENIDO A EXPEDIENTES UTPARRAS
                                   </h1>
+                                  <br>
+                                  <br>
+                      <v-card class="elevation-13">
+                        <v-window v-model="step">
+                          <v-window-item :value="1">
+                            <v-row justify="center">
+                              <v-col cols="12" sm="12" md="7" lg="8" xl="8">
+                                <v-card-text>
                                   <br />
                                   <br />
                                   <br />
@@ -41,6 +43,8 @@
                                     nivel académico y sus respectivos puestos
                                     dentro de la universidad.
                                   </h1>
+                                  <br>
+                                  <br>
                                 </v-card-text>
                                 <div class="text-center mt-3"></div>
                               </v-col>
