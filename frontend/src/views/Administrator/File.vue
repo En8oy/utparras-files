@@ -7,7 +7,7 @@
       <v-col cols="12" sm="12" md="12">
         <v-container fluid>
           <v-alert
-                    color="orange"
+                    color="red"
                     dismissible
                     elevation="3"
                     text
@@ -46,14 +46,49 @@
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
-                      <v-text-field
-                        v-model="$store.state.auth.user.birthdate"
-                        :rules="[rules.required]"
-                        label="Fecha de Nacimiento"
-                        hint="DD/MM/AAAA"
-                        required
+                       <v-menu
+                        ref="menu"
+                        v-model="menu"
+                        :close-on-content-click="false"
+                        :return-value.sync="$store.state.auth.user.birthdate"
+                        transition="scale-transition"
+                        offset-y
                         color="#009688"
-                      ></v-text-field>
+                        min-width="auto"
+                      >
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-text-field
+                            v-model="$store.state.auth.user.birthdate"
+                            label="Fecha de Nacimiento"
+                            readonly
+                            color="#009688"
+                            hint="AAAA/MM/DD"
+                            v-bind="attrs"
+                            v-on="on"
+                          ></v-text-field>
+                        </template>
+                        <v-date-picker
+                          v-model="date"
+                          no-title
+                          scrollable
+                        >
+                          <v-spacer></v-spacer>
+                          <v-btn
+                            text
+                            color="#009688"
+                            @click="menu = false"
+                          >
+                            Cancel
+                          </v-btn>
+                          <v-btn
+                            text
+                            color="#009688"
+                            @click="$refs.menu.save(date)"
+                          >
+                            OK
+                          </v-btn>
+                        </v-date-picker>
+                      </v-menu>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
@@ -148,7 +183,7 @@
               <v-stepper-content step="3">
                  <h2 class="ma-10">
                    <v-alert
-                    color="orange"
+                    color="red"
                     dismissible
                     text
                     type="info"
@@ -341,9 +376,11 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
+                        type="email"
                         v-model="$store.state.auth.user.email_res"
-                        :rules="[rules.required]"
-                        label="Correo del responsable"
+                        :rules="[rules.required,rules.email]"
+                        label="Correo del Responsable"
+                        required
                         color="#009688"
                       ></v-text-field>
                     </div>
@@ -383,10 +420,13 @@
     >
   </div>
 </template>
+
 <script>
 export default {
   name: "App",
   data: () => ({
+      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+        menu: false,
     rules: {
         required: value => !!value || 'Campo requerido.',
         email: value => {
