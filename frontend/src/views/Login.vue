@@ -14,28 +14,20 @@
                         <h1
                           class="text-center display-2  text--accent-3"
                         >INICIAR SESIÓN</h1>
-                        <v-form>
-                          <v-text-field
-                            label="Usuario"
-                            prepend-icon="mdi mdi-account"
-                            type="text"
-                            color="#009688"
-                          />
+                        <form class="form-group">
+                     <v-text-field v-model="emailReg" type="email" class="form-control" placeholder="Correo" required prepend-icon="mdi mdi-email"></v-text-field>
+                     <br>
+                     <v-text-field v-model="passwordReg" type="password" class="form-control" placeholder="Contraseña" required  prepend-icon="mdi mdi-lock"></v-text-field>
+                     <br>
+                     <center><v-btn rounded color="teal accent-3" type="submit"  @click="doLogin"  dark>Iniciar sesion</v-btn></center>
+                    
+                  </form>
 
-                          <v-text-field
-                            id="password"
-                            label="Contraseña"
-                            name="password"
-                            prepend-icon="mdi mdi-lock"
-                            type="password"
-                            color="#009688"
-                          />
-                        </v-form>
                       </v-card-text>
                       <div class="text-center mt-3">
                         <br>
-                        <v-btn rounded color="#b71c1c" href="http://localhost:8080/reestablecer" >¿Olvidastes tu contraseña?</v-btn>
-                        <v-btn rounded color="teal accent-3" dark  href="http://localhost:8080">iniciar sesión</v-btn>
+            
+                        
                         <br>
                         <br>
                       </div>
@@ -144,5 +136,6 @@ export default {
   props: {
     source: String
   }
+  
 };
 </script>
