@@ -1,141 +1,191 @@
 <template>
-    <v-content>
-      <br>
-      <br>
-      <v-container class="fill-height" fluid>
-        <v-row >
-          <v-col cols="9"  sm="10" md="12">
-            <v-card class="elevation-13">
-              <v-window v-model="step">
-                <v-window-item :value="1">
-                  <v-row>
-                    <v-col cols="12" md="8">
-                      <v-card-text class="mt-12">
-                        <h1
-                          class="text-center display-2  text--accent-3"
-                        >INICIAR SESIÓN</h1>
-                        <form class="form-group">
-                     <v-text-field v-model="emailReg" type="email" class="form-control" placeholder="Correo" required prepend-icon="mdi mdi-email"></v-text-field>
-                     <br>
-                     <v-text-field v-model="passwordReg" type="password" class="form-control" placeholder="Contraseña" required  prepend-icon="mdi mdi-lock"></v-text-field>
-                     <br>
-                     <center><v-btn rounded color="teal accent-3" type="submit"  @click="doLogin"  dark>Iniciar sesion</v-btn></center>
-                    
-                  </form>
+  <v-content>
+    <v-container class="fill-height" fluid>
+      <v-row>
+        <v-col cols="9" sm="10" md="12">
+          <v-card class="elevation-13">
+            <v-window v-model="step">
+              <v-window-item :value="1">
+                <v-row>
+                  <v-col cols="12" md="8">
+                    <v-card-text class="mt-12">
+                      <h1 class="text-center display-2 text--accent-3">
+                        INICIAR SESIÓN
+                      </h1>
+                      <form class="form-group">
+                        <v-text-field
+                          v-model="emailReg"
+                          type="email"
+                          class="form-control"
+                          placeholder="Correo"
+                          required
+                          prepend-icon="mdi mdi-email"
+                          color="teal"
+                        ></v-text-field>
+                        <br />
+                        <v-text-field
+                          v-model="passwordReg"
+                          type="password"
+                          class="form-control"
+                          placeholder="Contraseña"
+                          required
+                          prepend-icon="mdi mdi-lock"
+                          color="teal"
+                        ></v-text-field>
+                        <br />
+                        <center>
+                          <v-btn rounded color="#b71c1c" dark href="http://localhost:8080/reestablecer">¿Olvidastes tu contraseña?</v-btn>
+                          <v-btn
+                            rounded
+                            color="teal"
+                            type="submit"
+                            @click="doLogin"
+                            dark
+                            >Iniciar sesion</v-btn
+                          >
+                        </center>
+                      </form>
+                    </v-card-text>
+                    <div class="text-center mt-3">
+                      <br />
 
-                      </v-card-text>
-                      <div class="text-center mt-3">
-                        <br>
-            
-                        
-                        <br>
-                        <br>
-                      </div>
-                    </v-col>
-                    <v-col cols="12" md="4" class="teal">
-                      <v-card-text class="white--text mt-12">
-                        <h1 class="text-center display-1">¡Hola!</h1>
-                        <br>
-                        <h3
-                          class="text-center"
-                        >Ingrese sus datos personales y regístrate</h3>
-                        <br>
-                      </v-card-text>
-                      <div class="text-center">
-                        <br>
-                        <v-btn rounded outlined dark @click="step++"> regístrate</v-btn>
-                        
-                        <br>
-                        <br>
-                      </div>
-                    </v-col>
-                    
-                    
-                  </v-row>
-                </v-window-item>
-                <v-window-item :value="2">
-                  <v-row class="fill-height">
-                    <v-col cols="12" md="4" class="teal">
-                      <v-card-text class="white--text mt-12">
-                        <h1 class="text-center display-1">¡Bienvenido de nuevo!</h1>
-                        <br>
-                        <h3
-                          class="text-center"
-                        >Para mantenerse conectado con nosotros, inicie sesión con su información personal</h3>
-                        <br>
-                      </v-card-text>
-                      <div class="text-center">
-                        <br>
-                        <v-btn rounded outlined dark @click="step--">Iniciar Sesión</v-btn>
-                      </div>
-                    </v-col>
+                      <br />
+                      <br />
+                    </div>
+                  </v-col>
+                  <v-col cols="12" md="4" class="teal">
+                    <v-card-text class="white--text mt-12">
+                      <h1 class="text-center display-1">¡Hola!</h1>
+                      <br />
+                      <h3 class="text-center">
+                        Ingrese sus datos personales y regístrate
+                      </h3>
+                      <br />
+                    </v-card-text>
+                    <div class="text-center">
+                      <br />
+                      <v-btn rounded outlined dark @click="step++">
+                        regístrate</v-btn
+                      >
 
-                    <v-col cols="12" md="8">
-                          <br>
-                          <h1
-                          class="text-center display-2  text--accent-3"
-                        >REGÍSTRATE</h1>
-                          <v-text-field
-                            label="Nombre"
-                            name="Name"
-                            prepend-icon="mdi mdi-account-circle"
-                            type="text"
-                            color="#009688"
-                          />
-                          <v-text-field
-                            label="Correo"
-                            name="Email"
-                            prepend-icon="mdi mdi-email"
-                            type="text"
-                            color="#009688"
-                          />
+                      <br />
+                      <br />
+                    </div>
+                  </v-col>
+                </v-row>
+              </v-window-item>
+              <v-window-item :value="2">
+                <v-row class="fill-height">
+                  <v-col cols="12" md="4" class="teal">
+                    <v-card-text class="white--text mt-12">
+                      <h1 class="text-center display-1">
+                        ¡Bienvenido de nuevo!
+                      </h1>
+                      <br />
+                      <h3 class="text-center">
+                        Para mantenerse conectado con nosotros, inicie sesión
+                        con su información personal
+                      </h3>
+                      <br />
+                    </v-card-text>
+                    <div class="text-center">
+                      <br />
+                      <v-btn rounded outlined dark @click="step--"
+                        >Iniciar Sesión</v-btn
+                      >
+                    </div>
+                  </v-col>
 
-                          <v-text-field
-                            id="password"
-                            label="Contraseña"
-                            name="password"
-                            prepend-icon="mdi mdi-lock"
-                            type="password"
-                            color="#009688"
-                          />
-                        <!-- </v-form>
+                  <v-col cols="12" md="8">
+                    <br />
+                    <h1 class="text-center display-2 text--accent-3">
+                      REGÍSTRATE
+                    </h1>
+                    <v-text-field
+                      label="Nombre"
+                      name="Name"
+                      prepend-icon="mdi mdi-account-circle"
+                      type="text"
+                      color="#009688"
+                    />
+                    <v-text-field
+                      label="Correo"
+                      name="Email"
+                      prepend-icon="mdi mdi-email"
+                      type="text"
+                      color="#009688"
+                    />
+
+                    <v-text-field
+                      id="password"
+                      label="Contraseña"
+                      name="password"
+                      prepend-icon="mdi mdi-lock"
+                      type="password"
+                      color="#009688"
+                    />
+                    <v-text-field
+                      id="password"
+                      label="Confirmar Contraseña"
+                      name="password"
+                      prepend-icon="mdi mdi-lock"
+                      type="password"
+                      color="#009688"
+                    />
+                    <!-- </v-form>
                       </v-card-text> -->
-                      <br>
-                      <br>
+                    <br />
+                    <br />
 
-                      <div class="text-center mt-n5">
-                        <v-btn rounded color="#b71c1c" dark>GUARDAR</v-btn>
-                      </div>
-                      <br>
-                      <br>
-                    </v-col>
-                  </v-row>
-                </v-window-item>
-              </v-window>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      
-    </v-content>
-  
+                    <div class="text-center mt-n5">
+                      <v-btn rounded color="#b71c1c" @click="doRegister" dark>GUARDAR</v-btn>
+                    </div>
+                    <br />
+                    <br />
+                  </v-col>
+                </v-row>
+              </v-window-item>
+            </v-window>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </v-content>
 </template>
 
 <script>
 export default {
   data: () => ({
-    step: 1
+    step: 1,
   }),
   props: {
-    source: String
-  }
-  
+    source: String,
+  },
+   methods: {
+      doLogin() {
+         if (this.emailLogin === "" || this.passwordLogin === "") {
+            this.emptyFields = true;
+         } else {
+            alert("Has iniciado sesión");
+         }
+      },
+      
+      doRegister() {
+         if (this.emailReg === "" || this.passwordReg === "" || this.confirmReg === "") {
+            this.emptyFields = true;
+         } else {
+            alert("Usted ha sido registrado");
+         }
+      }
+   }
 };
+
+
 </script>
