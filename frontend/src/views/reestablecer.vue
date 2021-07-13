@@ -6,21 +6,19 @@
           <v-container class="fill-height" fluid>
             <v-row>
               <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
-                <v-card class="elevation-13">
+                <v-card class="elevation-13 mt-15">
                   <v-window v-model="step">
                     <v-window-item :value="1">
                       <v-row>
                         <v-col>
-                          <v-card-text class="mt-12">
-                            <br>
-                            
+                          <v-card-text class="mt-16">
                             <h2 class="text-justify">
                               Podemos ayudarle a reestablecer su contraseña.
                               Indique su cuenta y siga las instrucciones
                               siguientes
                             </h2>
-                            <br>
-                            <v-form>
+
+                            <v-form class="mt-10">
                               <v-text-field
                                 label="Usuario"
                                 prepend-icon="mdi mdi-account"
@@ -29,11 +27,11 @@
                               />
                             </v-form>
                           </v-card-text>
-                         
+
                           <div class="text-center mt-3">
-                            <v-btn x-large rounded color="#b71c1c" dark>Enviar</v-btn>
-                            <br />
-                            <br />
+                            <v-btn x-large rounded color="#b71c1c" dark
+                              >Enviar</v-btn
+                            >
                           </div>
                         </v-col>
                         <v-img
@@ -50,13 +48,6 @@
               </v-col>
             </v-row>
           </v-container>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
         </v-content>
       </v-col>
     </v-row>
