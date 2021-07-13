@@ -36,7 +36,7 @@
                         </v-col>
                         <v-img
                           class="responsive"
-                          width="280"
+                          width="300"
                           height="515"
                           src="https://i2.wp.com/digitalpolicylaw.com/wp-content/uploads/2021/01/images@@Cyber-Threat-Analysis-Leadspace-Laptop-lock.gif"
                         >

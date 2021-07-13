@@ -1,8 +1,8 @@
 <template>
    <v-flex>
     <v-row>
-      <v-col cols="9" sm="10" md="12">
-        <v-card-text class="my-4 text-center title">
+      <v-col cols="12" sm="12" md="12">
+        <v-card-text class=" text-center title">
           <br />
 
 
