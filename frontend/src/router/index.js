@@ -58,14 +58,13 @@ const routes = [{
     {
         path: "/expedientes",
         name: "Expedientes Publicos",
-        
         component: File,
     },
     // Administrator Routes
     {
         path: "/administrador/inicio",
         name: "Bienvenido Administrador",
-        beforeEnter: guardMyroute,
+        // beforeEnter: guardAdministrator,
         component: AdministratorHome,
 
     },
@@ -73,51 +72,76 @@ const routes = [{
         path: "/administrador/usuarios",
         name: "Administrar Usuarios",
         component: AdministratorUser,
-        beforeEnter: guardMyroute,
-        meta: {
-            autentificado: true
-        }
+        // beforeEnter: guardAdministrator,
+        // meta: {
+        //     autentificado: true
+        // }
     },
     // Administrative Routes
     {
         path: "/administrativo/inicio",
         name: "Bienvenido Administrador",
-        beforeEnter: guardMyroute,
+        // beforeEnter: guardAdministrator,
         component: AdministrativeHome,
     },
     // Teacher Routes
     {
         path: "/maestro/inicio",
         name: "Bienvenido Administrador",
-        beforeEnter: guardMyroute,
+        // beforeEnter: guardTeacher,
         component: TeacherHome,
     },
 ];
 
-beforeEnter: (to, from, next) => {
-    const exists = store.destinations.find(
-        destination => destination.slug === to.params.slug
-    );
-    if (exists) {
-        next();
-    } else {
-        next({ name: "notFound" });
-    }
-}
+// beforeEnter: (to, from, next) => {
+//     const exists = store.destinations.find(
+//         destination => destination.slug === to.params.slug
+//     );
+//     if (exists) {
+//         next();
+//     } else {
+//         next({ name: "notFound" });
+//     }
+// }
 
-function guardMyroute(to, from, next)
-{
- var isAuthenticated= false;
- if(localStorage.getItem('LoggedUser'))
-  isAuthenticated = true;
- else
-  isAuthenticated= false;
-if(isAuthenticated) {
-  next(); // allow to enter route
- } else{
-  next('/login'); // go to '/login';
- }
-}
+// function guardAdministrator(to, from, next) {
+//     var isAuthenticated = false;
+//     if (store.state.auth.token) {
+//         if (store.state.auth.user.rol == 'Administrador') {
+//             next()
+//         } else {
+//             next("login")
+//         }
+//     } else {
+//         next("login")
+//     }
+// }
+
+// function guardAdministrator(to, from, next) {
+//     var isAuthenticated = false;
+//     if (store.state.auth.token) {
+//         if (store.state.auth.user.rol == 'Administrador') {
+//             next()
+//         } else {
+//             next("login")
+//         }
+//     } else {
+//         next("login")
+//     }
+// }
+
+// function guardTeacher(to, from, next) {
+//     var isAuthenticated = false;
+//     if (store.state.auth.token) {
+//         if (store.state.auth.user.rol == 'Maestro') {
+//             next()
+//         } else {
+//             next("login")
+//         }
+//     } else {
+//         next("login")
+//     }
+// }
 
 
 const router = new VueRouter({
