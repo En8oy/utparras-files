@@ -1,7 +1,129 @@
 <template>
-  <v-flex>
+  <div>
+    <v-container>
+      <v-row cols="12">
+        <v-col sm="12">
+          <h1 class="text-center ma-5">BIENVENIDO A EXPEDIENTES UTPARRAS</h1>
+          <v-card class="elevation-13">
+            <v-row justify="center">
+              <v-col cols="12" sm="12" md="7" lg="8" xl="8">
+                <v-card-text class="pa-10 pt-16">
+                  <h1>
+                    El expediente electrónico, es una manera sencilla de
+                    visualizar la información de nuestro personal docente, en
+                    este se puede consultar los datos básicos, así como su nivel
+                    académico y sus respectivos puestos dentro de la
+                    universidad.
+                  </h1>
+                </v-card-text>
+              </v-col>
+              <v-img
+                class="responsive"
+                width="300"
+                height="530"
+                src="https://aem.dropbox.com/cms/content/dam/dropbox/www/en-us/help/guide_gifs/Sharing_Desktop@2x.gif"
+              >
+              </v-img>
+            </v-row>
+          </v-card>
+        </v-col>
+        <v-col sm="12" class="mt-10">
+          <center>
+            <div>
+              <div cols="6" class="row">
+                <div xs="12" class="col-md-6 col-12">
+                  <div
+                    class="v-card v-sheet theme--light elevation-10 transparent"
+                  >
+                    <div
+                      tabindex="-1"
+                      class="v-list-item v-list-item--three-line"
+                    >
+                      <div class="v-list-item__content transparent">
+                        <div class="overline mb-4 pa-5 white--text teal">
+                          <h1 class="text-center">Personal Docente</h1>
+                        </div>
+                        <h1 class="ma-3 text-center grey--text">35</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div xs="12" class="col-md-6 col-12">
+                  <div
+                    class="v-card v-sheet theme--light elevation-10 transparent"
+                  >
+                    <div
+                      tabindex="-1"
+                      class="v-list-item v-list-item--three-line theme--light"
+                    >
+                      <div class="v-list-item__content">
+                        <div class="overline mb-4 pa-5 white--text teal">
+                          <h1 class="text-center">Departamentos</h1>
+                        </div>
+                        <h1 class="ma-3 text-center grey--text">6</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div cols="6" class="row">
+              <div xs="12" class="col-md-6 col-12">
+                <div
+                  class="v-card v-sheet theme--light elevation-10 transparent"
+                >
+                  <div
+                    tabindex="-1"
+                    class="v-list-item v-list-item--three-line theme--light"
+                  >
+                    <div class="v-list-item__content">
+                      <div class="overline mb-4 pa-5 white--text teal">
+                        <h1 class="text-center">Edificios</h1>
+                      </div>
+                      <h1 class="ma-3 text-center grey--text">4</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div xs="12" class="col-md-6 col-12">
+                <div
+                  class="v-card v-sheet theme--light elevation-10 transparent"
+                >
+                  <div
+                    tabindex="-1"
+                    class="v-list-item v-list-item--three-line theme--light"
+                  >
+                    <div class="v-list-item__content">
+                      <div class="overline mb-4 pa-5 white--text teal">
+                        <h1 class="text-center">Maestros</h1>
+                      </div>
+                      <h1 class="ma-3 text-center grey--text">18</h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </center>
+          <center>
+            <div>
+              <apexchart
+                xs="12"
+                class="col-md-6 col-12"
+                type="bar"
+                :options="options"
+                :series="series"
+              >
+              </apexchart>
+            </div>
+          </center>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+  <!-- <v-flex>
     <v-row>
-      <v-col cols="9" sm="10" md="12">
+      <v-col cols="9" sm="10" md="12" lg="12" xl="12">
         <v-flex>
           <v-row>
             <v-col>
@@ -10,16 +132,12 @@
                   <v-row>
                     <v-col>
                       <h1
-                                    class="
-                                      text-center
-                                      display-2
-                                      text-center text--accent-3
-                                    "
-                                  >
-                                    BIENVENIDO A EXPEDIENTES UTPARRAS
-                                  </h1>
-                                  <br>
-                                  <br>
+                        class="text-center display-2 text-center text--accent-3"
+                      >
+                        BIENVENIDO A EXPEDIENTES UTPARRAS
+                      </h1>
+                      <br />
+                      <br />
                       <v-card class="elevation-13">
                         <v-window v-model="step">
                           <v-window-item :value="1">
@@ -43,8 +161,8 @@
                                     nivel académico y sus respectivos puestos
                                     dentro de la universidad.
                                   </h1>
-                                  <br>
-                                  <br>
+                                  <br />
+                                  <br />
                                 </v-card-text>
                                 <div class="text-center mt-3"></div>
                               </v-col>
@@ -175,7 +293,7 @@
         </div>
       </v-col>
     </v-row>
-  </v-flex>
+  </v-flex> -->
 </template>
 
 <script>

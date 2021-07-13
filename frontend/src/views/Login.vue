@@ -12,9 +12,9 @@
                       <h1 class="text-center display-2 text--accent-3">
                         INICIAR SESIÓN
                       </h1>
-                      <form class="form-group">
+                      <form class="form-group" @submit.prevent="login()">
                         <v-text-field
-                          v-model="emailReg"
+                          v-model="email"
                           type="email"
                           class="form-control"
                           placeholder="Correo"
@@ -24,7 +24,7 @@
                         ></v-text-field>
                         <br />
                         <v-text-field
-                          v-model="passwordReg"
+                          v-model="password"
                           type="password"
                           class="form-control"
                           placeholder="Contraseña"
@@ -39,7 +39,6 @@
                             rounded
                             color="teal"
                             type="submit"
-                            @click="doLogin"
                             dark
                             >Iniciar sesion</v-btn
                           >
@@ -164,18 +163,34 @@
 export default {
   data: () => ({
     step: 1,
+    email : null,
+    password : null
   }),
   props: {
     source: String,
   },
    methods: {
-      doLogin() {
-         if (this.emailLogin === "" || this.passwordLogin === "") {
-            this.emptyFields = true;
-         } else {
-            alert("Has iniciado sesión");
-         }
-      },
+     login(){
+       let log = {
+         email : this.email,
+         password : this.password
+       }
+       console.log(log)
+      //  axios.post(this.$store.state.url + 'login',{email : this.emial, password : this.password})
+      //  .then(res => {
+      //    console.log(res)
+      //  })
+      //  .catch(err => {
+      //    console.error(err); 
+      //  })
+     },
+      // doLogin() {
+      //    if (this.emailLogin === "" || this.passwordLogin === "") {
+      //       this.emptyFields = true;
+      //    } else {
+      //       alert("Has iniciado sesión");
+      //    }
+      // },
       
       doRegister() {
          if (this.emailReg === "" || this.passwordReg === "" || this.confirmReg === "") {
