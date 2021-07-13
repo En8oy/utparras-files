@@ -34,12 +34,14 @@
                         ></v-text-field>
                         <br />
                         <center>
-                          <v-btn rounded color="#b71c1c" dark href="http://localhost:8080/reestablecer">¿Olvidastes tu contraseña?</v-btn>
                           <v-btn
                             rounded
-                            color="teal"
-                            type="submit"
+                            color="#b71c1c"
                             dark
+                            href="http://localhost:8080/reestablecer"
+                            >¿Olvidastes tu contraseña?</v-btn
+                          >
+                          <v-btn rounded color="teal" type="submit" dark
                             >Iniciar sesion</v-btn
                           >
                         </center>
@@ -137,7 +139,9 @@
                     <br />
 
                     <div class="text-center mt-n5">
-                      <v-btn rounded color="#b71c1c" @click="doRegister" dark>GUARDAR</v-btn>
+                      <v-btn rounded color="#b71c1c" @click="doRegister" dark
+                        >GUARDAR</v-btn
+                      >
                     </div>
                     <br />
                     <br />
@@ -166,40 +170,33 @@ export default {
     email : null,
     password : null
   }),
-  props: {
-    source: String,
-  },
-   methods: {
-     login(){
-       let log = {
-         email : this.email,
-         password : this.password
-       }
-       console.log(log)
-      //  axios.post(this.$store.state.url + 'login',{email : this.emial, password : this.password})
-      //  .then(res => {
-      //    console.log(res)
-      //  })
-      //  .catch(err => {
-      //    console.error(err); 
-      //  })
-     },
-      // doLogin() {
-      //    if (this.emailLogin === "" || this.passwordLogin === "") {
-      //       this.emptyFields = true;
-      //    } else {
-      //       alert("Has iniciado sesión");
-      //    }
-      // },
-      
-      doRegister() {
-         if (this.emailReg === "" || this.passwordReg === "" || this.confirmReg === "") {
-            this.emptyFields = true;
-         } else {
-            alert("Usted ha sido registrado");
-         }
+  methods: {
+    login(){
+      if (this.email != "" && this.password != "") {
+        this.$store.dispatch("auth/login", {email: this.email, password : this.password}).then(message => {
+          this.$toast.open({
+            position: "top-right",
+            message: "Login Success",
+            type: "success",
+          });
+          this.$router.push("/admin/orders")
+          }).catch(error => {
+            this.$toast.open({
+            position: "top-right",
+            message: "Email Or Password Isn't Correct",
+            type: "warning",
+          });
+        })
+      }else{
+        this.$toast.open({
+        position: "top-right",
+        message: "Login Success",
+        type: "success",
+      });
+      this.$router.push("/admin/orders");
       }
-   }
+    }
+  }
 };
 
 
