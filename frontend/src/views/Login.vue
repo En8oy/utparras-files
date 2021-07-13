@@ -139,7 +139,7 @@
                     <br />
 
                     <div class="text-center mt-n5">
-                      <v-btn rounded color="#b71c1c" @click="doRegister" dark
+                      <v-btn rounded color="#b71c1c" dark
                         >GUARDAR</v-btn
                       >
                     </div>
@@ -173,27 +173,16 @@ export default {
   methods: {
     login(){
       if (this.email != "" && this.password != "") {
-        this.$store.dispatch("auth/login", {email: this.email, password : this.password}).then(message => {
-          this.$toast.open({
-            position: "top-right",
-            message: "Login Success",
-            type: "success",
-          });
-          this.$router.push("/admin/orders")
-          }).catch(error => {
-            this.$toast.open({
-            position: "top-right",
-            message: "Email Or Password Isn't Correct",
-            type: "warning",
-          });
+        this.$store.dispatch("auth/login", {email: this.email, password : this.password})
+        .then(message => {
+          alert("Data")
+            // this.$router.push("/admin/orders")
+        })
+        .catch(err => {
+          alert("Error")
         })
       }else{
-        this.$toast.open({
-        position: "top-right",
-        message: "Login Success",
-        type: "success",
-      });
-      this.$router.push("/admin/orders");
+        alert("bad")
       }
     }
   }
