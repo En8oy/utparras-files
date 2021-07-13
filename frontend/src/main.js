@@ -8,6 +8,7 @@ Vue.use(VueApexCharts)
 
 Vue.component('apexchart', VueApexCharts)
 
+Vue.component('apexchart', VueApexCharts)
 
 Vue.config.productionTip = false
 
