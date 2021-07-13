@@ -1,71 +1,118 @@
 <template>
-  <div class="login">
-      <br><br>
-    <h1 class="title">Login in the page</h1>
-    <form action class="form">
-      <label class="form-label" for="#email">Email:</label>
-      <input class="form-input" type="email" id="email" required placeholder="Email">
-      <label class="form-label" for="#password">Password:</label>
-      <input class="form-input" type="password" id="password" placeholder="Password">
-      <input class="form-submit" type="submit" value="Login">
-    </form>
-  </div>
+ <v-row class="ma-10" justify="center">
+    <v-col class="float-left mr-16" cols="10" sm="9" md="6">
+      <br />
+      <br />
+      <br />
+
+      <v-container fluid>
+        <v-card color="grey" elevation="17">
+          <v-card-title class="text-center display-1 text text--accent-6">
+            <h3>Login</h3>
+          </v-card-title>
+          <v-card-text>
+            <v-form v-on:submit.prevent="login()">
+              <v-text-field
+                label="Usuario"
+                type="email"
+                v-model="email"
+                :rules="requiredRules"
+              >
+              </v-text-field>
+              <v-text-field
+                label="Contraseña"
+                type="password"
+                v-model="password"
+                :rules="requiredRules"
+              >
+              </v-text-field>
+              <br />
+
+              <center>
+                <v-btn
+                  type="submit"
+                  rounded
+                  color="red accent-4"
+                  dark
+                  :loading="loading"
+                >
+                  INICIAR
+                </v-btn>
+              </center>
+              <br />
+            </v-form>
+          </v-card-text>
+        </v-card>
+        <br />
+        <br />
+        <br />
+      </v-container>
+    </v-col>
+  </v-row>
+  
+
+    
 </template>
 
+
 <script>
-export default {};
+export default {
+  name: "App",
+
+  data: () => ({
+    email: "",
+    password: "",
+    loading: false,
+    requiredRules: [(v) => !!v || "required"],
+    icons: [
+      {
+        name: "facebook",
+        icon: "mdi-facebook",
+        url: "https://www.facebook.com/utparras/",
+      },
+      {
+        name: "twitter",
+        icon: "mdi-twitter",
+        url: "https://twitter.com/utparras?lang=es",
+      },
+      {
+        name: "web",
+        icon: "mdi-web",
+        url: "https://www.utparras.edu.mx/",
+      },
+    ],
+  }),
+  methods: {
+    login() {
+      if (this.email != "" && this.password != "") {
+        this.$store
+          .dispatch("User/login", {
+            email: this.email,
+            password: this.password,
+          })
+          .then((message) => {
+            this.$toast.open({
+              position: "top-right",
+              message: "Login Success",
+              type: "success",
+            });
+            this.$router.push("/admin/orders");
+          })
+          .catch((error) => {
+            this.$toast.open({
+              position: "top-right",
+              message: "Email Or Password Isn't Correct",
+              type: "warning",
+            });
+          });
+      } else {
+        this.$toast.open({
+          position: "top-right",
+          message: "Input empty",
+          type: "warning",
+        });
+      }
+    },
+  },
+};
 </script>
-
-<style lang="scss" scoped>
-.login {
-  padding: 2rem;
-}
-.title {
-  text-align: center;
-}
-.form {
-  margin: 3rem auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 20%;
-  min-width: 350px;
-  max-width: 100%;
-  background: rgba(19, 35, 47, 0.9);
-  border-radius: 5px;
-  padding: 40px;
-  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
-}
-.form-label {
-  margin-top: 2rem;
-  color: white;
-  margin-bottom: 0.5rem;
-  &:first-of-type {
-    margin-top: 0rem;
-  }
-}
-.form-input {
-  padding: 10px 15px;
-  background: none;
-  background-image: none;
-  border: 1px solid white;
-  color: white;
-  &:focus {
-    outline: 0;
-    border-color: #1ab188;
-  }
-}
-.form-submit {
-  background: #1ab188;
-  border: none;
-  color: white;
-  margin-top: 3rem;
-  padding: 1rem 0;
-  cursor: pointer;
-  transition: background 0.2s;
-  &:hover {
-    background: #0b9185;
-  }
-}
-</style>
-

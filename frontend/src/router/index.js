@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import NotFound from "../components/NotFound.vue"
 import store from "@/store"
 
+
 // Public Routes
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
@@ -14,7 +15,7 @@ import Register from "../views/Register";
 // Administrator Routes
 import AdministratorHome from "../views/Administrator/Home.vue";
 import AdministratorUser from "../views/Administrator/Users.vue";
-
+import AdministratorFile from "../views/Administrator/File.vue"
 
 // Teacher Routes
 import TeacherHome from "../views/Teacher/Home.vue";
@@ -35,9 +36,8 @@ const routes = [{
     // Public Routes
     {
         path: "/",
-        name: "Bienvenido a Expedientes UTParras",
+        name: "Inicio",
         component: Home,
-
     },
 
     {
@@ -89,6 +89,49 @@ const routes = [{
         path: "/maestro/inicio",
         name: "Bienvenido Administrador",
         // beforeEnter: guardTeacher,
+        component: TeacherHome,
+    },
+    {
+        path: "/",
+        name: "Bienvenido a Expedientes UTParras",
+        component: Home,
+    },
+    {
+        path: "/nosotros",
+        name: "Acerca De Nosotros",
+        component: About,
+    },
+    {
+        path: "/login",
+        name: "Inicia Sesión",
+        component: Login,
+    },
+    {
+        path: "/expedientes",
+        name: "Expedientes Publicos",
+        component: File,
+    },
+    // Administrator Routes
+    {
+        path: "/administrador/inicio",
+        name: "Bienvenido Administrador",
+        component: AdministratorHome,
+    },
+    {
+        path: "/administrador/expediente",
+        name: "Mi Expediente UTParras",
+        component: AdministratorFile,
+    },
+    // Administrative Routes
+    {
+        path: "/administrativo/inicio",
+        name: "Bienvenido Administrador",
+        component: AdministrativeHome,
+    },
+    // Teacher Routes
+    {
+        path: "/maestro/inicio",
+        name: "Bienvenido Administrador",
         component: TeacherHome,
     },
 ];
