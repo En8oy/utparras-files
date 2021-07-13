@@ -20,7 +20,7 @@
               <v-img
                 class="responsive"
                 width="300"
-                height="530"
+                height="340"
                 src="https://aem.dropbox.com/cms/content/dam/dropbox/www/en-us/help/guide_gifs/Sharing_Desktop@2x.gif"
               >
               </v-img>
