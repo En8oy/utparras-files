@@ -41,58 +41,58 @@
               <v-card-text>
                 <v-container>
                   <v-row>
-                    <v-col cols="12" sm="12" md="12">
+                    <v-col cols="6" sm="6" md="6">
                       <v-text-field
                         v-model="editedItem.name"
-                        label="Nombre Completo"
+                        label="Nombre"
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="6" sm="6" md="6">
+                      <v-text-field
+                        v-model="editedItem.surname"
+                        label="Apellido"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="12" md="12">
                       <v-text-field
-                        v-model="editedItem.date"
-                        label="Fecha De Nacimiento"
+                        v-model="editedItem.public_slug"
+                        label="Slug"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="12" md="12">
                       <v-text-field
-                        v-model="editedItem.email"
-                        label="Correo Electronico"
+                        v-model="editedItem.birthdate"
+                        label="Cumpleaños"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12" sm="12" md="12">
                       <v-text-field
-                        v-model="editedItem.curp"
-                        label="CURP"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="12">
-                      <v-text-field
-                        v-model="editedItem.rfc"
-                        label="RFC"
+                        v-model="editedItem.personal_email"
+                        label="Correo Personal"
                       ></v-text-field>
 
-                      <v-col cols="12" sm="12" md="12">
+                      <v-col cols="8" sm="8" md="8">
                         <v-text-field
-                          v-model="editedItem.civil"
-                          label="Estado Civil"
+                          v-model="editedItem.curp"
+                          label="CURP"
                         ></v-text-field>
+                        <v-col cols="12" sm="12" md="12">
+                          <v-text-field
+                            v-model="editedItem.rfc"
+                            label="RFC"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="12" md="12">
+                          <v-text-field
+                            v-model="editedItem.civil_status"
+                            label="Estado Civil"
+                          ></v-text-field>
+                        </v-col>
+
                         <v-col cols="12" sm="12" md="12">
                           <v-text-field
                             v-model="editedItem.sexo"
                             label="Sexo"
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="12" sm="12" md="12">
-                          <v-text-field
-                            v-model="editedItem.perso"
-                            label="Direccion Personal"
-                          ></v-text-field>
-                        </v-col>
-
-                        <v-col cols="12" sm="12" md="12">
-                          <v-text-field
-                            v-model="editedItem.naci"
-                            label="Lugar de Nacimiento"
                           ></v-text-field>
                         </v-col>
                       </v-col>
@@ -153,7 +153,8 @@ export default {
     id: null,
     headers: [
       { text: "ID", value: "id" },
-      { text: "Nombre Completo", value: "name" },
+      { text: "Nombre", value: "name" },
+      { text: "Apellido", value: "surname" },
       { text: "Slug", value: "public_slug" },
       // { text: "CURP", value: "curp" },
       // { text: "Estado Civil", value: "civil" },
@@ -166,25 +167,25 @@ export default {
     editedIndex: -1,
     editedItem: {
       name: "",
-      date: "",
-      correo: "",
-      mail: "",
+      surname: "",
+      public_slug: "",
+      birthdate: "",
+      personal_email: "",
       curp: "",
       rfc: "",
-      civil: "",
+      civil_status: "",
       sexo: "",
-      perso: "",
     },
     defaultItem: {
       name: "",
-      date: "",
-      correo: "",
-      mail: "",
+      surname: "",
+      public_slug: "",
+      birthdate: "",
+      personal_email: "",
       curp: "",
       rfc: "",
-      civil: "",
+      civil_status: "",
       sexo: "",
-      perso: "",
     },
   }),
   computed: {
