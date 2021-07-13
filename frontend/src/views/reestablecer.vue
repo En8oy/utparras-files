@@ -1,11 +1,11 @@
 <template>
   <v-flex>
     <v-row>
-      <v-col cols="9" sm="12" md="12">
+      <v-col cols="12" sm="12" md="12">
         <v-content>
           <v-container class="fill-height" fluid>
             <v-row>
-              <v-col cols="12" xs="5" sm="10" md="12" lg="12" xl="12">
+              <v-col cols="12" xs="12" sm="12" md="12" lg="12" xl="12">
                 <v-card class="elevation-13">
                   <v-window v-model="step">
                     <v-window-item :value="1">
@@ -14,11 +14,11 @@
                           <v-card-text class="mt-12">
                             <br>
                             
-                            <p class="display-1">
+                            <h2 class="text-justify">
                               Podemos ayudarle a reestablecer su contraseña.
                               Indique su cuenta y siga las instrucciones
                               siguientes
-                            </p>
+                            </h2>
                             <br>
                             <v-form>
                               <v-text-field
@@ -38,8 +38,8 @@
                         </v-col>
                         <v-img
                           class="responsive"
-                          width="500"
-                          height="750"
+                          width="280"
+                          height="515"
                           src="https://i2.wp.com/digitalpolicylaw.com/wp-content/uploads/2021/01/images@@Cyber-Threat-Analysis-Leadspace-Laptop-lock.gif"
                         >
                         </v-img>
