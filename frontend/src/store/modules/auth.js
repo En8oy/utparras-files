@@ -34,8 +34,6 @@ export default {
             tel: "",
             resp: "",
             horario: "",
-
-
         },
     },
     mutations: {},

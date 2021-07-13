@@ -59,10 +59,12 @@
                         <template v-slot:activator="{ on, attrs }">
                           <v-text-field
                             v-model="$store.state.auth.user.birthdate"
+                            :max="new Date().toISOString().substr(0, 10)"
                             label="Fecha de Nacimiento"
                             readonly
                             color="#009688"
                             hint="AAAA/MM/DD"
+                            locale=""
                             v-bind="attrs"
                             v-on="on"
                           ></v-text-field>
@@ -159,15 +161,15 @@
                       <v-text-field
                         v-model="$store.state.auth.user.personal_address"
                         :rules="[rules.required]"
-                        label="Direccion Personal"
-                        color="#009688"
+                        label="Direccion Personal ( Colonia, Calle, Numero, Ciudad, C.P )"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.origin"
                         :rules="[rules.required]"
-                        label="Lugar de Nacimiento"
+                        label="Lugar de Nacimiento  (Colonia, Calle, Numero, Ciudad, C.P )"
                         color="#009688"
                       ></v-text-field>
                     </div>
