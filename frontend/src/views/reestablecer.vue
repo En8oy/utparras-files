@@ -18,14 +18,18 @@
                               siguientes
                             </h2>
 
-                            <v-form class="mt-10">
-                              <v-text-field
-                                label="Usuario"
-                                prepend-icon="mdi mdi-account"
-                                type="text"
-                                color="#009688"
-                              />
-                            </v-form>
+                            
+                              <form class="form-group mt-10" @submit.prevent="Enviar()">
+                      <v-text-field
+                        v-model="email"
+                        type="email"
+                        class="form-control"
+                        placeholder="Correo"
+                        required
+                        prepend-icon="mdi mdi-email"
+                        color="teal"
+                      ></v-text-field>
+                              </form>
                           </v-card-text>
 
                           <div class="text-center mt-3">
@@ -53,3 +57,4 @@
     </v-row>
   </v-flex>
 </template>
+

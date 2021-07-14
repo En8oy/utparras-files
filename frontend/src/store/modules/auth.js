@@ -45,15 +45,15 @@ export default {
     actions: {
         login({ state, rootState, commit }, payload) {
             return new Promise((resolve, reject) => {
-                // console.log(payload, "Vuex")
-                // axios.post(state.baseUrl + "login", payload)
-                //     .then(res => {
-                //         commit("SET_LOGIN", res.data)
-                //         resolve(res.data)
-                //     })
-                //     .catch(error => {
-                //         reject(error)
-                //     })
+                 console.log(payload, "Vuex")
+                 axios.post(state.baseUrl + "login", payload)
+                 .then(res => {
+                     commit("SET_LOGIN", res.data)
+                        resolve(res.data)
+                     })
+                    .catch(error => {
+                         reject(error)
+                     })
             })
         },
     }
