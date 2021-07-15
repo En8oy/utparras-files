@@ -14,7 +14,10 @@ class DepartamentController extends Controller
      */
     public function index()
     {
-        //
+        $departaments = Departament::select(['id', 'departament'])->get();
+        return response()->json([
+            "data" => $departaments
+        ]);
     }
 
     /**

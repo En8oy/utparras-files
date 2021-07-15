@@ -82,47 +82,5 @@ export default {
       }
       ]
     }),
-    methods: {
-        login(){
-          if (this.email != "" && this.password != "") {
-            this.$store.dispatch("auth/login", {email: this.email, password : this.password}).then(message => {
-                  this.$toast.open({
-                  position: "top-right",
-                  message: "Login Success",
-                  type: "success",
-                });
-                this.$router.push("/admin/orders")
-            }).catch(error => {
-                this.$toast.open({
-                position: "top-right",
-                message: "Email Or Password Isn't Correct",
-                type: "warning",
-              });
-            })
-        
-          } else {
-             this.$toast.open({
-              position: "top-right",
-              message: "Login Success",
-              type: "success",
-            });
-            this.$router.push("/admin/orders");
-          })
-          .catch((error) => {
-            this.$toast.open({
-              position: "top-right",
-              message: "Email Or Password Isn't Correct",
-              type: "warning",
-            });
-          });
-      } else {
-        this.$toast.open({
-          position: "top-right",
-          message: "Input empty",
-          type: "warning",
-        });
-      }
-    },
-  },
 };
 </script>

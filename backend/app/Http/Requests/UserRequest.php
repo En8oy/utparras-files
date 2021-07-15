@@ -45,12 +45,12 @@ class UserRequest extends FormRequest
             // Academic
             'departament_id' => 'required|int',
             'stall' => 'required|string',
-            'employee_number' => 'required|string',
-            'employee_phone' => 'required|string|min:10',
-            'salary_min' => 'required|string',
-            'salary_max' => 'required|string',
+            'employee_number' => 'required',
+            'employee_phone' => 'required',
+            'salary_min' => 'required',
+            'salary_max' => 'required',
             'date_of_admission' => 'required|date',
-            'employee_code' => 'required|string',
+            'employee_code' => 'required',
         ];
     }
 }
