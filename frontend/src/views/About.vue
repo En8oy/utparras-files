@@ -1,12 +1,12 @@
 <template>
    <v-flex>
     <v-row>
-      <v-col cols="12" sm="12" md="12">
-        <v-card-text class=" text-center title">
+      <v-col cols="9" sm="10" md="12">
+        <v-card-text class="my-4 text-center title">
           <br />
 
 
-          <v-carousel  :show-arrows="false" hide-delimiters cycle class="responsive" width="500" height="500">
+          <v-carousel  :show-arrows="false" hide-delimiters cycle class="responsive" width="500" height="300">
             <v-carousel-item
               v-for="(item, i) in items"
               :key="i"
@@ -84,11 +84,11 @@ export default {
       items: [
         {
           src:
-            "https://www.utparras.edu.mx/assets/images/edificio.JPG",
+            "https://scontent.fslw1-1.fna.fbcdn.net/v/t1.6435-9/84485162_2828525067186181_2037803450414137344_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=973b4a&_nc_ohc=I4tBcbzskPoAX9nNLiP&_nc_ht=scontent.fslw1-1.fna&oh=9c6a0d67473fcab61f1bec0843cb6e0c&oe=60E04B8B",
         },
         {
           src:
-            "https://icifed.com.mx/wp-content/uploads/2020/09/UTParras-1-scaled.jpg",
+            "https://scontent.fslw1-1.fna.fbcdn.net/v/t1.6435-9/64359515_2358613607510665_8087101270050996224_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=973b4a&_nc_ohc=1zdjnBzB6VUAX8z0a-I&_nc_ht=scontent.fslw1-1.fna&oh=b2698d1449910e28ce3e40333ce8bc1c&oe=60DCCB2F",
         },
         {
           src:
