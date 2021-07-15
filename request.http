@@ -5,8 +5,7 @@
 GET http://127.0.0.1:8000/api/users
 
 ### Consultar Usuario Publico
-GET http://127.0.0.1:8000/api/users/iv-lysanne-quigley-okeefe
-
+GET http://127.0.0.1:8000/api/users/ing-irbing-alejandro-moreno-garcia
 
 
 #### Datos con autenticación de Administrador
@@ -14,28 +13,50 @@ POST http://127.0.0.1:8000/api/users
 content-type: application/json
 
 {
-
-    "is_public": true,
-    "rol": "Administrador",
-    "profession": "Ing.",
-    "name" : "Irbing Alejandro",
-    "surname": "Moreno Garcia",
-    "birthdate" : "1997-08-13",
-    "personal_email" : "irbing.moreno@outlook.com",
-    "curp" : "MOGI970813hclrrr09",
-    "rfc" : "mogi970813140",
-    "civil_status" : "Soltero",
-    "sexo" : "Hombre",
-    "origin" : "Parras de la Fuente, Coah.",
-    "personal_address" : "Valle de parras, Datil #222-A",
-    "email" : "irbing.moreno@outlook.com",
-    "status" : "Activo",
-    "departament_id" : 1,
-    "stall" : "Coordinador de Sistemas",
-    "employee_number" : "103",
-    "employee_phone" : "8421130014 Ext 115",
-    "salary_min" : "10000",
-    "salary_max" : "12000",
-    "date_of_admission" : "2017-10-09",
-    "employee_code" : "SISUTP03"
+   "is_public":true,
+   "rol":"Administrador",
+   "profession":"Ing.",
+   "name":"Irbing Alejandro",
+   "surname":"Moreno Garcia",
+   "birthdate":"1997-08-13",
+   "personal_email":"irbing.moreno@outlook.com",
+   "curp":"MOGI970813hclrrr09",
+   "rfc":"mogi970813140",
+   "civil_status":"Soltero",
+   "sexo":"Hombre",
+   "password":"secret123",
+   "origin":"Parras de la Fuente, Coah.",
+   "personal_address":"Valle de parras, Datil #222-A",
+   "email":"irbing.moreno@outlook.com",
+   "status":"Activo",
+   "departament_id":1,
+   "stall":"Coordinador de Sistemas",
+   "employee_number":"103",
+   "employee_phone":"8421130014 Ext 115",
+   "salary_min":"10000",
+   "salary_max":"12000",
+   "date_of_admission":"2017-10-09",
+   "employee_code":"SISUTP03",
+   "family_information":[
+   ],
+   "institutions":[
+   ],
+   "experiences":[
+   ],
+   "skills":[
+   ],
+   "internal_experiences":[
+      {
+         "institution":"Universidad Tecnolog",
+         "career":"Tecnol",
+         "start":"1997-08-13",
+         "end":"1997-08-13"
+      },
+      {
+         "institution":"Universidad Tecnolog2",
+         "career":"Tecnol2",
+         "start":"1998-08-13",
+         "end":"1998-08-13"
+      }
+   ]
 }
