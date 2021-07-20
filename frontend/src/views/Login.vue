@@ -1,177 +1,122 @@
 <template>
-    <v-content>
-      <br>
-      <br>
-      <v-container class="fill-height" fluid>
-        <v-row >
-          <v-col cols="9"  sm="10" md="12">
-            <v-card class="elevation-13">
-              <v-window v-model="step">
-                <v-window-item :value="1">
-                  <v-row>
-                    <v-col cols="12" md="8">
-                      <v-card-text class="mt-12">
-                        <h1
-                          class="text-center display-2  text--accent-3"
-                        >INICIAR SESIÓN</h1>
-                        <!-- <div class="text-center mt-4">
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-facebook-f</v-icon>
-                          </v-btn>
+  <v-container class="fill-height mt-15" fluid>
+    <v-row>
+      <v-col cols="12" sm="12" md="12">
+        <v-card class="elevation-13">
+          <v-window v-model="step">
+            <v-window-item :value="1">
+              <v-row>
+                <v-col cols="12" md="8">
+                  <v-card-text class="mt-5">
+                    <h1
+                      class="text-center display-2"
+                      hrf="http://localhost:8080/"
+                    >
+                      INICIAR SESIÓN
+                    </h1>
+                    <form class="form-group mt-10" @submit.prevent="login()">
+                      <v-text-field
+                        v-model="email"
+                        :rules="emailRules"
+                        label="Correo"
+                        required
+                        color="teal"
+                        prepend-icon="mdi mdi-email"
+                      ></v-text-field>
+                      <v-text-field
+                        v-model="password"
+                        type="password"
+                        class="form-control"
+                        placeholder="Contraseña"
+                        required
+                        prepend-icon="mdi mdi-lock"
+                        color="teal"
+                      ></v-text-field>
 
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-google-plus-g</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-linkedin-in</v-icon>
-                          </v-btn>
-                        </div>
-                        <h4 class="text-center mt-4">Ensure your email for registration</h4> -->
-                        <v-form>
-                          <v-text-field
-                            label="Usuario"
-                            prepend-icon="mdi mdi-account"
-                            type="text"
-                            color="#009688"
-                          />
-
-                          <v-text-field
-                            id="password"
-                            label="Contraseña"
-                            name="password"
-                            prepend-icon="mdi mdi-lock"
-                            type="password"
-                            color="#009688"
-                          />
-                        </v-form>
-                      </v-card-text>
-                      <div class="text-center mt-3">
-                        <v-btn rounded color="#b71c1c" dark>¿Olvidastes tu contraseña?</v-btn>
-                        <br>
-                        <br>
-                        <v-btn rounded color="teal" dark >iniciar sesión</v-btn>
-                        <br>
-                        <br>
-                      </div>
-                    </v-col>
-                    <v-col cols="12" md="4" class="teal">
-                      <v-card-text class="white--text mt-12">
-                        <h1 class="text-center display-1">¡Hola!</h1>
-                        <br>
-                        <h3
-                          class="text-center"
-                        >Ingrese sus datos personales y regístrate</h3>
-                        <br>
-                      </v-card-text>
-                      <div class="text-center">
-                        <br>
-                        <v-btn rounded outlined dark @click="step++"> regístrate</v-btn>
-                        
-                        <br>
-                        <br>
-                      </div>
-                    </v-col>
-                    
-                  </v-row>
-                </v-window-item>
-                <v-window-item :value="2">
-                  <v-row class="fill-height">
-                    <v-col cols="12" md="4" class="teal">
-                      <v-card-text class="white--text mt-12">
-                        <h1 class="text-center display-1">¡Bienvenido de nuevo!</h1>
-                        <br>
-                        <h3
-                          class="text-center"
-                        >Para mantenerse conectado con nosotros, inicie sesión con su información personal</h3>
-                        <br>
-                      </v-card-text>
-                      <div class="text-center">
-                        <br>
-                        <v-btn rounded outlined dark @click="step--">Iniciar Sesión</v-btn>
-                      </div>
-                    </v-col>
-
-                    <v-col cols="12" md="8">
-                      <!-- <v-card-text class="mt-12">
-                        <h1 class="text-center display-2 teal--text text--accent-3">Create Account</h1>
-                        <div class="text-center mt-4">
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-facebook-f</v-icon>
-                          </v-btn>
-
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-google-plus-g</v-icon>
-                          </v-btn>
-                          <v-btn class="mx-2" fab color="black" outlined>
-                            <v-icon>fab fa-linkedin-in</v-icon>
-                          </v-btn>
-                        </div>
-                        <h4 class="text-center mt-4">Ensure your email for registration</h4>
-                        <v-form> -->
-                          <br>
-                          <h1
-                          class="text-center display-2  text--accent-3"
-                        >REGÍSTRATE</h1>
-                          <v-text-field
-                            label="Nombre"
-                            name="Name"
-                            prepend-icon="mdi mdi-account-circle"
-                            type="text"
-                            color="#009688"
-                          />
-                          <v-text-field
-                            label="Correo"
-                            name="Email"
-                            prepend-icon="mdi mdi-email"
-                            type="text"
-                            color="#009688"
-                          />
-
-                          <v-text-field
-                            id="password"
-                            label="Contraseña"
-                            name="password"
-                            prepend-icon="mdi mdi-lock"
-                            type="password"
-                            color="#009688"
-                          />
-                        <!-- </v-form>
-                      </v-card-text> -->
-                      <br>
-                      <br>
-
-                      <div class="text-center mt-n5">
-                        <v-btn rounded color="#b71c1c" dark>REGÍSTRATE</v-btn>
-                      </div>
-                      <br>
-                      <br>
-                    </v-col>
-                  </v-row>
-                </v-window-item>
-              </v-window>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      
-    </v-content>
-  
+                      <center>
+                        <v-btn rounded color="teal" type="submit" dark
+                          >Iniciar Sesión</v-btn
+                        >
+                        <v-btn
+                          rounded
+                          color="#b71c1c"
+                          dark
+                          href="http://localhost:8080/reestablecer"
+                          >¿Olvidastes tu contraseña?</v-btn
+                        >
+                      </center>
+                    </form>
+                  </v-card-text>
+                  <div class="text-center"></div>
+                </v-col>
+                <v-col cols="12" md="4">
+                  <v-img
+                    class="responsive"
+                    width="responsive"
+                    height="350"
+                    src="https://cdn-images-1.medium.com/max/800/1*zf4YRRQlK9ddU5JOQmfRZw.gif"
+                  >
+                  </v-img>
+                </v-col>
+              </v-row>
+            </v-window-item>
+          </v-window>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 export default {
   data: () => ({
-    step: 1
+    step: 1,
+    email: null,
+    password: null,
+    email: "",
+    emailRules: [
+      (v) => !!v || "se requiere correo electornico",
+      (v) => /.+@.+\..+/.test(v) || "El correo electrónico debe ser válido",
+    ],
   }),
   props: {
-    source: String
-  }
+    source: String,
+  },
+
+  methods: {
+    login() {
+      let log = {
+        email: this.email,
+        password: this.password,
+      };
+      console.log(log);
+      //  axios.post(this.$store.state.url + 'login',{email : this.emial, password : this.password})
+      //  .then(res => {
+      //    console.log(res)
+      //  })
+      //  .catch(err => {
+      //    console.error(err);
+      //  })
+    },
+    // doLogin() {
+    //    if (this.emailLogin === "" || this.passwordLogin === "") {
+    //       this.emptyFields = true;
+    //    } else {
+    //       alert("Has iniciado sesión");
+    //    }
+    // },
+
+    doRegister() {
+      if (
+        this.emailReg === "" ||
+        this.passwordReg === "" ||
+        this.confirmReg === ""
+      ) {
+        this.emptyFields = true;
+      } else {
+        alert("Usted ha sido registrado");
+      }
+    },
+  },
 };
 </script>

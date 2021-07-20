@@ -57,7 +57,7 @@
         </v-list>
       </v-navigation-drawer>
       <transition name="fade" :duration="500">
-        <v-container class="ma-16">
+<v-container class="mt-16">
           <router-view></router-view>
         </v-container>
       </transition>
@@ -66,7 +66,7 @@
           flat
           tile
           width="100%"
-          class="text-center"
+ class="text-center"
           color="teal"
           elevation="10"
         >
@@ -127,6 +127,7 @@
       </v-footer>
     </v-card>
   </v-app>
+
 </template>
 <script>
 export default {
