@@ -7,7 +7,7 @@
       <v-col cols="12" sm="12" md="12">
         <v-container fluid>
           <v-alert
-                    color="red"
+                    color="orange"
                     dismissible
                     elevation="3"
                     text
@@ -20,7 +20,7 @@
           <br>
           <template>
             <v-stepper v-model="step" vertical>
-              <v-stepper-step color="#009688" :complete="step > 1" step="1">
+              <v-stepper-step :color="$store.state.color" :complete="step > 1" step="1">
                 <h2>Datos Personales</h2>
               </v-stepper-step>
               <v-stepper-content step="1" id="menu">
@@ -33,7 +33,7 @@
                         label="Nombre"
                         :rules="[rules.required]"
                         required
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -42,7 +42,7 @@
                         :rules="[rules.required]"
                         label="Apellidos"
                         required
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -53,7 +53,7 @@
                         :return-value.sync="$store.state.auth.user.birthdate"
                         transition="scale-transition"
                         offset-y
-                        color="#009688"
+                        :color="$store.state.color"
                         min-width="auto"
                       >
                         <template v-slot:activator="{ on, attrs }">
@@ -62,29 +62,34 @@
                             :max="new Date().toISOString().substr(0, 10)"
                             label="Fecha de Nacimiento"
                             readonly
-                            color="#009688"
+                            :color="$store.state.color"
                             hint="AAAA/MM/DD"
                             locale=""
                             v-bind="attrs"
                             v-on="on"
+                            
                           ></v-text-field>
                         </template>
                         <v-date-picker
                           v-model="date"
                           no-title
                           scrollable
+                          @contextmenu:year="contextMenu"
+                          @dblclick:date="dblClick"
+                          @mouseenter:month="mouseEnter"
+                          @mouseleave:month="mouseLeave"
                         >
                           <v-spacer></v-spacer>
                           <v-btn
                             text
-                            color="#009688"
+                            :color="$store.state.color"
                             @click="menu = false"
                           >
                             Cancel
                           </v-btn>
                           <v-btn
                             text
-                            color="#009688"
+                            :color="$store.state.color"
                             @click="$refs.menu.save(date)"
                           >
                             OK
@@ -99,7 +104,7 @@
                         :rules="[rules.required,rules.email]"
                         label="Correo"
                         required
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -107,8 +112,9 @@
                         v-model="$store.state.auth.user.curp"
                         :rules="[rules.required]"
                         label="CURP"
+                        :counter="18"
                         required
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -116,8 +122,9 @@
                         v-model="$store.state.auth.user.rfc"
                         :rules="[rules.required]"
                         label="RFC"
+                        :counter="13"
                         required
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -126,7 +133,7 @@
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.civil_status"
                         label="Estado Civil"
-                        color="#009688"
+                        :color="$store.state.color"
                         :rules="[rules.required]"
                       ></v-select>
                     </div>
@@ -136,25 +143,18 @@
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.sexo"
                         label="Genero"
-                        color="#009688"
+                        :color="$store.state.color"
                         :rules="[rules.required]"
                       ></v-select>
                     </div>
                   </div>
                 </v-card>
-                <v-btn dark color="#009688" @click="checkIfIsSet(1)"> Continuar </v-btn>
+                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(1)"> Continuar </v-btn>
               </v-stepper-content>
-              <v-stepper-step color="#009688" :complete="step > 2" step="2">
+              <v-stepper-step :color="$store.state.color" :complete="step > 2" step="2">
                 <h2>Direccion</h2>
               </v-stepper-step>
               <v-stepper-content step="2">
-                <!-- <h2>Datos de dirección</h2>
-                <br />
-                <p class="text-justify">
-                 Tu direccion simplemente sera requerida para saber cual es la zona donde vives. 
-                 Esto puede ser una dirección de calle, colonia,
-                 o el nombre de un lugar o una ubicación identificada por un código postal.
-                </p> -->
                 <v-card class="mb-12" elevation="8">
                   <div class="row">
                     <div class="col-sm-6 col-md-5 col-12">
@@ -170,22 +170,22 @@
                         v-model="$store.state.auth.user.origin"
                         :rules="[rules.required]"
                         label="Lugar de Nacimiento  (Colonia, Calle, Numero, Ciudad, C.P )"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 1"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="checkIfIsSet(2)"> Continuar </v-btn>
+                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(2)"> Continuar </v-btn>
               </v-stepper-content>
-              <v-stepper-step color="#009688" :complete="step > 3" step="3">
+              <v-stepper-step :color="$store.state.color" :complete="step > 3" step="3">
                 <h2>Informacion Familiar</h2>
               </v-stepper-step>
 
               <v-stepper-content step="3">
                  <h2 class="ma-10">
                    <v-alert
-                    color="red"
+                    color="orange"
                     dismissible
                     text
                     type="info"
@@ -198,7 +198,7 @@
                       <v-text-field
                         v-model="$store.state.auth.user.full_name"
                         label="Nombre Completo"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
@@ -207,29 +207,30 @@
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.family"
                         label="Tipo de Familiar"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-select>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.phone"
                         label="Telefono"
-                        color="#009688"
+                        type="number"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
                         v-model="$store.state.auth.user.address_family"
-                        label="Direccion"
-                        color="#009688"
+                        label="Direccion ( Colonia, Calle, Numero, Ciudad, C.P )"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 2"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="checkIfIsSet(3)"> Continuar </v-btn>
+                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(3)"> Continuar </v-btn>
               </v-stepper-content>
-              <v-stepper-step color="#009688" :complete="step > 4" step="4">
+              <v-stepper-step :color="$store.state.color" :complete="step > 4" step="4">
                 <h2>Estudios</h2>
               </v-stepper-step>
 
@@ -240,8 +241,8 @@
                       <v-text-field
                         v-model="$store.state.auth.user.instituciones"
                         :rules="[rules.required]"
-                        label="Instituciones"
-                        color="#009688"
+                        label="Institucion"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
@@ -249,7 +250,7 @@
                         v-model="$store.state.auth.user.career"
                         :rules="[rules.required]"
                         label="Carrera Profesional"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
@@ -257,7 +258,7 @@
                         v-model="$store.state.auth.user.entry"
                         :rules="[rules.required]"
                         label="Ingreso"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
@@ -265,15 +266,15 @@
                         v-model="$store.state.auth.user.egress"
                         :rules="[rules.required]"
                         label="Egreso"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 3"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="checkIfIsSet(4)"> Continuar </v-btn>
+                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(4)"> Continuar </v-btn>
               </v-stepper-content>
-              <v-stepper-step color="#009688" :complete="step > 5" step="5">
+              <v-stepper-step :color="$store.state.color" :complete="step > 5" step="5">
                 <h2>Experiencias</h2>
               </v-stepper-step>
               <v-stepper-content step="5">
@@ -284,7 +285,7 @@
                         v-model="$store.state.auth.user.experiences"
                         :rules="[rules.required]"
                         label="Experiencia"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -292,15 +293,17 @@
                         v-model="$store.state.auth.user.position"
                         :rules="[rules.required]"
                         label="Puesto"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
+                        :items="items5"
+                        :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.type_exp"
                         :rules="[rules.required]"
                         label="Tipo de Experiencia"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -308,7 +311,7 @@
                         v-model="$store.state.auth.user.start"
                         :rules="[rules.required]"
                         label="Inicio de la Experiencia"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -316,15 +319,15 @@
                         v-model="$store.state.auth.user.end"
                         :rules="[rules.required]"
                         label="Fin de la Experiencia"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 4"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="checkIfIsSet(5)"> Continuar </v-btn>
+                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(5)"> Continuar </v-btn>
               </v-stepper-content>
-              <v-stepper-step color="#009688" :complete="step > 6" step="6">
+              <v-stepper-step :color="$store.state.color" :complete="step > 6" step="6">
                 <h2>Habilidades</h2>
               </v-stepper-step>
 
@@ -336,7 +339,7 @@
                         v-model="$store.state.auth.user.skill"
                         :rules="[rules.required]"
                         label="Habilidad"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-5 col-12">
@@ -345,16 +348,16 @@
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.level"
                         label="Mi Nivel"
-                        color="#009688"
+                        :color="$store.state.color"
                         :rules="[rules.required]"
                       ></v-select>
                     </div>
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 5"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="checkIfIsSet(6)"> Continuar </v-btn>
+                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(6)"> Continuar </v-btn>
               </v-stepper-content>
-              <v-stepper-step color="#009688" :complete="step > 7" step="7">
+              <v-stepper-step :color="$store.state.color" :complete="step > 7" step="7">
                 <h2>Departamento</h2>
               </v-stepper-step>
               <v-stepper-content step="7">
@@ -365,7 +368,7 @@
                         v-model="$store.state.auth.user.institucion"
                         :rules="[rules.required]"
                         label="Institucion"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -373,7 +376,7 @@
                         v-model="$store.state.auth.user.responsable"
                         :rules="[rules.required]"
                         label="Responsable"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -383,7 +386,7 @@
                         :rules="[rules.required,rules.email]"
                         label="Correo del Responsable"
                         required
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -391,7 +394,7 @@
                         v-model="$store.state.auth.user.tel"
                         :rules="[rules.required]"
                         label="Telefono del responsable"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -399,7 +402,7 @@
                         v-model="$store.state.auth.user.resp"
                         :rules="[rules.required]"
                         label="Responsabilidades"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
@@ -407,13 +410,13 @@
                         v-model="$store.state.auth.user.horario"
                         :rules="[rules.required]"
                         label="Horario"
-                        color="#009688"
+                        :color="$store.state.color"
                       ></v-text-field>
                     </div>
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 6"> Retroceder </v-btn>
-                <v-btn dark color="#009688" @click="checkIfIsSet(7)"> Finalizar </v-btn>
+                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(7)"> Finalizar </v-btn>
               </v-stepper-content>
             </v-stepper>
           </template></v-container
@@ -436,12 +439,18 @@ export default {
             return pattern.test(value) || 'Correo no valido.'
         },
     },
-    items: ['Masculino', 'Femenino', 'Otro'],
+    items: ['Masculino', 'Femenino'],
     items2: ['Soltero', 'Casado', 'Divorciado', 'Viudo'],
-    items3: ['Papa', 'Mama', 'Hermano'],
+    items3: ['Padre', 'Madre', 'Hermano'],
     items4: ['10% - 25%', '25% - 50%', '50% - 75%', '75% - 100%'],
+    items5: ['Tecnica', 'Licenciatura', 'Ingenieria', 'Maestria', 'Doctorado'],
     step: 1,
   }),
+  dblClick (date) {
+        this.$set(this.done, 0, true)
+
+        alert(`You have just double clicked the following date: ${date}`)
+      },
   methods: {
     checkIfIsSet(step){
       switch (step) {
