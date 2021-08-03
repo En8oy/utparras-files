@@ -1,7 +1,7 @@
 <template>
    <v-flex>
     <v-row>
-      <v-col cols="9" sm="10" md="12">
+      <v-col cols="12" sm="12" md="12">
         <v-card-text class="my-4 text-center title">
           
 
@@ -75,20 +75,17 @@ export default {
       items: [
         {
           src:
-        "https://scontent.fslw1-1.fna.fbcdn.net/v/t39.30808-6/225929354_798418220825954_50839970934689400_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeGNrtxjy0ZaRYLflduLaZGsvdJSkXqxXMG90lKRerFcwZ7Wi-dS3fktqB05lAh8q05r66Juys_1YfrhW0sqOuBK&_nc_ohc=2yqVMVKYfVUAX8rBAVg&_nc_ht=scontent.fslw1-1.fna&oh=c1306f60dd183b80ad349fabb1cfa6c0&oe=6104A50E"
+        "https://www.utparras.edu.mx/assets/images/edificio.JPG"
         },
         {
           src:
-            "https://scontent.fslw1-1.fna.fbcdn.net/v/t39.30808-6/227436539_798418260825950_8943571697934407242_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEENEE62b4ed8MTEXTtzIHNBZME5JjwAyYFkwTkmPADJgVW3MqXbrx6zDbyi25IStT9F5jIuufplNex6kej8p0I&_nc_ohc=JwlzCrZOuCAAX-1vZqx&_nc_ht=scontent.fslw1-1.fna&oh=1d21c5f0281ce8c494b235e6e1486d7d&oe=6104DF0D",
+            "https://scontent.fslw1-1.fna.fbcdn.net/v/t1.6435-9/84485162_2828525067186181_2037803450414137344_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=973b4a&_nc_ohc=L8T7HU0RDyMAX9o2AGg&_nc_ht=scontent.fslw1-1.fna&oh=3cc97c1671f14f5c72d2379b5592d9d6&oe=612F658B",
         },
         {
           src:
-        "https://scontent.fslw1-1.fna.fbcdn.net/v/t39.30808-6/225890782_798418237492619_1611061854293179598_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeGHR8lny19R6ki0nXtB1b55X3kkXcSJkfJfeSRdxImR8rp8QXtn3zond9fZyXnVUOKdaQ1GJm_SbOyQd5ofXeb7&_nc_ohc=NEy0CfUN1mYAX_Q73p2&_nc_ht=scontent.fslw1-1.fna&oh=165e5da9957806b94ef329f396e4412d&oe=6105CA97"
+        "https://scontent.fslw1-1.fna.fbcdn.net/v/t1.6435-9/67736626_2458942090811149_3975071405875134464_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=973b4a&_nc_ohc=_SWuS-qAE1kAX_0GCsK&_nc_ht=scontent.fslw1-1.fna&oh=014136024bc2cdd13ccd39489ded100f&oe=6130D492"
         },
-         {
-          src:
-        "https://scontent.fslw1-1.fna.fbcdn.net/v/t1.6435-9/84485162_2828525067186181_2037803450414137344_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=9267fe&_nc_eui2=AeEf80bJhboNqrKFHpBFYTfMU0O7RJjTrmpTQ7tEmNOuaubgXLet-0ZmCJ8QXTV6xpGup-Y-E9BphMpniBmNVB9C&_nc_ohc=t1OUL5keVhIAX9a5qCO&_nc_ht=scontent.fslw1-1.fna&oh=23d2af0d32df1d3c7c9fc09f56b1fdc8&oe=61277C8B"
-        }
+        
       ],
     };
   },

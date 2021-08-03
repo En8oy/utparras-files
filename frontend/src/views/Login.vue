@@ -2,7 +2,7 @@
   <v-container class="fill-height mt-15" fluid>
     <v-row>
       <v-col cols="12" sm="12" md="12">
-        <v-card class="elevation-13">
+        <v-card class="elevation-13 mt-15">
           <v-window v-model="step">
             <v-window-item :value="1">
               <v-row>
@@ -25,13 +25,12 @@
                       ></v-text-field>
                       <v-text-field
                         v-model="password"
-                        type="password"
-                        class="form-control"
-                        placeholder="Contraseña"
+                        label="Contraseña"
                         required
-                        prepend-icon="mdi mdi-lock"
                         color="teal"
+                        prepend-icon="mdi mdi-lock"
                       ></v-text-field>
+                     
 
                       <center>
                         <v-btn rounded color="teal" type="submit" dark
@@ -90,33 +89,24 @@ export default {
         password: this.password,
       };
       console.log(log);
-      //  axios.post(this.$store.state.url + 'login',{email : this.emial, password : this.password})
-      //  .then(res => {
-      //    console.log(res)
-      //  })
-      //  .catch(err => {
-      //    console.error(err);
-      //  })
+        axios.post(this.$store.state.url + 'login',{email : this.emial, password : this.password})
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.error(err);
+        })
     },
-    // doLogin() {
-    //    if (this.emailLogin === "" || this.passwordLogin === "") {
-    //       this.emptyFields = true;
-    //    } else {
-    //       alert("Has iniciado sesión");
-    //    }
-    // },
+     doLogin() {
+        if (this.emailLogin === "" || this.passwordLogin === "") {
+           this.emptyFields = true;
+        } else {
+           alert("Has iniciado sesión");
+        }
+     },
 
-    doRegister() {
-      if (
-        this.emailReg === "" ||
-        this.passwordReg === "" ||
-        this.confirmReg === ""
-      ) {
-        this.emptyFields = true;
-      } else {
-        alert("Usted ha sido registrado");
-      }
-    },
+    
+    
   },
 };
 </script>

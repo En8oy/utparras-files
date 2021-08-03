@@ -26,6 +26,16 @@
             UTParras
           </strong>
         </div>
+        <v-list-item two-line dark>
+          <v-list-item-avatar class="ma-3">
+            <img src="https://randomuser.me/api/portraits/women/81.jpg">
+          </v-list-item-avatar>
+
+          <v-list-item-content>
+            <v-list-item-title>Usuario</v-list-item-title>
+            
+          </v-list-item-content>
+        </v-list-item>
         <v-list nav dense class="mt-10">
           <v-list-item-group>
             <div v-for="route in guest" :key="route.name">
@@ -53,6 +63,12 @@
           inset
           label="Modo obscuro"
         ></v-switch>
+        <v-btn class="mt-15" block  href="http://localhost:8080/">
+            Cerrar sesion
+          </v-btn>  
+        
+
+        
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
