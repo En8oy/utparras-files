@@ -17,30 +17,38 @@
                               Indique su cuenta y siga las instrucciones
                               siguientes
                             </h2>
-
-                            <v-form class="mt-10">
+                            <form
+                              class="form-group mt-10"
+                              @submit.prevent="Enviar()"
+                            >
                               <v-text-field
-                                label="Usuario"
-                                prepend-icon="mdi mdi-account"
-                                type="text"
-                                color="#009688"
-                              />
-                            </v-form>
+                        v-model="email"
+                        :rules="emailRules"
+                        label="Correo"
+                        required
+                        color="teal"
+                        prepend-icon="mdi mdi-email"
+                      ></v-text-field>
+                               
+                              
+                            </form>
                           </v-card-text>
 
-                          <div class="text-center mt-3">
+                          <div class="text-center ">
                             <v-btn x-large rounded color="#b71c1c" dark
                               >Enviar</v-btn
                             >
                           </div>
                         </v-col>
-                        <v-img
-                          class="responsive"
-                          width="300"
-                          height="515"
-                          src="https://i2.wp.com/digitalpolicylaw.com/wp-content/uploads/2021/01/images@@Cyber-Threat-Analysis-Leadspace-Laptop-lock.gif"
-                        >
-                        </v-img>
+                        <v-col cols="12" md="4">
+                          <v-img
+                            class="responsive"
+                            width="responsive"
+                            height="350"
+                            src="https://i2.wp.com/digitalpolicylaw.com/wp-content/uploads/2021/01/images@@Cyber-Threat-Analysis-Leadspace-Laptop-lock.gif"
+                          >
+                          </v-img>
+                        </v-col>
                       </v-row>
                     </v-window-item>
                   </v-window>
@@ -53,3 +61,17 @@
     </v-row>
   </v-flex>
 </template>
+
+<script>
+export default {
+    data: () => ({
+      valid: true,
+     
+      email: '',
+      emailRules: [
+        v => !!v || 'se requiere correo electornico',
+        v => /.+@.+\..+/.test(v) || 'El correo electrónico debe ser válido',
+      ],
+    }),
+}
+</script>

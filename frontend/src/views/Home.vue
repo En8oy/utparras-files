@@ -1,9 +1,10 @@
 <template>
-  <v-container>
-    <h1 class="text-center display-2 mt-10 ">
+  
+ <v-container>
+ <h1 class="text-center display-2 mt-15">
       BIENVENIDO A EXPEDIENTES UTPARRAS
     </h1>
-    <v-card class="elevation-13 mt-10">
+<v-card class="elevation-13 mt-15">
       <v-row>
         <v-col cols="12" md="8">
           <v-card-text class="mt-16">
@@ -99,7 +100,7 @@
         <div>
           <apexchart
             xs="12"
-            class="col-md-6 col-12"
+class="col-md-6 col-12 mt-15"
             type="bar"
             :options="options"
             :series="series"
