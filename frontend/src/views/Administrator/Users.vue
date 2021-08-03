@@ -30,7 +30,7 @@
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-width="500px">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="#2ea69a" dark class="mb-2" v-bind="attrs" v-on="on">
+              <v-btn  to="/administrador/expediente" color="#2ea69a" dark class="mb-2" v-bind="attrs" v-on="on">
                 Nuevo Expediente
               </v-btn>
             </template>
@@ -53,13 +53,13 @@
                         label="Apellido"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="12">
+                    <v-col cols="6" sm="6" md="6">
                       <v-text-field
                         v-model="editedItem.public_slug"
                         label="Slug"
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12" sm="12" md="12">
+                    <v-col cols="6" sm="6" md="6">
                       <v-text-field
                         v-model="editedItem.birthdate"
                         label="Cumpleaños"
@@ -71,25 +71,25 @@
                         label="Correo Personal"
                       ></v-text-field>
 
-                      <v-col cols="8" sm="8" md="8">
+                      <v-col cols="10" sm="10" md="10">
                         <v-text-field
                           v-model="editedItem.curp"
                           label="CURP"
                         ></v-text-field>
-                        <v-col cols="12" sm="12" md="12">
+                        <v-col cols="6" sm="6" md="6">
                           <v-text-field
                             v-model="editedItem.rfc"
                             label="RFC"
                           ></v-text-field>
                         </v-col>
-                        <v-col cols="12" sm="12" md="12">
+                        <v-col cols="6" sm="6" md="6">
                           <v-text-field
                             v-model="editedItem.civil_status"
                             label="Estado Civil"
                           ></v-text-field>
                         </v-col>
 
-                        <v-col cols="12" sm="12" md="12">
+                        <v-col cols="6" sm="6" md="6">
                           <v-text-field
                             v-model="editedItem.sexo"
                             label="Sexo"
@@ -143,6 +143,7 @@
 
 <script>
 const axios = require('axios').default;
+import swal from 'sweetalert';
 
 export default {
   data: () => ({
@@ -175,6 +176,7 @@ export default {
       rfc: "",
       civil_status: "",
       sexo: "",
+      origin: "",
     },
     defaultItem: {
       name: "",
@@ -190,7 +192,7 @@ export default {
   }),
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Nuevo Expediente" : "Editar Expediente";
+      return this.editedIndex === -1 ? "Editar Expediente" : "Editar Expediente";
     },
   },
   watch: {
@@ -208,6 +210,16 @@ export default {
     this.id = this._uid;
     this.getUsers();
   },
+  updated: function () {
+   this.$nextTick(function () {
+     $('utparras-expedientes').DataTable({
+           'destroy'      :true,
+           'stateSave'   : true,
+
+        }).draw();
+
+   })
+ },
   methods: {
     initialize() {
       this.desserts = [{}];
@@ -252,12 +264,21 @@ export default {
       axios.get(this.$store.state.url + 'users')
       .then(res => {
         this.users = res.data.data
-        alert("Usuarios obtenidos")
+        swal({
+          title: "Usuarios Obtenidos",
+          icon: "success",
+          button: "Ok",
+        });
         // console.log(res)
       })
       .catch(err => {
         // console.error(err); 
-        alert("Error")
+        swal({
+          title: "Error Al obtener Usuarios",
+          icon: "error",
+          button: "Ok",
+          
+        });
       })
     },
   },
