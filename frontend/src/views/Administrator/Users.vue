@@ -23,131 +23,96 @@
       sort-by="Nombre Completo"
       class="elevation-1"
     >
-      <template v-slot:top>
-        <v-toolbar flat>
-          <v-toolbar-title>Expedientes</v-toolbar-title>
-          <v-divider class="mx-4" inset vertical></v-divider>
-          <v-spacer></v-spacer>
-          <v-dialog v-model="dialog" max-width="500px">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn  to="/administrador/expediente" color="#2ea69a" dark class="mb-2" v-bind="attrs" v-on="on">
-                Nuevo Expediente
-              </v-btn>
-            </template>
-            <v-card>
-              <v-card-title>
-                <span class="headline">{{ formTitle }}</span>
-              </v-card-title>
-              <v-card-text>
-                <v-container>
-                  <v-row>
-                    <v-col cols="6" sm="6" md="6">
-                      <v-text-field
-                        v-model="editedItem.name"
-                        label="Nombre"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="6" sm="6" md="6">
-                      <v-text-field
-                        v-model="editedItem.surname"
-                        label="Apellido"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="6" sm="6" md="6">
-                      <v-text-field
-                        v-model="editedItem.public_slug"
-                        label="Slug"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="6" sm="6" md="6">
-                      <v-text-field
-                        v-model="editedItem.birthdate"
-                        label="Cumpleaños"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="12">
-                      <v-text-field
-                        v-model="editedItem.personal_email"
-                        label="Correo Personal"
-                      ></v-text-field>
-
-                      <v-col cols="10" sm="10" md="10">
-                        <v-text-field
-                          v-model="editedItem.curp"
-                          label="CURP"
-                        ></v-text-field>
-                        <v-col cols="6" sm="6" md="6">
-                          <v-text-field
-                            v-model="editedItem.rfc"
-                            label="RFC"
-                          ></v-text-field>
-                        </v-col>
-                        <v-col cols="6" sm="6" md="6">
-                          <v-text-field
-                            v-model="editedItem.civil_status"
-                            label="Estado Civil"
-                          ></v-text-field>
-                        </v-col>
-
-                        <v-col cols="6" sm="6" md="6">
-                          <v-text-field
-                            v-model="editedItem.sexo"
-                            label="Sexo"
-                          ></v-text-field>
-                        </v-col>
-                      </v-col>
-                    </v-col>
-                  </v-row>
-                </v-container>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="close">
-                  Cancelar
-                </v-btn>
-                <v-btn color="blue darken-1" text @click="save">
-                  Guardar
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-          <v-dialog v-model="dialogDelete" max-width="500px">
-            <v-card>
-              <v-card-title class="headline"
-                >Estas seguro de que quieres eliminarlo?</v-card-title
-              >
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="blue darken-1" text @click="closeDelete"
-                  >Cancel</v-btn
-                >
-                <v-btn color="blue darken-1" text @click="deleteItemConfirm"
-                  >OK</v-btn
-                >
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
-        </v-toolbar>
-      </template>
-      <template v-slot:[`item.actions`]="{ item }">
-        <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-        <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-      </template>
-      <template v-slot:no-data>
-        <v-btn color="primary" @click="initialize"> Reset </v-btn>
+      <template v-slot:item.actions="{ item }">
+        <v-button @click="openModal(item)">
+          <v-icon>mdi-pencil</v-icon>
+        </v-button>
       </template>
     </v-data-table>
+    <v-dialog v-model="modalUser" max-width="500px">
+      <v-card>
+        <v-card-title>
+          <span class="headline">{{ formTitle }}</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12" sm="12" md="6">
+                <v-text-field
+                  v-model="user.name"
+                  label="Nombre"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.surname"
+                  label="Apellido"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.public_slug"
+                  label="Slug"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.birthdate"
+                  label="Cumpleaños"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.personal_email"
+                  label="Correo Personal"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.curp"
+                  label="CURP"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.rfc"
+                  label="RFC"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.civil_status"
+                  label="Estado Civil"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.sexo"
+                  label="Sexo"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="blue darken-1" text @click="user = {}, modalUser = false"> Cancelar </v-btn>
+          <v-btn color="blue darken-1" text @click="updateUser()"> Guardar </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
 <script>
-const axios = require('axios').default;
-import swal from 'sweetalert';
+const axios = require("axios").default;
+import swal from "sweetalert";
 
 export default {
   data: () => ({
-    users : [],
+    modalUser : false,
+    users: [],
+    user : {},
     dialog: false,
     dialogDelete: false,
     search: "",
@@ -157,10 +122,6 @@ export default {
       { text: "Nombre", value: "name" },
       { text: "Apellido", value: "surname" },
       { text: "Slug", value: "public_slug" },
-      // { text: "CURP", value: "curp" },
-      // { text: "Estado Civil", value: "civil" },
-      // { text: "Direccion Personal", value: "perso" },
-      // { text: "Lugar de Nacimiento", value: "naci" },
       { text: "Acciones", value: "actions", sortable: false },
     ],
     desserts: [],
@@ -178,21 +139,12 @@ export default {
       sexo: "",
       origin: "",
     },
-    defaultItem: {
-      name: "",
-      surname: "",
-      public_slug: "",
-      birthdate: "",
-      personal_email: "",
-      curp: "",
-      rfc: "",
-      civil_status: "",
-      sexo: "",
-    },
   }),
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? "Editar Expediente" : "Editar Expediente";
+      return this.editedIndex === -1
+        ? "Editar Expediente"
+        : "Editar Expediente";
     },
   },
   watch: {
@@ -210,17 +162,48 @@ export default {
     this.id = this._uid;
     this.getUsers();
   },
-  updated: function () {
-   this.$nextTick(function () {
-     $('utparras-expedientes').DataTable({
-           'destroy'      :true,
-           'stateSave'   : true,
-
-        }).draw();
-
-   })
- },
   methods: {
+    updateUser(){
+      axios.put(this.$store.state.url + "users/" + this.user.public_slug,{
+        "personal_email" : this.user.personal_email,
+        "name" : this.user.name,
+        "surname": this.user.surname,
+        "birthdate" : this.user.birthdate,
+        "curp" : this.user.curp,
+        "rfc" : this.user.rfc,
+        "civil_status" : this.user.civil_status,
+        "sex" : this.user.sex,
+      })
+      .then(res => {
+        this.getUsers()
+        swal({
+          title: "Se ha modificado al usuario " + this.user.name,
+          icon: "success",
+          button: "Ok",
+        });
+      })
+      .catch(err => {
+        swal({
+          title: "Error al actualizar a " + this.user.name,
+          icon: "error",
+          button: "Ok",
+        });
+      })
+    },
+    openModal(user) {
+       axios.get(this.$store.state.url + "users/" + user.public_slug)
+        .then((res) => {
+          this.user = res.data.data
+          this.modalUser = true
+        })
+        .catch((err) => {
+          swal({
+            title: "Error Al obtener Usuarios",
+            icon: "error",
+            button: "Ok",
+          });
+        });
+    },
     initialize() {
       this.desserts = [{}];
     },
@@ -260,30 +243,32 @@ export default {
       }
       this.close();
     },
+    newUser() {
+      
+    },
     getUsers() {
-      axios.get(this.$store.state.url + 'users')
-      .then(res => {
-        this.users = res.data.data
-        swal({
-          title: "Usuarios Obtenidos",
-          icon: "success",
-          button: "Ok",
+      axios
+        .get(this.$store.state.url + "users")
+        .then((res) => {
+          this.users = res.data.data;
+          swal({
+            title: "Usuarios Obtenidos",
+            icon: "success",
+            button: "Ok",
+          });
+        })
+        .catch((err) => {
+          // console.error(err);
+          swal({
+            title: "Error Al obtener Usuarios",
+            icon: "error",
+            button: "Ok",
+          });
         });
-        // console.log(res)
-      })
-      .catch(err => {
-        // console.error(err); 
-        swal({
-          title: "Error Al obtener Usuarios",
-          icon: "error",
-          button: "Ok",
-          
-        });
-      })
     },
   },
   mounted() {
-    this.getUsers()
+    this.getUsers();
   },
 };
 </script> 
