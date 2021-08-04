@@ -58,7 +58,7 @@
               <v-col cols="12" md="6">
                 <v-text-field
                   v-model="user.birthdate"
-                  label="Cumpleaños"
+                  label="Fecha de nacimiento"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
@@ -87,10 +87,41 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
-                  v-model="user.sexo"
+                  v-model="user.sex"
                   label="Sexo"
                 ></v-text-field>
               </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.origin"
+                  label="Lugar de nacimiento"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.personal_address"
+                  label="Direccion Personal"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.profession"
+                  label="Profecion"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.rol"
+                  label="Rol"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.status"
+                  label="Estado"
+                ></v-text-field>
+              </v-col>
+            
             </v-row>
           </v-container>
         </v-card-text>
@@ -136,8 +167,12 @@ export default {
       curp: "",
       rfc: "",
       civil_status: "",
-      sexo: "",
+      sex: "",
       origin: "",
+      personal_address: "",
+      profession: "",
+      status: "",
+      academic: "",
     },
   }),
   computed: {
@@ -164,7 +199,7 @@ export default {
   },
   methods: {
     updateUser(){
-      axios.put(this.$store.state.url + "users/" + this.user.public_slug,{
+      axios.put(this.$store.state.url + "users/" + this.user.public_slug, this.academic.departament_id,{
         "personal_email" : this.user.personal_email,
         "name" : this.user.name,
         "surname": this.user.surname,
@@ -173,6 +208,12 @@ export default {
         "rfc" : this.user.rfc,
         "civil_status" : this.user.civil_status,
         "sex" : this.user.sex,
+        "origin"  : this.user.origin,
+        "personal_address"  : this.user.personal_address,
+        "profession"  : this.user.profession,
+        "rol"  : this.user.rol,
+        "status"  : this.user.status,
+
       })
       .then(res => {
         this.getUsers()
