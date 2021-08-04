@@ -129,7 +129,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-select
-                        :items="items2"
+                        :items="EstadoCivil"
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.civil_status"
                         label="Estado Civil"
@@ -139,7 +139,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-select
-                        :items="items"
+                        :items="Genero"
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.sexo"
                         label="Genero"
@@ -203,7 +203,7 @@
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-select
-                        :items="items3"
+                        :items="Familiares"
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.family"
                         label="Tipo de Familiar"
@@ -225,8 +225,30 @@
                         :color="$store.state.color"
                       ></v-text-field>
                     </div>
-                  </div>
+                  </div>    
                 </v-card>
+                <v-col class="text-center" cols="12" sm="12">
+                  <!-- <v-btn class="white--text" :color="$store.state.color" v-if="editExpediente.family.length < 3" v-on:click="addfamily('edit')">
+                    <v-icon>mdi-plus</v-icon>Agregar Familiar
+                  </v-btn> -->
+                  <v-btn class="white--text" :color="$store.state.color">
+                      <v-icon>mdi-plus</v-icon>Agregar Familiar
+                  </v-btn>
+                </v-col>
+                <!-- <v-col cols="12" sm="12" md="12">
+                  <p class="text-center"> Familiares Agregados {{ editExpediente.family.length }}</p>
+                  <v-card v-for="(family, index) in editExpediente.family" :key="family.family" class="ma-5">
+                    <v-row class="pa-5">
+                      <v-col size="6" sm="6" class="pa-5" >{{ family.full_name }} - {{family.family}} - {{family.phone}} - {{family.address_family}}</v-col>
+                      <v-col size="6" sm="6" class="text-right">
+                        <v-btn class="white--text" color="red" @click="deleteFromArraysEdit(index, 'family')">
+                          <v-icon>mdi-delete</v-icon>
+                        </v-btn>
+                      </v-col>
+                    </v-row>
+                  </v-card>
+                </v-col> -->
+                  <br>
                 <v-btn color="dark" @click="step = 2"> Retroceder </v-btn>
                 <v-btn dark :color="$store.state.color" @click="checkIfIsSet(3)"> Continuar </v-btn>
               </v-stepper-content>
@@ -298,7 +320,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        :items="items5"
+                        :items="Profesion"
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.type_exp"
                         :rules="[rules.required]"
@@ -344,7 +366,7 @@
                     </div>
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-select
-                        :items="items4"
+                        :items="Nivel"
                         :menu-props="{ top: true, offsetY: true }"
                         v-model="$store.state.auth.user.level"
                         label="Mi Nivel"
@@ -439,11 +461,11 @@ export default {
             return pattern.test(value) || 'Correo no valido.'
         },
     },
-    items: ['Masculino', 'Femenino'],
-    items2: ['Soltero', 'Casado', 'Divorciado', 'Viudo'],
-    items3: ['Padre', 'Madre', 'Hermano'],
-    items4: ['10% - 25%', '25% - 50%', '50% - 75%', '75% - 100%'],
-    items5: ['Tecnica', 'Licenciatura', 'Ingenieria', 'Maestria', 'Doctorado'],
+    Genero: ['Masculino', 'Femenino'],
+    EstadoCivil: ['Soltero', 'Casado', 'Divorciado', 'Viudo'],
+    Familiares: ['Padre', 'Madre', 'Hermano', 'Esposo', 'Esposa'],
+    Nivel: ['10% - 25%', '25% - 50%', '50% - 75%', '75% - 100%'],
+    Profesion: ['Tecnica', 'Licenciatura', 'Ingenieria', 'Maestria', 'Doctorado'],
     step: 1,
   }),
   dblClick (date) {
@@ -452,6 +474,34 @@ export default {
         alert(`You have just double clicked the following date: ${date}`)
       },
   methods: {
+    addfamily(to) {
+      switch (to) {
+        case "add":
+          if (this.newfamily.family != "" && this.newfamily.family != "") {
+            this.newExpediente.family.push({
+              full_name: this.newfamily.full_name,
+              family: this.newfamily.family,
+              phone: this.newfamily.phone,
+              address_family: this.newfamily.address_family,     
+            });
+            this.newfamily.full_name = "";
+            this.newfamily.family = "";
+            this.newfamily.phone = "";
+            this.newfamily.addfamily = "";
+            this.$toast.open({
+              message: "Familiar agrergado",
+              type: "success",
+              position: "top-right"
+            });
+          } else {
+            this.$toast.open({
+              message: "Ingresa todos los campos requeridos",
+              type: "error",
+              position: "top-right"
+            })
+          }
+      }
+    },
     checkIfIsSet(step){
       switch (step) {
         case 1:
@@ -467,7 +517,12 @@ export default {
           ){
             this.step++
           }else{
-            alert("Completa Todos los Campos con la Informacion Solicitada")
+            // alert("Completa Todos los Campos con la Informacion Solicitada")
+             this.$toast.open({
+              message: "PRueba de que si se instalo",
+              type: "error",
+              position: "top-right"
+            })
           }
           break;
         case 2:
@@ -481,16 +536,9 @@ export default {
           }
           break;
         case 3:
-          if (
-            this.$store.state.auth.user.full_name != '' &&
-            this.$store.state.auth.user.family != '' &&
-            this.$store.state.auth.user.phone != '' &&
-            this.$store.state.auth.user.address_family != ''
-          ){
+          
             this.step++
-          }else{
-            alert("Completa Todos los Campos con la Informacion Solicitada")
-          }
+         
           break;
         case 4:
           if (
