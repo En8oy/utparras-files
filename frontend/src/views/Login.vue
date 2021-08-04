@@ -22,6 +22,7 @@
                         required
                         color="teal"
                         prepend-icon="mdi mdi-email"
+                        type="email"
                       ></v-text-field>
                       <v-text-field
                         v-model="password"
@@ -29,6 +30,7 @@
                         required
                         color="teal"
                         prepend-icon="mdi mdi-lock"
+                        type="password"
                       ></v-text-field>
                      
 

@@ -72,7 +72,7 @@
           <router-view></router-view>
         </v-container>
       </transition>
-      <v-footer padless class="mt-15 pa-10">
+      <v-footer padless class="mt-15 ">
         <v-card
           flat
           tile
