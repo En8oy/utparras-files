@@ -26,14 +26,12 @@
             UTParras
           </strong>
         </div>
-        <v-list-item two-line dark>
+        <v-list-item two-line dark v-show="$store.state.auth.token != ''">
           <v-list-item-avatar class="ma-3">
-            <img src="https://randomuser.me/api/portraits/women/81.jpg">
+            <img :src="'https://ui-avatars.com/api/?name=' + $store.state.auth.name + '%' + $store.state.auth.surname + '&background=fff&color=303030&size=500'">
           </v-list-item-avatar>
-
           <v-list-item-content>
-            <v-list-item-title>Usuario</v-list-item-title>
-            
+            <v-list-item-title>Bienvenido {{$store.state.auth.name}}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list nav dense class="mt-10">
@@ -57,18 +55,15 @@
             </div>
             <br>
             <v-switch justify="center"
-          v-model="$store.state.theme"
-          @change="changeTheme"
-          hide-details
-          inset
-          label="Modo obscuro"
+              v-model="$store.state.theme"
+              @change="changeTheme"
+              hide-details
+              inset
+              label="Modo obscuro"
         ></v-switch>
-        <v-btn class="mt-15" block  href="http://localhost:8080/">
+          <v-btn class="mt-15" block to="/" v-show="$store.state.auth.token != ''">
             Cerrar sesion
           </v-btn>  
-        
-
-        
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
