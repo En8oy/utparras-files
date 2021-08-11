@@ -11,7 +11,7 @@
     <v-text-field
       v-model="search"
       append-icon="mdi-magnify"
-      label="Search"
+      label="Buscar"
       single-line
       hide-details
     ></v-text-field>
@@ -87,8 +87,10 @@
               </v-col>
               <v-col cols="12" md="6">
                 <v-text-field
-                  v-model="user.sex"
+                  v-model="user.sexo"
                   label="Sexo"
+                  :items="Sexo"
+                  :menu-props="{ top: true, offsetY: true}"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" md="6">
@@ -121,6 +123,25 @@
                   label="Estado"
                 ></v-text-field>
               </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.experiences"
+                  label="Experiencias"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="user.family_information"
+                  label="Informacion Familiar"
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" md="6">
+                <v-text-field
+                  v-model="academics.employee_code"
+                  label="employee code"
+                ></v-text-field>
+              </v-col>
+              
             
             </v-row>
           </v-container>
@@ -144,6 +165,8 @@ export default {
     modalUser : false,
     users: [],
     user : {},
+    academics: [],
+    academic: {},
     dialog: false,
     dialogDelete: false,
     search: "",
@@ -155,8 +178,7 @@ export default {
       { text: "Slug", value: "public_slug" },
       { text: "Acciones", value: "actions", sortable: false },
     ],
-    desserts: [],
-
+    
     editedIndex: -1,
     editedItem: {
       name: "",
@@ -167,12 +189,16 @@ export default {
       curp: "",
       rfc: "",
       civil_status: "",
-      sex: "",
+      sexo: "",
       origin: "",
       personal_address: "",
       profession: "",
       status: "",
-      academic: "",
+      experiences: "",
+      family_information: "",
+      skills: "",
+      institutions: "",
+      employee_code: "",
     },
   }),
   computed: {
@@ -196,10 +222,11 @@ export default {
   mounted() {
     this.id = this._uid;
     this.getUsers();
+    this.getAcademics();
   },
   methods: {
     updateUser(){
-      axios.put(this.$store.state.url + "users/" + this.user.public_slug, this.academic.departament_id,{
+      axios.put(this.$store.state.url + "users/" + user.public_slug + "academics/" + academics.stall,{
         "personal_email" : this.user.personal_email,
         "name" : this.user.name,
         "surname": this.user.surname,
@@ -207,13 +234,17 @@ export default {
         "curp" : this.user.curp,
         "rfc" : this.user.rfc,
         "civil_status" : this.user.civil_status,
-        "sex" : this.user.sex,
+        "sexo" : this.user.sex,
         "origin"  : this.user.origin,
         "personal_address"  : this.user.personal_address,
         "profession"  : this.user.profession,
         "rol"  : this.user.rol,
         "status"  : this.user.status,
-
+        "experiences"  : this.user.experiences,
+        "family_information"  : this.usre.family_information,
+        "skills"  : this.user.skills,
+        "institutions"  : this.user.institutions,
+        "employee_code"  : this.academics.employee_code,
       })
       .then(res => {
         this.getUsers()
@@ -310,6 +341,7 @@ export default {
   },
   mounted() {
     this.getUsers();
+    this.getAcademics();
   },
 };
 </script> 
