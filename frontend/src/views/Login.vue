@@ -1,86 +1,114 @@
 <template>
- <v-row class="ma-10" justify="center">
-    <v-col class="float-left mr-16" cols="10" sm="9" md="6">
-      <br />
-      <br />
-      <br />
+  <v-container class="fill-height mt-15" fluid>
+    <v-row>
+      <v-col cols="12" sm="12" md="12">
+        <v-card class="elevation-13 mt-15">
+          <v-window v-model="step">
+            <v-window-item :value="1">
+              <v-row>
+                <v-col cols="12" md="8">
+                  <v-card-text class="mt-5">
+                    <h1
+                      class="text-center display-2"
+                      hrf="http://localhost:8080/"
+                    >
+                      INICIAR SESIÓN
+                    </h1>
+                    <form class="form-group mt-10" @submit.prevent="login()">
+                      <v-text-field
+                        v-model="email"
+                        :rules="emailRules"
+                        label="Correo"
+                        required
+                        color="teal"
+                        prepend-icon="mdi mdi-email"
+                        type="email"
+                      ></v-text-field>
+                      <v-text-field
+                        v-model="password"
+                        label="Contraseña"
+                        required
+                        color="teal"
+                        prepend-icon="mdi mdi-lock"
+                        type="password"
+                      ></v-text-field>
+                     
 
-      <v-container fluid>
-        <v-card color="grey" elevation="17">
-          <v-card-title class="text-center display-1 text text--accent-6">
-            <h3>Login</h3>
-          </v-card-title>
-          <v-card-text>
-            <v-form v-on:submit.prevent="login()">
-              <v-text-field
-                label="Usuario"
-                type="email"
-                v-model="email"
-                :rules="requiredRules"
-              >
-              </v-text-field>
-              <v-text-field
-                label="Contraseña"
-                type="password"
-                v-model="password"
-                :rules="requiredRules"
-              >
-              </v-text-field>
-              <br />
-
-              <center>
-                <v-btn
-                  type="submit"
-                  rounded
-                  color="red accent-4"
-                  dark
-                  :loading="loading"
-                >
-                  INICIAR
-                </v-btn>
-              </center>
-              <br />
-            </v-form>
-          </v-card-text>
+                      <center>
+                        <v-btn rounded color="teal" type="submit" dark
+                          >Iniciar Sesión</v-btn
+                        >
+                        <v-btn
+                          rounded
+                          color="#b71c1c"
+                          dark
+                          href="http://localhost:8080/reestablecer"
+                          >¿Olvidastes tu contraseña?</v-btn
+                        >
+                      </center>
+                    </form>
+                  </v-card-text>
+                  <div class="text-center"></div>
+                </v-col>
+                <v-col cols="12" md="4">
+                  <v-img
+                    class="responsive"
+                    width="responsive"
+                    height="350"
+                    src="https://cdn-images-1.medium.com/max/800/1*zf4YRRQlK9ddU5JOQmfRZw.gif"
+                  >
+                  </v-img>
+                </v-col>
+              </v-row>
+            </v-window-item>
+          </v-window>
         </v-card>
-        <br />
-        <br />
-        <br />
-      </v-container>
-    </v-col>
-  </v-row>
-  
-
-    
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
-
 
 <script>
 export default {
-  name: "App",
-
   data: () => ({
+    step: 1,
+    email: null,
+    password: null,
     email: "",
-    password: "",
-    loading: false,
-    requiredRules: [(v) => !!v || "required"],
-    icons: [
-      {
-        name: "facebook",
-        icon: "mdi-facebook",
-        url: "https://www.facebook.com/utparras/",
-      },
-      {
-        name: "twitter",
-        icon: "mdi-twitter",
-        url: "https://twitter.com/utparras?lang=es",
-      },
-      {
-        name:"web",
-        icon:"mdi-web",
-        url:"https://www.utparras.edu.mx/"
-      }
-      ]
-    }),
+    emailRules: [
+      (v) => !!v || "se requiere correo electornico",
+      (v) => /.+@.+\..+/.test(v) || "El correo electrónico debe ser válido",
+    ],
+  }),
+  props: {
+    source: String,
+  },
+
+  methods: {
+    login() {
+      let log = {
+        email: this.email,
+        password: this.password,
+      };
+      console.log(log);
+        axios.post(this.$store.state.url + 'login',{email : this.emial, password : this.password})
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.error(err);
+        })
+    },
+     doLogin() {
+        if (this.emailLogin === "" || this.passwordLogin === "") {
+           this.emptyFields = true;
+        } else {
+           alert("Has iniciado sesión");
+        }
+     },
+
+    
+    
+  },
 };
 </script>

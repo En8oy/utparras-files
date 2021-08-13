@@ -24,25 +24,22 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            // Control
             'is_public' => 'required',
             'rol' => 'required|in:Administrador,Administrativo,Profesor',
-            'personal_email' => 'required|email',
-            'email' => 'required|email',
-            'password' => 'required|string|min:6',
-            // User
             'profession' => 'required|string|max:20',
             'name' => 'required|string|max:100',
             'surname' => 'required|string|max:100',
             'birthdate' => 'required|date',
+            'email' => 'required|email',
             'curp' => 'required|string|min:18',
             'rfc' => 'required|string|min:13',
             'origin' => 'required|string',
             'civil_status' => 'required|in:Soltero,Casado,Viudo,Union Libre,Divorciado,Separación En Proceso,Concubinato',
             'sexo' => 'required|in:Hombre,Mujer',
             'personal_address' => 'required|string',
+            'email' => 'required|unique:users',
+            'password' => 'required|string|min:6',
             'status' => 'required|in:Activo,Inactivo',
-            // Academic
             'departament_id' => 'required|int',
             'stall' => 'required|string',
             'employee_number' => 'required',

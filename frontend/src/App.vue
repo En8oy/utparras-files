@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-card class="mx-auto overflow-hidden" height="100%" width="100%">
+    <v-card  height="100%" width="100%">
       <v-app-bar color="teal" dark absolute elevate-on-scroll>
         <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
         <v-toolbar-title>
@@ -26,6 +26,14 @@
             UTParras
           </strong>
         </div>
+        <!-- <v-list-item two-line dark v-show="$store.state.auth.token != ''">
+          <v-list-item-avatar class="ma-3">
+            <img :src="'https://ui-avatars.com/api/?name=' + $store.state.auth.name + '%' + $store.state.auth.surname + '&background=fff&color=303030&size=500'">
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>Bienvenido {{$store.state.auth.name}}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item> -->
         <v-list nav dense class="mt-10">
           <v-list-item-group>
             <div v-for="route in guest" :key="route.name">
@@ -47,25 +55,29 @@
             </div>
             <br>
             <v-switch justify="center"
-          v-model="$vuetify.theme.dark"
-          hide-details
-          inset
-          label="Modo obscuro"
+              v-model="$store.state.theme"
+              @change="changeTheme"
+              hide-details
+              inset
+              label="Modo obscuro"
         ></v-switch>
+          <!-- <v-btn class="mt-15" block to="/" v-show="$store.state.auth.token != ''">
+            Cerrar sesion
+          </v-btn>   -->
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
       <transition name="fade" :duration="500">
-        <v-container class="ma-16">
+<v-container class="mt-16">
           <router-view></router-view>
         </v-container>
       </transition>
-      <v-footer padless class="mt-15 pa-10">
+      <v-footer padless class="mt-15 ">
         <v-card
           flat
           tile
           width="100%"
-          class="text-center"
+ class="text-center"
           color="teal"
           elevation="10"
         >
@@ -126,11 +138,13 @@
       </v-footer>
     </v-card>
   </v-app>
+
 </template>
 <script>
 export default {
   data: () => ({
     drawer: false,
+    theme: true,
     credits: [
       {
         name: "Edgar	Flores Perez",
@@ -306,8 +320,23 @@ export default {
     padless: false,
     variant: "default",
   }),
-  methods: {},
-  mounted() {},
+  methods: {
+    changeTheme(){
+      // console.log(this.theme)
+      if(this.$store.state.theme){
+      this.$store.dispatch("getTheme",true)
+      this.$vuetify.theme.dark=true
+      }else{
+        this.$store.dispatch("getTheme",false)
+        this.$vuetify.theme.dark=false
+      }
+      // console.log(this.$store.state.theme)
+      
+    }
+  },
+  mounted() {
+    this.changeTheme()
+  },
   computed: {},
   components: {},
 };

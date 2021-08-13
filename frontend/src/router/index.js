@@ -1,21 +1,15 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import NotFound from "../components/NotFound.vue"
-import store from "@/store"
-
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
 // Public Routes
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import File from "../views/File.vue";
-import Register from "../views/Register";
-
+import reestablecer from "../views/reestablecer.vue";
 
 // Administrator Routes
 import AdministratorHome from "../views/Administrator/Home.vue";
-import AdministratorUser from "../views/Administrator/Users.vue";
-import AdministratorFile from "../views/Administrator/File.vue"
 
 // Teacher Routes
 import TeacherHome from "../views/Teacher/Home.vue";
