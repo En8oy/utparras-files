@@ -9,6 +9,7 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Login from "../views/Login.vue";
 import File from "../views/File.vue";
+import Register from "../views/Register";
 
 
 // Administrator Routes
@@ -38,6 +39,12 @@ const routes = [{
         name: "Inicio",
         component: Home,
     },
+
+    {
+        path: "/registro",
+        name: "Registro",
+        component: Register,
+    },
     {
         path: "/nosotros",
         name: "Acerca De Nosotros",
@@ -57,6 +64,7 @@ const routes = [{
     {
         path: "/administrador/inicio",
         name: "Bienvenido Administrador",
+        // beforeEnter: guardAdministrator,
         component: AdministratorHome,
 
     },
@@ -64,17 +72,23 @@ const routes = [{
         path: "/administrador/usuarios",
         name: "Administrar Usuarios",
         component: AdministratorUser,
+        // beforeEnter: guardAdministrator,
+        // meta: {
+        //     autentificado: true
+        // }
     },
     // Administrative Routes
     {
         path: "/administrativo/inicio",
         name: "Bienvenido Administrador",
+        // beforeEnter: guardAdministrator,
         component: AdministrativeHome,
     },
     // Teacher Routes
     {
         path: "/maestro/inicio",
         name: "Bienvenido Administrador",
+        // beforeEnter: guardTeacher,
         component: TeacherHome,
     },
     {
@@ -122,16 +136,55 @@ const routes = [{
     },
 ];
 
-beforeEnter: (to, from, next) => {
-    const exists = store.destinations.find(
-        destination => destination.slug === to.params.slug
-    );
-    if (exists) {
-        next();
-    } else {
-        next({ name: "notFound" });
-    }
-}
+// beforeEnter: (to, from, next) => {
+//     const exists = store.destinations.find(
+//         destination => destination.slug === to.params.slug
+//     );
+//     if (exists) {
+//         next();
+//     } else {
+//         next({ name: "notFound" });
+//     }
+// }
+
+// function guardAdministrator(to, from, next) {
+//     var isAuthenticated = false;
+//     if (store.state.auth.token) {
+//         if (store.state.auth.user.rol == 'Administrador') {
+//             next()
+//         } else {
+//             next("login")
+//         }
+//     } else {
+//         next("login")
+//     }
+// }
+
+// function guardAdministrator(to, from, next) {
+//     var isAuthenticated = false;
+//     if (store.state.auth.token) {
+//         if (store.state.auth.user.rol == 'Administrador') {
+//             next()
+//         } else {
+//             next("login")
+//         }
+//     } else {
+//         next("login")
+//     }
+// }
+
+// function guardTeacher(to, from, next) {
+//     var isAuthenticated = false;
+//     if (store.state.auth.token) {
+//         if (store.state.auth.user.rol == 'Maestro') {
+//             next()
+//         } else {
+//             next("login")
+//         }
+//     } else {
+//         next("login")
+//     }
+// }
 
 
 const router = new VueRouter({
