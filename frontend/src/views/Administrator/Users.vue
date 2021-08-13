@@ -222,7 +222,6 @@ export default {
   mounted() {
     this.id = this._uid;
     this.getUsers();
-    this.getAcademics();
   },
   methods: {
     updateUser(){
@@ -319,8 +318,7 @@ export default {
       
     },
     getUsers() {
-      axios
-        .get(this.$store.state.url + "users")
+         axios.get(this.$store.state.url + "users")
         .then((res) => {
           this.users = res.data.data;
           swal({
@@ -330,7 +328,6 @@ export default {
           });
         })
         .catch((err) => {
-          // console.error(err);
           swal({
             title: "Error Al obtener Usuarios",
             icon: "error",
@@ -341,7 +338,6 @@ export default {
   },
   mounted() {
     this.getUsers();
-    this.getAcademics();
   },
 };
 </script> 

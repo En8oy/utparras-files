@@ -10,6 +10,10 @@ import reestablecer from "../views/reestablecer.vue";
 
 // Administrator Routes
 import AdministratorHome from "../views/Administrator/Home.vue";
+import AdministratorUsers from "../views/Administrator/Users.vue";
+import AdministratorFile from "../views/Administrator/File.vue";
+
+
 
 // Teacher Routes
 import TeacherHome from "../views/Teacher/Home.vue";
@@ -19,25 +23,12 @@ import AdministrativeHome from "../views/Administrative/Home.vue";
 
 Vue.use(VueRouter);
 
-const routes = [{
-        path: "*",
-        name: "Pagina No Encontrada",
-        component: () =>
-            import (
-                /*webpackChunkName: "ExperienceDetails"*/
-                "../components/NotFound")
-    },
+const routes = [
     // Public Routes
     {
         path: "/",
         name: "Inicio",
         component: Home,
-    },
-
-    {
-        path: "/registro",
-        name: "Registro",
-        component: Register,
     },
     {
         path: "/nosotros",
@@ -65,7 +56,7 @@ const routes = [{
     {
         path: "/administrador/usuarios",
         name: "Administrar Usuarios",
-        component: AdministratorUser,
+        component: AdministratorUsers,
         // beforeEnter: guardAdministrator,
         // meta: {
         //     autentificado: true
