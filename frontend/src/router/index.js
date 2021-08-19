@@ -12,6 +12,8 @@ import reestablecer from "../views/reestablecer.vue";
 import AdministratorHome from "../views/Administrator/Home.vue";
 import AdministratorUsers from "../views/Administrator/Users.vue";
 import AdministratorFile from "../views/Administrator/File.vue";
+import IrbingFile from "../views/Administrator/Irbing.vue";
+
 
 
 
@@ -106,6 +108,11 @@ const routes = [
         path: "/administrador/expediente",
         name: "Mi Expediente UTParras",
         component: AdministratorFile,
+    },
+    {
+        path: "/administrador/ejemplo",
+        name: "Mi Expediente UTParras",
+        component: IrbingFile,
     },
     // Administrative Routes
     {
