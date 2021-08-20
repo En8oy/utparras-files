@@ -1,26 +1,26 @@
 <template>
   <div>
-    <br /><br /><br />
+    <br />
     <h1 class="text-center">Mi Expediente</h1>
     <v-row class="mx-auto overflow-hidden" height="100%" width="100%">
       <v-col color="black" cols="12" sm="12" md="12"> </v-col>
       <v-col cols="12" sm="12" md="12">
         <v-container fluid>
-          <v-alert
-                    color="orange"
-                    dismissible
-                    elevation="3"
-                    text
-                    type="info"
-                  >Esta Informacion es requerida para el sistema academico de la
-                  universiad, la informacion recolectada sera protegida y
-                  administrada por personal autorizado de la universidad. Una
-                  vez teniendo la infroamcion solicitada sera confidencial.
+          <v-alert color="orange" dismissible elevation="3" text type="info"
+            >Esta Informacion es requerida para el sistema academico de la
+            universiad, la informacion recolectada sera protegida y administrada
+            por personal autorizado de la universidad. Una vez teniendo la
+            infroamcion solicitada sera confidencial.
           </v-alert>
-          <br>
+          <br />
           <template>
+             <v-form @submit.prevent="create()">
             <v-stepper v-model="step" vertical>
-              <v-stepper-step :color="$store.state.color" :complete="step > 1" step="1">
+              <v-stepper-step
+                color=#009688
+                :complete="step > 1"
+                step="1"
+              >
                 <h2>Datos Personales</h2>
               </v-stepper-step>
               <v-stepper-content step="1" id="menu">
@@ -29,45 +29,44 @@
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         type="text"
-                        v-model="$store.state.auth.user.name"
+                        v-model="data.name"
                         label="Nombre"
                         :rules="[rules.required]"
                         required
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.surname"
+                        v-model="data.surname"
                         :rules="[rules.required]"
                         label="Apellidos"
                         required
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
-                       <v-menu
+                      <v-menu
                         ref="menu"
                         v-model="menu"
                         :close-on-content-click="false"
-                        :return-value.sync="$store.state.auth.user.birthdate"
+                        :return-value.sync="data.birthdate"
                         transition="scale-transition"
                         offset-y
-                        :color="$store.state.color"
+                        color=#009688
                         min-width="auto"
                       >
                         <template v-slot:activator="{ on, attrs }">
                           <v-text-field
-                            v-model="$store.state.auth.user.birthdate"
+                            v-model="data.birthdate"
                             :max="new Date().toISOString().substr(0, 10)"
                             label="Fecha de Nacimiento"
                             readonly
-                            :color="$store.state.color"
+                            color=#009688
                             hint="AAAA/MM/DD"
                             locale=""
                             v-bind="attrs"
                             v-on="on"
-                            
                           ></v-text-field>
                         </template>
                         <v-date-picker
@@ -82,14 +81,14 @@
                           <v-spacer></v-spacer>
                           <v-btn
                             text
-                            :color="$store.state.color"
+                            color=#009688
                             @click="menu = false"
                           >
                             Cancel
                           </v-btn>
                           <v-btn
                             text
-                            :color="$store.state.color"
+                            color=#009688
                             @click="$refs.menu.save(date)"
                           >
                             OK
@@ -100,40 +99,40 @@
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         type="email"
-                        v-model="$store.state.auth.user.email"
-                        :rules="[rules.required,rules.email]"
+                        v-model="data.email"
+                        :rules="[rules.required, rules.email]"
                         label="Correo"
                         required
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.curp"
+                        v-model="data.curp"
                         :rules="[rules.required]"
                         label="CURP"
                         :counter="18"
                         required
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.rfc"
+                        v-model="data.rfc"
                         :rules="[rules.required]"
                         label="RFC"
                         :counter="13"
                         required
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-select
                         :items="EstadoCivil"
                         :menu-props="{ top: true, offsetY: true }"
-                        v-model="$store.state.auth.user.civil_status"
+                        v-model="data.civil_status"
                         label="Estado Civil"
-                        :color="$store.state.color"
+                        color=#009688
                         :rules="[rules.required]"
                       ></v-select>
                     </div>
@@ -141,17 +140,47 @@
                       <v-select
                         :items="Genero"
                         :menu-props="{ top: true, offsetY: true }"
-                        v-model="$store.state.auth.user.sexo"
+                        v-model="data.sexo"
                         label="Genero"
-                        :color="$store.state.color"
+                        color=#009688
+                        :rules="[rules.required]"
+                      ></v-select>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-12">
+                      <v-select
+                        :items="rol"
+                        :menu-props="{ top: true, offsetY: true }"
+                        v-model="data.rol"
+                        label="Rol"
+                        color=#009688
+                        :rules="[rules.required]"
+                      ></v-select>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-12">
+                      <v-select
+                        :items="Profesion"
+                        :menu-props="{ top: true, offsetY: true }"
+                        v-model="data.profession"
+                        label="Profesion"
+                        color=#009688
                         :rules="[rules.required]"
                       ></v-select>
                     </div>
                   </div>
                 </v-card>
-                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(1)"> Continuar </v-btn>
+                <v-btn
+                  dark
+                  color=#009688
+                  @click="checkIfIsSet(1)"
+                >
+                  Continuar
+                </v-btn>
               </v-stepper-content>
-              <v-stepper-step :color="$store.state.color" :complete="step > 2" step="2">
+              <v-stepper-step
+                color=#009688
+                :complete="step > 2"
+                step="2"
+              >
                 <h2>Direccion</h2>
               </v-stepper-step>
               <v-stepper-content step="2">
@@ -159,100 +188,102 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.personal_address"
+                        v-model="data.personal_address"
                         :rules="[rules.required]"
                         label="Direccion Personal ( Colonia, Calle, Numero, Ciudad, C.P )"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.origin"
+                        v-model="data.origin"
                         :rules="[rules.required]"
                         label="Lugar de Nacimiento  (Colonia, Calle, Numero, Ciudad, C.P )"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                   </div>
                 </v-card>
                 <v-btn color="dark" @click="step = 1"> Retroceder </v-btn>
-                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(2)"> Continuar </v-btn>
+                <v-btn
+                  dark
+                  color=#009688
+                  @click="checkIfIsSet(2)"
+                >
+                  Continuar
+                </v-btn>
               </v-stepper-content>
-              <v-stepper-step :color="$store.state.color" :complete="step > 3" step="3">
+              <v-stepper-step
+                color=#009688
+                :complete="step > 3"
+                step="3"
+              >
                 <h2>Informacion Familiar</h2>
               </v-stepper-step>
 
               <v-stepper-content step="3">
-                 <h2 class="ma-10">
-                   <v-alert
-                    color="orange"
-                    dismissible
-                    text
-                    type="info"
-                  >Esta Informacion es opcional</v-alert>
+                <h2 class="ma-10">
+                  <v-alert color="orange" dismissible text type="info"
+                    >Esta Informacion es opcional</v-alert
+                  >
                 </h2>
-                <br>
+                <br />
                 <v-card class="mb-12" elevation="8">
                   <div class="row">
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.full_name"
+                        v-model="newFamilyInformation.family_full_name"
                         label="Nombre Completo"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-select
                         :items="Familiares"
                         :menu-props="{ top: true, offsetY: true }"
-                        v-model="$store.state.auth.user.family"
+                        v-model="newFamilyInformation.family"
                         label="Tipo de Familiar"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-select>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.phone"
+                        v-model="newFamilyInformation.phone"
                         label="Telefono"
                         type="number"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.address_family"
+                        v-model="newFamilyInformation.full_address"
                         label="Direccion ( Colonia, Calle, Numero, Ciudad, C.P )"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
-                  </div>    
+                  </div>
                 </v-card>
                 <v-col class="text-center" cols="12" sm="12">
-                  <!-- <v-btn class="white--text" :color="$store.state.color" v-if="editExpediente.family.length < 3" v-on:click="addfamily('edit')">
-                    <v-icon>mdi-plus</v-icon>Agregar Familiar
-                  </v-btn> -->
-                  <v-btn class="white--text" :color="$store.state.color">
-                      <v-icon>mdi-plus</v-icon>Agregar Familiar
+                  <v-btn class="white--text" color="#009688" @click="addToArray('family_information',newFamilyInformation)">
+                    <v-icon>mdi-plus</v-icon>
+                    <p v-text="(data.family_information.length >0 ? 'Familiares Agregados ' +data.family_information.length :'Agregar Familiar')"> </p>
                   </v-btn>
                 </v-col>
-                <!-- <v-col cols="12" sm="12" md="12">
-                  <p class="text-center"> Familiares Agregados {{ editExpediente.family.length }}</p>
-                  <v-card v-for="(family, index) in editExpediente.family" :key="family.family" class="ma-5">
-                    <v-row class="pa-5">
-                      <v-col size="6" sm="6" class="pa-5" >{{ family.full_name }} - {{family.family}} - {{family.phone}} - {{family.address_family}}</v-col>
-                      <v-col size="6" sm="6" class="text-right">
-                        <v-btn class="white--text" color="red" @click="deleteFromArraysEdit(index, 'family')">
-                          <v-icon>mdi-delete</v-icon>
-                        </v-btn>
-                      </v-col>
-                    </v-row>
-                  </v-card>
-                </v-col> -->
-                  <br>
+                <br />
                 <v-btn color="dark" @click="step = 2"> Retroceder </v-btn>
-                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(3)"> Continuar </v-btn>
+                <v-btn
+                  dark
+                  color=#009688
+                  @click="checkIfIsSet(3)"
+                >
+                  Continuar
+                </v-btn>
               </v-stepper-content>
-              <v-stepper-step :color="$store.state.color" :complete="step > 4" step="4">
+              <v-stepper-step
+                color=#009688
+                :complete="step > 4"
+                step="4"
+              >
                 <h2>Estudios</h2>
               </v-stepper-step>
 
@@ -261,42 +292,58 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.instituciones"
+                        v-model="newInstitutions.institution"
                         :rules="[rules.required]"
                         label="Institucion"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.career"
+                        v-model="newInstitutions.career"
                         :rules="[rules.required]"
                         label="Carrera Profesional"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.entry"
+                        v-model="newInstitutions.start"
                         :rules="[rules.required]"
                         label="Ingreso"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-3 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.egress"
+                        v-model="newInstitutions.end"
                         :rules="[rules.required]"
                         label="Egreso"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                   </div>
+                  <v-col class="text-center" cols="12" sm="12">
+                    <v-btn class="white--text" color="#009688" @click="addToArray('institutions',newInstitutions)">
+                      <v-icon>mdi-plus</v-icon>
+                      <p v-text="(data.institutions.length >0 ? 'Instituciones Agregadas ' +data.institutions.length :'Agregar Institucion')"> </p>
+                    </v-btn>
+                  </v-col>
                 </v-card>
                 <v-btn color="dark" @click="step = 3"> Retroceder </v-btn>
-                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(4)"> Continuar </v-btn>
+                <v-btn
+                  dark
+                  color=#009688
+                  @click="checkIfIsSet(4)"
+                >
+                  Continuar
+                </v-btn>
               </v-stepper-content>
-              <v-stepper-step :color="$store.state.color" :complete="step > 5" step="5">
+              <v-stepper-step
+                color=#009688
+                :complete="step > 5"
+                step="5"
+              >
                 <h2>Experiencias</h2>
               </v-stepper-step>
               <v-stepper-content step="5">
@@ -304,52 +351,60 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.experiences"
+                        v-model="newExperiences.experience"
                         :rules="[rules.required]"
                         label="Experiencia"
-                        :color="$store.state.color"
-                      ></v-text-field>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-12">
-                      <v-text-field
-                        v-model="$store.state.auth.user.position"
-                        :rules="[rules.required]"
-                        label="Puesto"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
                         :items="Profesion"
                         :menu-props="{ top: true, offsetY: true }"
-                        v-model="$store.state.auth.user.type_exp"
+                        v-model="newExperiences.type"
                         :rules="[rules.required]"
                         label="Tipo de Experiencia"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.start"
+                        v-model="newExperiences.start1"
                         :rules="[rules.required]"
                         label="Inicio de la Experiencia"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.end"
+                        v-model="newExperiences.end2"
                         :rules="[rules.required]"
                         label="Fin de la Experiencia"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                   </div>
+                  <v-col class="text-center" cols="12" sm="12">
+                    <v-btn class="white--text" color="#009688" @click="addToArray('experiences',newExperiences)">
+                      <v-icon>mdi-plus</v-icon>
+                      <p v-text="(data.experiences.length >0 ? 'Experiencias Agregadas ' +data.experiences.length :'Agregar Experiencia')"> </p>
+                    </v-btn>
+                  </v-col>  
                 </v-card>
                 <v-btn color="dark" @click="step = 4"> Retroceder </v-btn>
-                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(5)"> Continuar </v-btn>
+                <v-btn
+                  dark
+                  color=#009688
+                  @click="checkIfIsSet(5)"
+                >
+                  Continuar
+                </v-btn>
               </v-stepper-content>
-              <v-stepper-step :color="$store.state.color" :complete="step > 6" step="6">
+              <v-stepper-step
+                color=#009688
+                :complete="step > 6"
+                step="6"
+              >
                 <h2>Habilidades</h2>
               </v-stepper-step>
 
@@ -358,89 +413,133 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.skill"
+                        v-model="newSkills.skill"
                         :rules="[rules.required]"
                         label="Habilidad"
-                        :color="$store.state.color"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-5 col-12">
                       <v-select
                         :items="Nivel"
                         :menu-props="{ top: true, offsetY: true }"
-                        v-model="$store.state.auth.user.level"
+                        v-model="newSkills.nivel"
                         label="Mi Nivel"
-                        :color="$store.state.color"
+                        color=#009688
                         :rules="[rules.required]"
                       ></v-select>
                     </div>
                   </div>
+                  <v-col class="text-center" cols="12" sm="12">
+                    <v-btn class="white--text" color="#009688" @click="addToArray('skills',newSkills)">
+                      <v-icon>mdi-plus</v-icon>
+                      <p v-text="(data.skills.length >0 ? 'Habilidades Agregadas ' +data.skills.length :'Agregar Habilidad')"> </p>
+                    </v-btn>
+                  </v-col>  
                 </v-card>
                 <v-btn color="dark" @click="step = 5"> Retroceder </v-btn>
-                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(6)"> Continuar </v-btn>
+                <v-btn
+                  dark
+                  color=#009688
+                  @click="checkIfIsSet(6)"
+                >
+                  Continuar
+                </v-btn>
               </v-stepper-content>
-              <v-stepper-step :color="$store.state.color" :complete="step > 7" step="7">
-                <h2>Departamento</h2>
+
+              <v-stepper-step
+                color=#009688
+                :complete="step > 7"
+                step="7"
+              >
+                <h2>Experiencias Internas</h2>
               </v-stepper-step>
+
               <v-stepper-content step="7">
                 <v-card class="mb-12" elevation="8">
                   <div class="row">
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.institucion"
+                        v-model="newInternal_experiences.experience"
                         :rules="[rules.required]"
-                        label="Institucion"
-                        :color="$store.state.color"
+                        label="Experiencia"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.responsable"
+                        v-model="newInternal_experiences.start4"
                         :rules="[rules.required]"
-                        label="Responsable"
-                        :color="$store.state.color"
+                        label="Inicio de la Experiencia"
+                        color=#009688
                       ></v-text-field>
                     </div>
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        type="email"
-                        v-model="$store.state.auth.user.email_res"
-                        :rules="[rules.required,rules.email]"
-                        label="Correo del Responsable"
-                        required
-                        :color="$store.state.color"
+                        v-model="newInternal_experiences.end5"
+                        :rules="[rules.required]"
+                        label="Fin de la Experiencia"
+                        color=#009688
                       ></v-text-field>
                     </div>
+                  </div>
+                  <v-col class="text-center" cols="12" sm="12">
+                    <v-btn class="white--text" color="#009688" @click="addToArray('internal_experiences',newInternal_experiences)">
+                      <v-icon>mdi-plus</v-icon>
+                      <p v-text="(data.internal_experiences.length >0 ? 'Experiencias Internas Agregadas ' +data.internal_experiences.length :'Agregar Experiencia Interna')"> </p>
+                    </v-btn>
+                  </v-col>
+                </v-card>
+                <v-btn color="dark" @click="step = 6"> Retroceder </v-btn>
+                <v-btn
+                  dark
+                  color=#009688
+                  @click="checkIfIsSet(7)"
+                >
+                  Continuar
+                </v-btn>
+              </v-stepper-content>
+
+              <v-stepper-step
+                color=#009688
+                :complete="step > 8"
+                step="8"
+              >
+                <h2>Departamento</h2>
+              </v-stepper-step>
+              <v-stepper-content step="8">
+                <v-card class="mb-12" elevation="8">
+                  <div class="row">
                     <div class="col-sm-6 col-md-4 col-12">
                       <v-text-field
-                        v-model="$store.state.auth.user.tel"
+                        v-model="data.departament_id"
                         :rules="[rules.required]"
-                        label="Telefono del responsable"
-                        :color="$store.state.color"
-                      ></v-text-field>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-12">
-                      <v-text-field
-                        v-model="$store.state.auth.user.resp"
-                        :rules="[rules.required]"
-                        label="Responsabilidades"
-                        :color="$store.state.color"
-                      ></v-text-field>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-12">
-                      <v-text-field
-                        v-model="$store.state.auth.user.horario"
-                        :rules="[rules.required]"
-                        label="Horario"
-                        :color="$store.state.color"
+                        label="ID del Departamento"
+                        color=#009688
                       ></v-text-field>
                     </div>
                   </div>
                 </v-card>
-                <v-btn color="dark" @click="step = 6"> Retroceder </v-btn>
-                <v-btn dark :color="$store.state.color" @click="checkIfIsSet(7)"> Finalizar </v-btn>
+                
+                
+
+                <v-btn color="dark" @click="step = 7"> Retroceder </v-btn>
+                <v-btn
+                  dark
+                  color=#009688
+                  @click="checkIfIsSet(7)"
+                >
+                  Finalizar
+                </v-btn>
               </v-stepper-content>
             </v-stepper>
+            <br><br>
+              <v-col class="text-center" cols="12" sm="12">
+                <v-btn class="white--text" color=#009688 type="submit">
+                  <v-icon>mdi-check</v-icon>  Guardar 
+                </v-btn>
+              </v-col>  
+            </v-form>
           </template></v-container
         ></v-col
       ></v-row
@@ -449,155 +548,270 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "App",
   data: () => ({
-      date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
-        menu: false,
-    rules: {
-        required: value => !!value || 'Campo requerido.',
-        email: value => {
-            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            return pattern.test(value) || 'Correo no valido.'
-        },
+    newFamilyInformation: {
+      family_full_name: "Nombre Completo",
+      family: "Madre",
+      // Family Select (Esposo, Esposa, Hijo/a, Padre, Madre)
+      phone: "000",
+      full_address: "#",
     },
-    Genero: ['Masculino', 'Femenino'],
-    EstadoCivil: ['Soltero', 'Casado', 'Divorciado', 'Viudo'],
-    Familiares: ['Padre', 'Madre', 'Hermano', 'Esposo', 'Esposa'],
-    Nivel: ['10% - 25%', '25% - 50%', '50% - 75%', '75% - 100%'],
-    Profesion: ['Tecnica', 'Licenciatura', 'Ingenieria', 'Maestria', 'Doctorado'],
+
+    newInstitutions:{
+          institution: "",
+          career: "",
+          start: "",
+          end: "",
+    },
+
+    newExperiences:{
+        experience: "",
+          type: "",
+          // type => select options (Trabajo, Estadías, Certificación, Reconocimiento, Practicas, Diploma, Mención)
+          start1: "",
+          end2: "",
+    },
+
+    newInternal_experiences: {
+          experience: "",
+          start4: "",
+          end5: "",
+    },
+
+    newSkills:{
+          skill: "",
+          nivel: "",
+          // nivel => select options 0% - 25%, 25% - 50%, 50% - 75%, 75% - 100%
+        },
+
+    data: {
+      is_public: true,
+      rol: "Administrador",
+      profession: "Ingenieria",
+      name: "",
+      surname: "",
+      birthdate: "1989-07-08",
+      personal_email: "toshiba@gmail.com",
+      curp: "",
+      rfc: "",
+      civil_status: "",
+      sexo: "",
+      password: "asdasd123456",
+      origin: "",
+      personal_address: "",
+      email: "",
+      status: "Activo",
+      departament_id: 1,
+      stall: "sdfsdf",
+      employee_number: "sdfsdf",
+      employee_phone: "842116000",
+      salary_min: "12212112",
+      salary_max: "21221",
+      date_of_admission: "1997-08-13",
+      employee_code: "122121",
+      family_information: [],
+      institutions: [    
+      ],
+      experiences: [
+        
+      ],
+      skills: [
+        
+      ],
+      internal_experiences: [
+       
+      ],
+    },
+    date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+      .toISOString()
+      .substr(0, 10),
+    menu: false,
+    rules: {
+      required: (value) => !!value || "Campo requerido.",
+      email: (value) => {
+        const pattern =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return pattern.test(value) || "Correo no valido.";
+      },
+    },
+    Genero: ["Hombre", "Mujer"],
+    EstadoCivil: ["Soltero", "Casado", "Divorciado", "Viudo"],
+    Familiares: ["Padre", "Madre", "Hermano", "Esposo", "Esposa"],
+    Nivel: ["10% - 25%", "25% - 50%", "50% - 75%", "75% - 100%"],
+    Profesion: ["Tecnica", "Licenciatura","Ingenieria","Maestria","Doctorado",],
+    rol: ["Administrador", "Administrativo", "Publico"],
     step: 1,
   }),
-  dblClick (date) {
-        this.$set(this.done, 0, true)
+  dblClick(date) {
+    this.$set(this.done, 0, true);
 
-        alert(`You have just double clicked the following date: ${date}`)
-      },
+    alert(`You have just double clicked the following date: ${date}`);
+  },
   methods: {
-    addfamily(to) {
-      switch (to) {
-        case "add":
-          if (this.newfamily.family != "" && this.newfamily.family != "") {
-            this.newExpediente.family.push({
-              full_name: this.newfamily.full_name,
-              family: this.newfamily.family,
-              phone: this.newfamily.phone,
-              address_family: this.newfamily.address_family,     
-            });
-            this.newfamily.full_name = "";
-            this.newfamily.family = "";
-            this.newfamily.phone = "";
-            this.newfamily.addfamily = "";
-            this.$toast.open({
-              message: "Familiar agrergado",
-              type: "success",
-              position: "top-right"
-            });
-          } else {
-            this.$toast.open({
-              message: "Ingresa todos los campos requeridos",
-              type: "error",
-              position: "top-right"
-            })
-          }
-      }
+    create() {
+      axios
+        .post(this.$store.state.url + "users", this.data)
+        .then((res) => {
+          alert("Bien");
+          console.log(res);
+        })
+        .catch((err) => {
+          alert("Mal");
+          console.error(err);
+        });
     },
-    checkIfIsSet(step){
+    addToArray(array,data){
+    switch (array) {
+      case 'family_information':
+          this.data.family_information.push(data)
+          this.newFamilyInformation = {}
+        break;
+      case 'institutions':
+          this.data.institutions.push(data)
+          this.newInstitutions = {}
+        break;
+      case 'experiences':
+          this.data.experiences.push(data)
+          this.newExperiences = {}
+        break;
+      case 'skills':
+          this.data.skills.push(data)
+          this.newSkills = {}
+        break;
+      case 'internal_experiences':
+          this.data.internal_experiences.push(data)
+          this.newInternal_experiences = {}
+      break;
+     }
+    },
+    // addfamily(to) {
+    //   switch (to) {
+    //     case "add":
+    //       if (this.newfamily.family != "" && this.newfamily.family != "") {
+    //         this.newExpediente.family.push({
+    //           full_name: this.newfamily.full_name,
+    //           family: this.newfamily.family,
+    //           phone: this.newfamily.phone,
+    //           address_family: this.newfamily.address_family,
+    //         });
+    //         this.newfamily.full_name = "";
+    //         this.newfamily.family = "";
+    //         this.newfamily.phone = "";
+    //         this.newfamily.addfamily = "";
+    //         this.$toast.open({
+    //           message: "Familiar agrergado",
+    //           type: "success",
+    //           position: "top-right",
+    //         });
+    //       } else {
+    //         this.$toast.open({
+    //           message: "Ingresa todos los campos requeridos",
+    //           type: "error",
+    //           position: "top-right",
+    //         });
+    //       }
+    //   }
+    // },
+    checkIfIsSet(step) {
       switch (step) {
         case 1:
           if (
-            this.$store.state.auth.user.name != '' &&
-            this.$store.state.auth.user.surname != '' &&
-            this.$store.state.auth.user.birthdate != '' &&
-            this.$store.state.auth.user.email != '' &&
-            this.$store.state.auth.user.curp != '' &&
-            this.$store.state.auth.user.rfc != '' &&
-            this.$store.state.auth.user.civil_status != '' &&
-            this.$store.state.auth.user.sexo != ''
-          ){
-            this.step++
-          }else{
-            // alert("Completa Todos los Campos con la Informacion Solicitada")
-             this.$toast.open({
-              message: "PRueba de que si se instalo",
-              type: "error",
-              position: "top-right"
-            })
+            this.$data.name != "" &&
+            this.$data.surname != "" &&
+            this.$data.birthdate != "" &&
+            this.$data.email != "" &&
+            this.$data.curp != "" &&
+            this.$data.rfc != "" &&
+            this.$data.civil_status != "" &&
+            this.$data.sexo != ""
+          ) {
+            this.step++;
+          } else {
+            alert("Completa Todos los Campos con la Informacion Solicitada");
           }
           break;
         case 2:
-          if (
-            this.$store.state.auth.user.personal_address != '' &&
-            this.$store.state.auth.user.origin != ''
-          ){
-            this.step++
-          }else{
-            alert("Completa Todos los Campos con la Informacion Solicitada")
+          if (this.$data.personal_address != "" && this.$data.origin != "") {
+            this.step++;
+          } else {
+            alert("Completa Todos los Campos con la Informacion Solicitada");
           }
           break;
         case 3:
-          
-            this.step++
-         
+          this.step++;
+
           break;
         case 4:
           if (
-            this.$store.state.auth.user.instituciones != '' &&
-            this.$store.state.auth.user.career != '' &&
-            this.$store.state.auth.user.entry != '' &&
-            this.$store.state.auth.user.egress != ''
-          ){
-            this.step++
-          }else{
-            alert("Completa Todos los Campos con la Informacion Solicitada")
+            this.$data.instituciones != "" &&
+            this.$data.career != "" &&
+            this.$data.entry != "" &&
+            this.$data.egress != ""
+          ) {
+            this.step++;
+          } else {
+            alert("Completa Todos los Campos con la Informacion Solicitada");
           }
           break;
         case 5:
           if (
-            this.$store.state.auth.user.experiences != '' &&
-            this.$store.state.auth.user.position != '' &&
-            this.$store.state.auth.user.type_exp != '' &&
-            this.$store.state.auth.user.start != '' &&
-            this.$store.state.auth.user.end != '' 
-          ){
-            this.step++
-          }else{
-            alert("Completa Todos los Campos con la Informacion Solicitada")
+            this.$data.experiences != "" &&
+            this.$data.position != "" &&
+            this.$data.type_exp != "" &&
+            this.$data.start != "" &&
+            this.$data.end != ""
+          ) {
+            this.step++;
+          } else {
+            alert("Completa Todos los Campos con la Informacion Solicitada");
           }
           break;
         case 6:
-          if (
-            this.$store.state.auth.user.skill != '' &&
-            this.$store.state.auth.user.level != '' 
-          ){
-            this.step++
-          }else{
-            alert("Completa Todos los Campos con la Informacion Solicitada")
+          if (this.$data.skill != "" && 
+              this.$data.level != ""
+          ) {
+            this.step++;
+          } else {
+            alert("Completa Todos los Campos con la Informacion Solicitada");
           }
           break;
         case 7:
           if (
-            this.$store.state.auth.user.institucion != '' &&
-            this.$store.state.auth.user.responsable != '' &&
-            this.$store.state.auth.user.email_res != '' &&
-            this.$store.state.auth.user.tel != '' &&
-            this.$store.state.auth.user.resp != '' &&
-            this.$store.state.auth.user.horario != '' 
-          ){
-            this.step++
-          }else{
-            alert("Completa Todos los Campos con la Informacion Solicitada")
+            this.$data.institucion != "" &&
+            this.$data.responsable != "" &&
+            this.$data.email_res != "" &&
+            this.$data.tel != "" &&
+            this.$data.resp != "" &&
+            this.$data.horario != ""
+          ) {
+            this.step++;
+          } else {
+            alert("Completa Todos los Campos con la Informacion Solicitada");
           }
           break;
-      
-        default:
+        case 8:
+          if (
+            this.$data.institucion != "" &&
+            this.$data.responsable != "" &&
+            this.$data.email_res != "" &&
+            this.$data.tel != "" &&
+            this.$data.resp != "" &&
+            this.$data.horario != ""
+          ) {
+            this.step++;
+          } else {
+            alert("Completa Todos los Campos con la Informacion Solicitada");
+          }
           break;
+          
       }
-    }
+    },
   },
   mounted() {
-    console.log(this.$store.state.auth.user)
+    console.log(this.$store.state.auth.user);
   },
-  }
-;
+};
 </script>
